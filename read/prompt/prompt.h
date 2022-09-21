@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 17:14:50 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/21 16:45:47 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/09/21 17:03:48 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@
 
 //sub
 # include "prompt_utils/prompt_utils.h"
+# include "prompt_stuff.h"
 
 #endif

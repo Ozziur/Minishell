@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.h                                             :+:      :+:    :+:   */
+/*   prompt_stuff.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 15:30:23 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/21 17:05:42 by mruizzo          ###   ########.fr       */
+/*   Created: 2022/09/21 17:03:28 by mruizzo           #+#    #+#             */
+/*   Updated: 2022/09/21 17:04:51 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef READ_H
-# define READ_H
+#ifndef PROMPT_STUFF_H
+# define PROMPT_STUFF_H
 
-# include <stdio.h>
-# include "../utils/utils.h"
-# include "../types.h"
+// * user defined types //
+# include "../../types.h"
 
-# include "parser/parser_stuff.h"
-# include "prompt/prompt_stuff.h"
+char *read_command(char *main_prompt);
 
 #endif
