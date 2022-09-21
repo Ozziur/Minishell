@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 18:24:26 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/14 19:23:13 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/09/21 16:55:59 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ char	*my_readline(char *prompt)
 	line = readline(prompt);
 	// dup2(cur_stdout_backup, STDOUT_FILENO);
 	// close(cur_stdout_backup);
-	if (!line)/*    Ctrl+D   */
+	if (!line)                              /*    Ctrl+D   */
 		return (NULL);
-	else if (*line == '\0') /*new line*/
+	else if (*line == '\0')                  /*new line*/
 	{
 		free (line);
 		return(my_readline(prompt));
 	}
 	else
-		return (line); //linea letta
+		return (line);                       //linea letta
 }

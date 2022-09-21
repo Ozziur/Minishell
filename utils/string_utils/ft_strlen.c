@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 16:53:50 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/21 16:54:28 by mruizzo          ###   ########.fr       */
+/*   Created: 2022/09/21 16:43:36 by mruizzo           #+#    #+#             */
+/*   Updated: 2022/09/21 16:43:39 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../utils.h"
 
-int main(int argc, char const **argv, char const **envp)
+size_t	ft_strlen(const char *str)
 {
-	t_tree_node *parse_tree;
+	size_t	i;
 
-	while (e_true)
-	{
-		parse_tree = shell_read();
-		//execute(parse_tree);
-	}
-	
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 17:14:50 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/08 17:50:21 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/09/21 16:45:47 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,8 @@
 //* user defined types
 //# include "prompt_types.h"
 # include "../../types.h"
+
+//sub
+# include "prompt_utils/prompt_utils.h"
 
 #endif
