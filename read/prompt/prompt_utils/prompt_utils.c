@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 18:24:26 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/21 16:55:59 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/09/22 19:15:10 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ char	*my_readline(char *prompt)
 		return(my_readline(prompt));
 	}
 	else
-		return (line);                       //linea letta
+		return (line);                       //linea letta (enrico?)
 }
