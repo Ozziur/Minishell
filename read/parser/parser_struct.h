@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 21:23:12 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/07 00:36:38 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/09/23 16:20:30 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define PARSER_STRUCT_H
 
 # include <unistd.h>
+# include "../token/token_struct.h"
+
+# include 
 
 //* declarations
 typedef struct s_tree_node				t_tree_node;
