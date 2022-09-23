@@ -6,57 +6,53 @@
 #    By: ccantale <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/14 19:14:21 by ccantale          #+#    #+#              #
-#    Updated: 2022/09/23 16:07:31 by ccantale         ###   ########.fr        #
+#    Updated: 2022/09/23 16:36:42 by ccantale         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		=		gcc
-FLAGS	=		-Wall -Wextra -Werror
+CC = @gcc
+CFLAGS = #-I -Wall -Werror -Wextra
+READLINE_FLAGS = -L/usr/include -lreadline -L$$HOME/.brew/opt/readline/lib -I $$HOME/.brew/opt/readline/include/readline
 
+INCLUDES = $(shell find . -name "*.h" -print)
 
-NAME	=		Minishell
+OBJS_DIR = bin
+OBJS_NOPREFIX = $(shell find . -name "*.c" -print | sed 's/\.c/\.o/g' | sed 's/\.\///')# last cmd removes ./ at the beginning of each file
+OBJS = $(addprefix $(OBJS_DIR)/, $(OBJS_NOPREFIX))
 
-FILES	=		main.c \
-				read/read.c \
-				read/prompt/prompt.c \
-				utils/string_utils/ft_strlen.c \
-				utils/string_utils/ft_strjoin.c \
-				read/prompt/prompt_utils/prompt_utils.c
+NAME = minishell
 
-OBJDIR	=		obj
+all: .BUILD
 
-OBJ		=		$(FILES:%.c=$(OBJDIR)/%.o)
+bonus: .BUILD
 
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(READLINE_FLAGS) $(OBJS) -o $(NAME)
+	@printf "\033[1m\033[32mMinishell Compiled!\n"
+	@echo "\033[0;37m"
 
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-
-$(OBJ): $(OBJDIR)/%.o: %.c
-	mkdir -p obj
-	$(CC) $(FLAGS) -g -c $< -o $@
+#
+#	this rule compiles sources in <path>.c and puts them in <obj_dir>/<path>.o
+#
+#
+$(shell echo $(OBJS_DIR))/%.o: %.c $(INCLUDES)#$(wildcard $(<D)/*.h)------this recompiles only for headers in the same folder!
+	@mkdir -p '$(@D)'
+	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	rm -r obj
+	@printf "removing Object files...\n"
+	@/bin/rm -f $(OBJS)
+	@printf "\033[0;35mObject files removed!\n"
+	@echo "\033[0;37m"
 
-fclean:
-	rm $(NAME)
+fclean: clean
+	@printf "removing program executable...\n"
+	@/bin/rm -f ./minishell
+	@printf "\033[0;35mExecutable removed!\n"
+	@echo "\033[0;37m"
 
-re: $(NAME) fclean
-	rm -r obj
-	make
+re: fclean all
 
-go:
-	make
-	./philo 4 420 200 200
-
-l:
-	make
-	leaks --atExit -- ./philo 4 420 200 200
-	
-seg:
-	make
-	lldb ./philo -- 4 420 200 200
-
-.PHONY: all clean fclean re go l seg
+.BUILD:
+	@printf "\033[1m\033[33mMaking Project...\033[0m\n"
+	@$(MAKE) $(NAME)
