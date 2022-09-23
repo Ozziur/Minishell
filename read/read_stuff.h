@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 18:30:37 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/07 18:34:08 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/09/23 16:10:16 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,8 @@
 //*submodules
 
 # include "parser/parser_stuff.h"
+# include "prompt/prompt_stuff.h"
+# include "token/token_stuff.h"
+
 
 #endif
