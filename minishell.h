@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:54:42 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/07 18:38:46 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/09/23 16:11:29 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,7 @@
 
 # include "read/read_stuff.h"
 # include "types.h"
+
+t_tree_node	*shell_read(void);
 
 #endif
