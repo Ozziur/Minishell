@@ -6,7 +6,13 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:55:36 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/21 17:55:37 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/09/23 16:39:38 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef TOKEN_STUFF_H
+# define TOKEN_STUFF_H
+
+# include "token_struct.h"
+
+# endif
