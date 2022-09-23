@@ -6,11 +6,12 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 00:24:15 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/07 00:37:42 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/09/23 16:56:00 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TOKEN_STRUCT_H
+# define TOKEN_STRUCT_H
 
 # include "../../types.h"
 
