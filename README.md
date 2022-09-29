@@ -1,6 +1,6 @@
 piano di battaglia: 
 
-normallizzre Makefile:
+normalizzare Makefile:
 	trovare la voglia
 
 sviluppare echo su una foglia:
