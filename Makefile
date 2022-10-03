@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ccantale <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/14 19:14:21 by ccantale          #+#    #+#              #
-#    Updated: 2022/09/23 16:36:42 by ccantale         ###   ########.fr        #
+#    Updated: 2022/10/03 13:47:00 by mruizzo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ clean:
 fclean: clean
 	@printf "removing program executable...\n"
 	@/bin/rm -f ./minishell
+	@/bin/rm -rf bin
 	@printf "\033[0;35mExecutable removed!\n"
 	@echo "\033[0;37m"
 
