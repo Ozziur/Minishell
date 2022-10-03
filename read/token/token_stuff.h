@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_stuff.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 17:55:36 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/03 17:20:36 by ccantale         ###   ########.fr       */
+/*   Created: 2022/10/03 17:30:19 by ccantale          #+#    #+#             */
+/*   Updated: 2022/10/03 17:30:33 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,4 @@ void	free_tokens(t_token *token);
 void	free_token_val(t_token *token);
 void	free_env(t_bindings *head);
 
-
-# endif
+#endif

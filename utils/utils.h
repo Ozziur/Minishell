@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:43:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/23 17:16:58 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/03 17:16:49 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 
 //* user defined types
 # include "../types.h"
-
 
 //str_utils
 char	*ft_strcpy(char *buf, char *src, int copy_len);
