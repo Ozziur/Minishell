@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 00:24:15 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/03 13:50:39 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/03 17:49:08 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef enum e_token_id
 	e_OPERATOR,
 	e_ENV_VAR_DECL,
 	e_ENV_VAR_UNSET,
-	e_PARENTHESIS,
+	e_BRAKETS,
 	e_NONE
 }	t_token_id;
 
