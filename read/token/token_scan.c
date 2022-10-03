@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:32:32 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/03 17:56:33 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/03 17:59:55 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ static size_t	scan_body(char *cmd_line, size_t offset, t_token **tok_list_ref)
 	// if (e_true == is_env_statement(cmd_line, offset))
 	// 	return (scan_env_declaration(cmd_line, offset, tok_list_ref));
 	// else
-	// 	return (scan_simple_command(cmd_line, offset, tok_list_ref));
-	return (offset);//da eliminare
+		return (scan_simple_command(cmd_line, offset, tok_list_ref));
 }
 
 size_t	scan_tail(char *cmd_line, size_t offset, t_token **tok_list_ref)
