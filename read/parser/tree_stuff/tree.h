@@ -6,13 +6,13 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 00:54:55 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/07 00:56:49 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/03 17:10:42 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TREE_H
 # define TREE_H
 
-#include "../parser.h"
+# include "../parser.h"
 
 #endif

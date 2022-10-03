@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:54:45 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/03 14:31:54 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/03 17:16:10 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static t_token	*tokenize(char	*command_line)
 /*
 	in base al op_code il tokenizer crea la lista, restituisce il prossimo token o libera la lista 
 */
-static void *tokenizer(char *cmd_line,t_op_code op_code)
+static void	*tokenizer(char *cmd_line, t_op_code op_code)
 {
 	static t_token	*token_list;
 	static t_token	*current_token = NULL;
@@ -64,8 +64,8 @@ void	lunch_tokenizer(char *command_line)
 {
 	if (command_line == NULL)
 		return ;
-	tokenizer (NULL, e_CLEAN);  
-	tokenizer (command_line, e_READ_INPUT) ;
+	tokenizer (NULL, e_CLEAN);
+	tokenizer (command_line, e_READ_INPUT);
 }
 
 t_token	*next_token(void)
@@ -77,4 +77,3 @@ void	tokenizer_free(void)
 {
 	tokenizer(NULL, e_CLEAN);
 }
-
