@@ -6,7 +6,7 @@
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:39:35 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/03 18:11:08 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/03 18:40:20 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ t_token *scan_next_bracket(char *cmd_line, size_t cursor, t_token **token_list)
 			token->token_val = "(";
 		else
 			token->token_val = ")";
-		token->next = NULL;
 		token_add_back(token_list, token);
 	}
 	else
