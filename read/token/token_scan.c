@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:32:32 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/03 17:59:55 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/03 18:01:09 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static size_t	scan_body(char *cmd_line, size_t offset, t_token **tok_list_ref)
 		return (scan_simple_command(cmd_line, offset, tok_list_ref));
 }
 
-size_t	scan_tail(char *cmd_line, size_t offset, t_token **tok_list_ref)
+static size_t	scan_tail(char *cmd_line, size_t offset, t_token **tok_list_ref)
 {
 	size_t	pre_offset;
 

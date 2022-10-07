@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token_stuff.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:30:19 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/03 17:30:33 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/07 16:21:09 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,8 @@ void	free_token_list(t_token **list);
 void	free_tokens(t_token *token);
 void	free_token_val(t_token *token);
 void	free_env(t_bindings *head);
+size_t	scan_invariants(char *str, size_t offset);
+size_t	scan_sapaes(char *str, size_t offset);
+size_t	scan_inv_quotes(char *str, size_t offset);
 
 #endif

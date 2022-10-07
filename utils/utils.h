@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:43:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/03 17:16:49 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/07 15:46:20 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 
 //* user defined types
 # include "../types.h"
+
+//* is something
+t_bool			ft_isspace(char c);
 
 //str_utils
 char	*ft_strcpy(char *buf, char *src, int copy_len);
