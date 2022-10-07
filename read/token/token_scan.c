@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:32:32 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/03 18:01:09 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/07 16:30:39 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static size_t	scan_head(char *cmd_line, size_t offset, t_token **tok_list_ref)
 	size_t	pre_offset;
 
 	offset = scan_brakets(cmd_line, offset, tok_list_ref);
-	offset = scan_redirs(cmd_line, offset, tok_list_ref);
+	//offset = scan_redirs(cmd_line, offset, tok_list_ref);
 	return (offset);
 }
 
@@ -34,9 +34,9 @@ static size_t	scan_tail(char *cmd_line, size_t offset, t_token **tok_list_ref)
 {
 	size_t	pre_offset;
 
-	offset = scan_redirs(cmd_line, offset, tok_list_ref);
+	//offset = scan_redirs(cmd_line, offset, tok_list_ref);
 	offset = scan_brakets(cmd_line, offset, tok_list_ref);
-	offset = scan_redirs(cmd_line, offset, tok_list_ref);
+	//offset = scan_redirs(cmd_line, offset, tok_list_ref);
 	offset = scan_operator(cmd_line, offset, tok_list_ref);
 	return (offset);
 }

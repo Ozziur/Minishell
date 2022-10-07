@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:43:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/07 15:46:20 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/07 18:16:37 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@
 
 //* user defined types
 # include "../types.h"
+
+//*shell_utils
+size_t	bash_next_string_len(char *str, size_t offset);
+size_t	skip_consecutive_chars(char *string, size_t offset,
+			char to_skip, int direction);
 
 //* is something
 t_bool			ft_isspace(char c);

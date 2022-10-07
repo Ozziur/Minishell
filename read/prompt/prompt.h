@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 17:14:50 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/23 16:39:55 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/07 17:01:56 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 //* standard libraries
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 //* user defined types
 //# include "prompt_types.h"
-# include "../../types.h"
+# include "../../types.h""
 
 //sub
 # include "prompt_utils/prompt_utils.h"
