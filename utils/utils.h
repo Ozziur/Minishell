@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:43:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/07 18:16:37 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/09 18:38:05 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,15 @@ size_t	skip_consecutive_chars(char *string, size_t offset,
 			char to_skip, int direction);
 
 //* is something
-t_bool			ft_isspace(char c);
+t_bool	ft_isspace(char c);
+t_bool	ft_is_quote(char c);
+t_bool	bash_control_character(char c);
 
 //str_utils
 char	*ft_strcpy(char *buf, char *src, int copy_len);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *pre, char *post, t_bool free_pre, t_bool free_post);
+size_t	skip_past_char(char *str, size_t offset,
+			char to_skip, int direction);
 
 #endif

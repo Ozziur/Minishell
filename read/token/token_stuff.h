@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:30:19 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/07 16:41:26 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/09 18:44:22 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ void	free_token_val(t_token *token);
 size_t	scan_invariants(char *str, size_t offset);
 size_t	scan_sapaes(char *str, size_t offset);
 size_t	scan_inv_quotes(char *str, size_t offset);
+size_t	scan_simple_command(char *cmd_line, size_t offset,
+			t_token **tok_list_ref);
 
 #endif

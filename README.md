@@ -3,7 +3,7 @@ piano di battaglia:
 normalizzare Makefile:
 	trovare la voglia
 
-per Ozziur: ricominciare da shell_utils_grm.c (nb. utils/shel_utils)
+per Ozziur: ricominciare da scan arg o quell che sia per completare scan simple command
 
 sviluppare echo su una foglia:
 	creazione di un miniprompt ✅
