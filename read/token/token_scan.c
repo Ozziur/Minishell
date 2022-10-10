@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:32:32 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/07 16:30:39 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/10 16:32:37 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	scan(char *cmd_line, t_token **tok_list_ref)
 	char	*cursor;
 
 	if (cmd_line == NULL)
-		*tok_list_ref == NULL;
+		*tok_list_ref = NULL;
 	else
 	{
 		offset = 0;

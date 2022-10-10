@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.h                                             :+:      :+:    :+:   */
+/*   tok_utils.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 15:30:23 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/10 16:24:08 by mruizzo          ###   ########.fr       */
+/*   Created: 2022/10/10 16:01:38 by mruizzo           #+#    #+#             */
+/*   Updated: 2022/10/10 16:06:25 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef READ_H
-# define READ_H
+#ifndef TOK_UTILS_H
+# define TOK_UTILS_H
 
-# include <stdio.h>
-# include "../utils/utils.h"
-# include "../types.h"
+# include <unistd.h>
+# include "../../../colors.h"
+# include "../../../utils/utils.h"
+# include "../token_struct.h"
+# include "../../../types.h"
+// # include "../../../global.h"
+// # include "../../../env/env_utils/env_utils.h"
 
-# include "parser/parser_stuff.h"
-# include "prompt/prompt_stuff.h"
-# include "token/token_stuff.h"
+//tok_mem_utils
+void	tok_add_back(t_token **token_list, t_token *token);
+
 
 #endif

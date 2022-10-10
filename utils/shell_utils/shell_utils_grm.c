@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:00:51 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/09 18:40:16 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/10 16:22:27 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,20 @@ size_t	bash_next_string_len(char *str, size_t offset)
 	}
 	bash_string_len = new_offset - offset;
 	return (bash_string_len);
+}
+
+t_bool	command_is_empty(char *command)
+{
+	size_t	offset;
+
+	if (!command)
+		return (e_true);
+	offset = 0;
+	while (command[offset])
+	{
+		if (e_false == ft_isspace(command[offset]))
+			return (e_false);
+		offset++;
+	}
+	return (e_true);
 }
