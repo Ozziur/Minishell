@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:30:19 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/11 16:27:01 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/11 16:30:56 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ size_t	scan_simple_command(char *cmd_line, size_t offset,
 size_t	scan_next_arg(char *cmd_line, size_t offset,
 			char **cur_arg_str, t_token **tok_list);
 size_t	scan_cmd_arg(char *cmd_line, size_t offset, t_token **tok_list_ref);
+void	free_token_list(t_token **list);
 
 #endif

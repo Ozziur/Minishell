@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:32:32 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/10 18:05:25 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/11 16:32:22 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	scan(char *cmd_line, t_token **tok_list_ref)
 		if (offset < ft_strlen(cmd_line))
 		{
 			// put_error(TOK_NOT_RECOGNIZED_ERROR, 258, command_line + offset);
-			free_tok_list(tok_list_ref);
+			free_token_list(tok_list_ref);
 			exit(0); //rimuovere
 		}
 	}
