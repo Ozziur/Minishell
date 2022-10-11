@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:54:45 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/11 16:50:01 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:40:21 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ static void	*tokenizer(char *cmd_line, t_op_code op_code)
 
 	if (op_code == e_READ_INPUT)
 	{
+		// printf("$   %s\n", cmd_line);
 		token_list = tokenize(cmd_line);
+			// printf("jnjhkjkjkjk\n\n%s   \n",  token_list->token_val);
+
 		current_token = token_list;
 	}
 	if (op_code == e_NEXT_TOKEN)

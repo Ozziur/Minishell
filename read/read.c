@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 15:29:50 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/11 16:55:35 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:43:23 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_tree_node	*shell_read(void)
 	char	*command;
 
 	command = next_command();
-	printf("\n%s\n\n", command);
+									// printf("\n%s\n\n", command);
 	// if (command_is_empty())
 	// {
 	// 	//ft_free
@@ -36,6 +36,11 @@ t_tree_node	*shell_read(void)
 	// else
 	// {
 		lunch_tokenizer(command);
+		
+		// int i =0;
+		// while (i++ <= 3)
+			printf("\n\n%s   \n",  next_token()->token_val);
+			printf("\n\n%s   \n",  next_token()->token_val);
 	// 	free(command);
 	// 	return (parse());
 	// // }

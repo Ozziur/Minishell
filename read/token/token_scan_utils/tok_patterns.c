@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 16:39:34 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/10 16:15:56 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/11 17:35:29 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	scan_simple_command(char *cmd_line, size_t offset,
 {
 	t_token	*token;
 	int		len_cmd_name;
-	t_bool	repeat;
+	//t_bool	repeat;
 
 	if (!cmd_line[offset])
 		return (offset);
