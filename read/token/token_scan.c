@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:32:32 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/10 18:05:25 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/11 16:31:48 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static size_t	scan_tail(char *cmd_line, size_t offset, t_token **tok_list_ref)
 	//offset = scan_redirs(cmd_line, offset, tok_list_ref);
 	offset = scan_brackets(cmd_line, offset, tok_list_ref);
 	//offset = scan_redirs(cmd_line, offset, tok_list_ref);
-	offset = scan_operator(cmd_line, offset, tok_list_ref);
+	//offset = scan_operator(cmd_line, offset, tok_list_ref);
 	return (offset);
 }
 
