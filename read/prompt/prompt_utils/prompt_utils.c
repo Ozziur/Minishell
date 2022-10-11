@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 18:24:26 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/03 17:12:29 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/10 18:02:20 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*my_readline(char *prompt)
 		return (NULL);
 	else if (*line == '\0')/*          new line*/
 	{
-		free (line);
+		free(line);
 		return (my_readline(prompt));
 	}
 	else

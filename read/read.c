@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 15:29:50 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/10 16:21:29 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/10 18:04:39 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ t_tree_node	*shell_read(void)
 	// 	free(command);
 	// 	return (parse());
 	// // }
+	return (0); //da eliminare
 }

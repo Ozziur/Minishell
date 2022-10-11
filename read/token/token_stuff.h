@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:30:19 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/10 16:24:42 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/10 18:24:30 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	free_token_list(t_token **list);
 void	free_tokens(t_token *token);
 void	free_token_val(t_token *token);
 //void	free_env(t_bindings *head);
-t_token	*scan_brackets(char *cmd_line, size_t cursor, t_token **token_list);
+size_t	scan_brackets(char *cmd_line, size_t cursor, t_token **token_list);
 size_t	scan_invariants(char *str, size_t offset);
-size_t	scan_sapaes(char *str, size_t offset);
+size_t	scan_spaces(char *str, size_t offset);
 size_t	scan_inv_quotes(char *str, size_t offset);
 size_t	scan_simple_command(char *cmd_line, size_t offset,
 			t_token **tok_list_ref);

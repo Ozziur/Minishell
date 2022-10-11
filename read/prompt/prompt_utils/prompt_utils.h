@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:10:18 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/14 19:26:03 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/10 18:03:37 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 // * standard libraries
 # include <unistd.h>
+# include <stdlib.h>
 # include <readline/readline.h>
 
 char	*my_readline(char *prompt);

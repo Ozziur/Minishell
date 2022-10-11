@@ -6,13 +6,13 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:04:38 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/07 16:20:16 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/10 18:16:52 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tokenize.h"
 
-size_t	scan_sapaes(char *str, size_t offset)
+size_t	scan_spaces(char *str, size_t offset)
 {
 	int	index;
 
