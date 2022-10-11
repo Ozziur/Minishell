@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:54:45 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/03 17:16:10 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/11 16:50:01 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	*tokenizer(char *cmd_line, t_op_code op_code)
 	}
 	if (op_code == e_CLEAN)
 	{
-		free_tok_list(&token_list);
+		free_token_list(&token_list);
 		current_token = NULL;
 	}
 	return (token);

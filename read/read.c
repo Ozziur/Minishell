@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 15:29:50 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/10 18:04:39 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/11 16:55:35 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_tree_node	*shell_read(void)
 	char	*command;
 
 	command = next_command();
-	printf("\n%s\n", command);
+	printf("\n%s\n\n", command);
 	// if (command_is_empty())
 	// {
 	// 	//ft_free

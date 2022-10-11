@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:30:19 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/11 16:30:56 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/11 16:49:15 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define TOKEN_STUFF_H
 
 # include "token_struct.h"
+# include "tok_utils/tok_utils.h"
 
 void	lunch_tokenizer(char *command_line);
 void	tokenizer_free(void);
@@ -33,5 +34,6 @@ size_t	scan_next_arg(char *cmd_line, size_t offset,
 			char **cur_arg_str, t_token **tok_list);
 size_t	scan_cmd_arg(char *cmd_line, size_t offset, t_token **tok_list_ref);
 void	free_token_list(t_token **list);
+void	scan(char *cmd_line, t_token **tok_list_ref);
 
 #endif

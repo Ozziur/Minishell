@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:04:38 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/10 18:16:52 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/11 16:47:36 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t	scan_inv_quotes(char *str, size_t offset)
 	int	index;
 
 	index = offset;
-	while (str[index] == "" || str[index] == '\'')
+	while (str[index] == '"' || str[index] == '\'')
 	{
 		if (str[index + 1] != str[index])
 			break ;
@@ -40,7 +40,7 @@ size_t	scan_invariants(char *str, size_t offset)
 {
 	size_t	new_offset;
 
-	new_offset = scan_sapaes(str, offset);
+	new_offset = scan_spaces(str, offset);
 	new_offset = scan_inv_quotes(str, new_offset);
 	return (new_offset);
 }
