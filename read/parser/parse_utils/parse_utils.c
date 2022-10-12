@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 21:33:07 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/12 17:37:25 by mruizzo          ###   ########.fr       */
+/*   Created: 2022/10/12 17:30:57 by mruizzo           #+#    #+#             */
+/*   Updated: 2022/10/12 17:36:03 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#include "parse_utils.h"
 
-// * libraries
-# include <stdlib.h>
-# include "parser_stuff.h"
-# include "../token/token_struct.h"
-# include "../token/token_stuff.h"
-# include "tree_stuff/tree.h"
-# include "parse_utils/parse_utils.h"
+t_token	*take_next_token(t_parser_status *p_status)
+{
+	t_token	*new_token;
 
-//*types
-# include "parser_struct.h"
-
-#endif
+	new_token = next_token();
+	if (new_token)
+	{
+		p_status->last_read_token = new_token;
+		p_status->last_read_tok_pos += 1;
+	}
+	return (new_token);
+}

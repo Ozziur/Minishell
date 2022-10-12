@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:43:09 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/09/23 16:56:37 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/12 15:35:38 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,17 @@ struct s_tree_node
 	struct s_tree_node	*right;
 };
 
+typedef struct s_groupings
+{
+	size_t	quotes;
+	size_t	double_qquotes;
+	size_t	parenthesis;
+}	t_groupings;
+
 struct s_parser_status
 {
 	t_status	status;
-//	t_groupings	open;
+	t_groupings	open;
 	t_token		*last_read_token;
 	int			last_read_tok_pos;
 };
