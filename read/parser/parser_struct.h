@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:43:09 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/12 15:35:38 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/13 15:44:19 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include "../token/token_struct.h"
+# include "../../types.h"
 
 //* declarations
 typedef struct s_tree_node				t_tree_node;
@@ -24,8 +25,9 @@ typedef struct s_parser_status			t_parser_status;
 struct s_tree_node
 {
 	struct s_tree_node	*left;
-
 	struct s_tree_node	*right;
+	//t_node_content		*content;
+	void				(*to_string)(struct s_tree_node *node);
 };
 
 typedef struct s_groupings
