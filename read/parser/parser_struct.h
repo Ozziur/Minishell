@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:43:09 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/13 16:11:09 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/13 16:36:09 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 typedef struct s_tree_node				t_tree_node;
 typedef struct s_parser_status			t_parser_status;
 typedef struct s_groupings				t_groupings;
-typedef struct s_node_content				t_node_content;
-typedef struct	s_braket_node			t_braket_node;
+typedef struct s_node_content			t_node_content;
+typedef struct s_braket_node			t_braket_node;
 
 //* creation
 struct s_tree_node
@@ -40,12 +40,11 @@ struct s_groupings
 	size_t	parenthesis;
 };
 
-struct s_parser_status
+struct	s_braket_node
 {
-	t_status	status;
-	t_groupings	open;
-	t_token		*last_read_token;
-	int			last_read_tok_pos;
+	//t_redirection	in_redir;
+	//t_redirection	out_redir;
+	t_tree_node		*subtree;
 };
 
 struct	s_node_content
@@ -57,13 +56,14 @@ struct	s_node_content
 	//t_simple_cmd_node	simple_cmd;
 	//t_env_decl_node		env_decl;
 	//t_operator_node		operator_node;
-}
+};
 
-struct	s_braket_node
+struct s_parser_status
 {
-	//t_redirection	in_redir;
-	//t_redirection	out_redir;
-	t_tree_node		*subtree;
-}
+	t_status	status;
+	t_groupings	open;
+	t_token		*last_read_token;
+	int			last_read_tok_pos;
+};
 
 #endif

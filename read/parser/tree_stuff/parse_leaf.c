@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 00:53:53 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/13 15:53:17 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/13 16:51:04 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_tree_node	*parse_leaf(t_parser_status *p_status) //vedi parse_atomic_expresion
 	 	p_status->open.parenthesis += 1;
 	 	bracket = new_tree_node(
 	 			NULL,
-	 			parse_parenthesis_exp(p_status),
+	 			parse_sub_tree(p_status),
 	 			NULL
 	 			);
 	 	return (bracket);
