@@ -6,13 +6,19 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:24:03 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/13 15:51:26 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/13 16:55:40 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tree.h"
 
-t_tree_node	parse_statement(t_token *token, t_parser_status *p_status)
+static t_node_content	*parse_simple_command(t_token token,
+				t_node_content node_content, t_parser_status p_status)
+{
+	node_content			
+}
+
+t_tree_node	*parse_statement(t_token *token, t_parser_status *p_status)
 {
 	t_node_content	*node_content;
 
@@ -33,5 +39,6 @@ t_tree_node	parse_statement(t_token *token, t_parser_status *p_status)
 		// ft_free(node_content->in_redir.file_name);
 		// ft_free(node_content->out_redir.file_name);
 		// free(node_content);
-		ret		
+		return (NULL);
+	// }	
 }
