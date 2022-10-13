@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 00:53:53 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/13 14:45:57 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:06:52 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static t_token	*leaf_get_next_token(t_parser_status *p_status)
 }
 
 //parentesi da aggiungere in seguito
-t_tree_node	*atomic_exp(t_parser_status *p_status) //vedi parse_atomic_expresion mmarinel
+t_tree_node	*parse_leaf(t_parser_status *p_status) //vedi parse_atomic_expresion mmarinel
 {
 	t_token		*token;
 	t_tree_node	*bracket;
@@ -53,7 +53,7 @@ t_tree_node	*atomic_exp(t_parser_status *p_status) //vedi parse_atomic_expresion
 	return (parse_statement(token, p_status)); //da creare
 }
 
-t_tree_node *parse_leaf(t_parser_status *parser_status)
+t_tree_node *plant_tree(t_parser_status *parser_status)
 {
-    return (pase_atomic_exp(parser_status));
+    return (parse_leaf(parser_status));
 }
