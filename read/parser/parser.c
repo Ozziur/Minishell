@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 21:17:25 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/13 15:26:36 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/13 16:11:47 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	parser_init(t_parser_status *p_status)
 {
-	p_status->last_read_tok_pos = NULL;
+	p_status->last_read_token = NULL;
 	p_status->status = OK;
 	p_status->open.quotes = 0;
 	p_status->open.double_qquotes = 0;

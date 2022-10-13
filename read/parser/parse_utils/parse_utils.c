@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 17:30:57 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/13 14:46:03 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:32:36 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,11 @@ t_bool	is_operator_tok(t_token *token)
 t_bool	is_closing_paren(t_token *token)
 {
 	return(token->token_id == e_BRAKETS
-		&& *token->token_val == ')');
+		&& *(char *)token->token_val == ')');
+}
+
+t_bool	is_open_paren(t_token *token)
+{
+	return(token->token_id == e_BRAKETS
+		&& *(char *)token->token_val == '(');
 }

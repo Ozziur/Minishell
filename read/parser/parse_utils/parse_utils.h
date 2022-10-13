@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 17:31:37 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/12 17:36:43 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/13 15:32:56 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@
 
 // * parse utils //
 t_token	*take_next_token(t_parser_status *p_status);
+t_bool	is_operator_tok(t_token *token);
+t_bool	is_closing_paren(t_token *token);
+t_bool	is_open_paren(t_token *token);
 
 #endif
