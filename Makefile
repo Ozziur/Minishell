@@ -6,7 +6,7 @@
 #    By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/14 19:14:21 by ccantale          #+#    #+#              #
-#    Updated: 2022/10/11 16:25:45 by ccantale         ###   ########.fr        #
+#    Updated: 2022/10/13 14:53:36 by ccantale         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,11 @@ fclean: clean
 	@echo "\033[0;37m"
 
 re: fclean all
+
+git:
+	git add .
+	git commit -m minishell
+	git push
 
 .BUILD:
 	@printf "\033[1m\033[33mMaking Project...\033[0m\n"
