@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 00:53:53 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/13 16:51:04 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/13 18:18:54 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static t_token	*leaf_get_next_token(t_parser_status *p_status)
 	if (p_status->status == ERROR)
 		return (NULL);
 	token = take_next_token(p_status);
-	//gestione errori
 	if (token == NULL
 	 	|| is_operator_tok(token) || is_closing_paren(token))
     {
@@ -29,7 +28,7 @@ static t_token	*leaf_get_next_token(t_parser_status *p_status)
 	return (token);
 }
 
-t_tree_node	*parse_leaf(t_parser_status *p_status) //vedi parse_atomic_expresion mmarinel
+t_tree_node	*parse_leaf(t_parser_status *p_status)
 {
 	t_token		*token;
 	t_tree_node	*bracket;
@@ -37,7 +36,6 @@ t_tree_node	*parse_leaf(t_parser_status *p_status) //vedi parse_atomic_expresion
 	token = leaf_get_next_token(p_status);
 	if (!token)
 		return (NULL);
-	//studiare questa parte
 	 if (is_open_paren(token))
 	 {
 	 	p_status->open.parenthesis += 1;
@@ -49,6 +47,6 @@ t_tree_node	*parse_leaf(t_parser_status *p_status) //vedi parse_atomic_expresion
 	 	return (bracket);
 	 }
 	 else
-	return (parse_statement(token, p_status)); //da creare
+		return (parse_statement(token, p_status));
 }
 

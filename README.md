@@ -3,6 +3,7 @@ piano di battaglia:
 normalizzare Makefile:
 	trovare la voglia
 
+Claudio : da fare parse_redir()
 
 sviluppare echo su una foglia:
 	creazione di un miniprompt ✅
