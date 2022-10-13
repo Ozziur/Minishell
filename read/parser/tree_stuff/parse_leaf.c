@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 00:53:53 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/13 15:14:19 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/13 15:18:06 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,3 @@ t_tree_node	*parse_leaf(t_parser_status *p_status) //vedi parse_atomic_expresion
 	return (parse_statement(token, p_status)); //da creare
 }
 
-
-///////da spostare
-t_tree_node	*plant_tree(t_parser_status *parser_status)
-{
-	return (parse_leaf(parser_status));
-}
