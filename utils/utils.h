@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:43:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/10 16:22:45 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/13 14:51:53 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 //* std libs
 # include <stdlib.h>
 # include <stdio.h>
-
-//* read, write, file handling ...
 # include <unistd.h>
 # include <fcntl.h>
 
@@ -32,12 +30,15 @@ size_t	skip_consecutive_chars(char *string, size_t offset,
 			char to_skip, int direction);
 t_bool	command_is_empty(char *command);
 
+//* error
+void set_error(t_status *status);
+
 //* is something
 t_bool	ft_isspace(char c);
 t_bool	ft_is_quote(char c);
 t_bool	bash_control_character(char c);
 
-//str_utils
+//* str_utils
 char	*ft_strcpy(char *buf, char *src, int copy_len);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *pre, char *post, t_bool free_pre, t_bool free_post);
