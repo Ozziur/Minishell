@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:43:09 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/13 16:08:17 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/13 16:11:09 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 # include <unistd.h>
 # include "../token/token_struct.h"
+# include "../../types.h"
 
 //* declarations
 typedef struct s_tree_node				t_tree_node;
 typedef struct s_parser_status			t_parser_status;
 typedef struct s_groupings				t_groupings;
-typedef struct s_content				t_content;
+typedef struct s_node_content				t_node_content;
 typedef struct	s_braket_node			t_braket_node;
 
 //* creation
@@ -28,7 +29,7 @@ struct s_tree_node
 {
 	//void		(* to_string)(t_tree_node node);
 	t_tree_node	*left;
-	t_content	*content;
+	t_node_content	*content;
 	t_tree_node	*right;
 };
 
@@ -47,7 +48,7 @@ struct s_parser_status
 	int			last_read_tok_pos;
 };
 
-struct	s_content
+struct	s_node_content
 {
 	//t_redirection		in_redir;
 	//t_redirection		out_redir;
