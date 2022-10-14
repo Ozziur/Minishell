@@ -12,6 +12,12 @@
 
 #include "minishell.h"
 
+void debug(t_tree_node	*x)
+{
+
+	printf("\n///////////\n%s %s \n///////////\n ", x->content->simple_cmd.cmd_name, x->content->simple_cmd.cmd_args);
+}
+
 int	main(int argc, char const **argv, char const **envp)
 {
 	t_tree_node	*parse_tree;
@@ -21,9 +27,13 @@ int	main(int argc, char const **argv, char const **envp)
 	while (e_true)
 	{
 		parse_tree = shell_read();
+		t_tree_node *temp = parse_tree;
 										
-						//				printf("\n///////////\n%s %s \n///////////\n ", parse_tree->content->simple_cmd.cmd_name, parse_tree->content->simple_cmd.cmd_args);
-		execute(parse_tree);
+		debug(parse_tree);
+		debug(parse_tree);									
+									//	printf("\n///////////\n%s %s \n///////////\n ", temp->content->simple_cmd.cmd_name, temp->content->simple_cmd.cmd_args);
+
+	//	execute(parse_tree);
 	}
 	return (EXIT_SUCCESS);
 }
