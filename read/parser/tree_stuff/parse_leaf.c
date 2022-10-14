@@ -39,11 +39,11 @@ t_tree_node	*parse_leaf(t_parser_status *p_status)
 	 if (is_open_paren(token))
 	 {
 	 	p_status->open.parenthesis += 1;
-	 	bracket = new_tree_node(
-	 			NULL,
-	 			parse_sub_tree(p_status),
-	 			NULL
-	 			);
+	 	// bracket = new_tree_node(
+	 	// 		NULL,
+	 	// 		parse_sub_tree(p_status),
+	 	// 		NULL
+	 	// 		);
 	 	return (bracket);
 	 }
 	 else

@@ -21,6 +21,7 @@ int	main(int argc, char const **argv, char const **envp)
 	while (e_true)
 	{
 		parse_tree = shell_read();
+							//			printf("\n///////////\n%s  \n///////////\n ",(char *) parse_tree->to_string);
 		//execute(parse_tree);
 	}
 	return (EXIT_SUCCESS);

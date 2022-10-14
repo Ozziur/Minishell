@@ -28,18 +28,17 @@
 typedef struct s_tree_node				t_tree_node;
 typedef struct s_parser_status			t_parser_status;
 typedef struct s_groupings				t_groupings;
-typedef struct s_node_content			t_node_content;
 typedef struct s_braket_node			t_braket_node;
 typedef struct s_redirection			t_redirection;
 typedef struct s_simple_command_node	t_simple_cmd_node;
+typedef struct s_node_content			t_node_content;
 
 //* creation
-struct s_tree_node
+
+struct	s_redirection
 {
-	//void		(* to_string)(t_tree_node node);
-	t_tree_node	*left;
-	t_node_content	*content;
-	t_tree_node	*right;
+	char	*file_name;
+	t_bool	append_mode;
 };
 
 struct s_groupings
@@ -49,7 +48,7 @@ struct s_groupings
 	size_t	parenthesis;
 };
 
-struct	s_brakets_node
+struct	s_braket_node
 {
 	t_redirection	in_redir;
 	t_redirection	out_redir;
@@ -62,18 +61,6 @@ struct s_simple_command_node
 	char	*cmd_args;
 };
 
-struct	s_node_content
-{
-	t_redirection		in_redir;
-	t_redirection		out_redir;
-	int					content_type;
-	short				content_type;
-	t_braket_node		braket_node;
-	t_simple_cmd_node	simple_cmd;
-	// t_env_decl_node		env_decl;
-	//t_operator_node		operator_node;
-};
-
 struct s_parser_status
 {
 	t_status	status;
@@ -82,10 +69,23 @@ struct s_parser_status
 	int			last_read_tok_pos;
 };
 
-struct	s_redirection
+struct	s_node_content
 {
-	char	*file_name;
-	t_bool	append_mode;
-}
+	t_redirection		in_redir;
+	t_redirection		out_redir;
+	short				content_type;
+	t_braket_node		braket_node;
+	t_simple_cmd_node	simple_cmd;
+	// t_env_decl_node		env_decl;
+	//t_operator_node		operator_node;
+};
+
+struct s_tree_node
+{
+	void				(*to_string)(struct s_tree_node *node);
+	struct s_tree_node	*left;
+	t_node_content		*content;
+	struct s_tree_node	*right;
+};
 
 #endif

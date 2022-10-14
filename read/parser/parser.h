@@ -15,6 +15,7 @@
 
 // * libraries
 # include <stdlib.h>
+# include <unistd.h>
 # include "parser_stuff.h"
 # include "../token/token_struct.h"
 # include "../token/token_stuff.h"

@@ -16,7 +16,7 @@ static t_node_content	*parse_simple_command(t_token *token,
 				t_node_content *node_content, t_parser_status *p_status)
 {
 	node_content->content_type = SIMPL_CMD;
-	node_content->simple_cmd.cmd_args == NULL;
+	node_content->simple_cmd.cmd_args = NULL;
 	if (token->token_id == e_CMD_ARG)
 	{
 		node_content->simple_cmd.cmd_args =

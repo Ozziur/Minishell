@@ -37,8 +37,8 @@ t_tree_node	*shell_read(void)
 	// {
 		lunch_tokenizer(command);
 		
-													printf("\n\n%s   \n",  next_token()->token_val);
-													printf("\n\n%s   \n",  next_token()->token_val);
+									//				printf("\n\n%s   \n",  next_token()->token_val);
+										//			printf("\n\n%s   \n",  next_token()->token_val);
 		free(command);
 		return (parse());
 	// // }
