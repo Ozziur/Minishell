@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:53:50 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/03 17:07:57 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/14 17:39:37 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ int	main(int argc, char const **argv, char const **envp)
 	while (e_true)
 	{
 		parse_tree = shell_read();
-							//			printf("\n///////////\n%s  \n///////////\n ",(char *) parse_tree->to_string);
-		//execute(parse_tree);
+										
+										printf("\n///////////\n%s\n%s\n///////////\n ", parse_tree->content->simple_cmd.cmd_name, parse_tree->content->simple_cmd.cmd_args);
+										printf("PROVA\n");
+										// printf("\n///////////\n%s  \n///////////\n ",(char *) parse_tree->content->simple_cmd.cmd_args);
+		//execute(parse_tree); 
 	}
 	return (EXIT_SUCCESS);
 }
