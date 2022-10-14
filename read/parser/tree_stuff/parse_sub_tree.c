@@ -34,8 +34,8 @@ t_tree_node	*parse_sub_tree(t_parser_status *p_status)
 			   )
 			)
 	{
-		parse_redir(sub_content, next_redir->token_id, next_redir->token_val);
-		next_redir = take_next_token(p_status); // da fare
+		sub_redir(sub_content, next_redir->token_id, next_redir->token_val);
+		next_redir = take_next_token(p_status);
 	}
 	return (sub_content);
 }

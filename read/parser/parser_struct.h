@@ -85,7 +85,7 @@ struct s_parser_status
 struct	s_redirection
 {
 	char	*file_name;
-	//t_bool	append_mode;
+	t_bool	append_mode;
 }
 
 #endif

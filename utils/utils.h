@@ -40,9 +40,14 @@ t_bool	bash_control_character(char c);
 
 //* str_utils
 char	*ft_strcpy(char *buf, char *src, int copy_len);
+char	*ft_strdup(char *str);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *pre, char *post, t_bool free_pre, t_bool free_post);
 size_t	skip_past_char(char *str, size_t offset,
 			char to_skip, int direction);
+
+//* memory_utils
+void	*ft_malloc(size_t size);
+void	ft_free(void *ptr);
 
 #endif
