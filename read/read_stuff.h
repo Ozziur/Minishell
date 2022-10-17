@@ -19,4 +19,6 @@
 # include "prompt/prompt_stuff.h"
 # include "token/token_stuff.h"
 
+t_tree_node	*shell_read(void);
+
 #endif

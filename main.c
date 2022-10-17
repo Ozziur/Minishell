@@ -27,10 +27,10 @@ int	main(int argc, char const **argv, char const **envp)
 	while (e_true)
 	{
 		parse_tree = shell_read();
-		t_tree_node *temp = parse_tree;
+		execute(parse_tree);
 										
-		debug(parse_tree);
-		debug(parse_tree);									
+		// debug(parse_tree);
+		// debug(parse_tree);									
 									//	printf("\n///////////\n%s %s \n///////////\n ", temp->content->simple_cmd.cmd_name, temp->content->simple_cmd.cmd_args);
 
 	//	execute(parse_tree);

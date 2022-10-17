@@ -15,7 +15,10 @@
 
 # include <stdio.h>
 # include "../utils/utils.h"
+
+//* types 
 # include "../types.h"
+# include "parser/parser_struct.h"
 
 # include "parser/parser_stuff.h"
 # include "prompt/prompt_stuff.h"

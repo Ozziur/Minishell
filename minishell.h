@@ -26,6 +26,4 @@
 # include "types.h"
 # include "colors.h"
 
-t_tree_node	*shell_read(void);
-
 #endif
