@@ -10,5 +10,5 @@ report mini debug: parse_sub_tree(p_status) in parse_leaf, sub tree in generle n
 sviluppare echo su una foglia:
 	creazione di un miniprompt ✅
 	tokenizazzione ✅
-	parser su unica foglia: parse_statement finito, forse é pronto ma francamente non ne ho idea
-	esecutore del comando
+	parser su unica foglia ✅
+	esecutore del comando: competare external_cmd

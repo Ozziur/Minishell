@@ -45,6 +45,7 @@ size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *pre, char *post, t_bool free_pre, t_bool free_post);
 size_t	skip_past_char(char *str, size_t offset,
 			char to_skip, int direction);
+char	**ft_split(char const *string, char delimiter);
 
 //* memory_utils
 void	*ft_malloc(size_t size);
