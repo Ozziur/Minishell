@@ -6,7 +6,7 @@
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:13:16 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/19 18:11:33 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/23 18:00:44 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ static void	cmon_man_its_just_a_cmd(t_tree_node *root,
 {
 	t_bindings	*env;
 
-	env = env_handler(ENV_RETURN, NULL);				//env_handler da fare
+	env = env_handler(ENV_RETURN, NULL);
 	//if (!cmd_path)
 	//	cmd_not_founf_failure()
 	//if (-1 == 
-	execve(cmd_path, args_split, bindings_list_to_array(env);	//biindings_list da fare
+	execve(cmd_path, args_split, bindings_list_to_array(env));
 	//)
 	//		cmd_exec_failure();
 }
@@ -50,7 +50,7 @@ void	plz_do_it(t_tree_node *root)
 	//			' ');
 	
 	//* però sticazzi, intanto facciamo 'sto benedetto echo ciao
-	cmon_man_its_just_a_cmd(root, cmd_name, cmd_path, args_split);
+	cmon_man_its_just_a_cmd(root, root->content->simple_cmd_cmd_name, cmd_path, args_split);	//get_cmd_path() va fatta pure quella
 }
 
 void	just_do_it(t_tree_node *root, int in, int out)
