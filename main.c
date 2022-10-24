@@ -24,6 +24,7 @@ int	main(int argc, char const **argv, char const **envp)
 
 	if (!argc && !argv && !envp)
 		return (0);
+	sig_handling_set(SIG_INITIAL);
 	while (e_true)
 	{
 		parse_tree = shell_read();
