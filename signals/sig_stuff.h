@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:39:18 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/24 18:26:15 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/24 18:34:51 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 void	sig_handler(int	sig);
 // void	sig_ign(int signum);
 void	sig_handling_set(t_sig_handling_opcode opcode);
-// void	shell_executor_handler(int signum);
+void	shell_executor_handler(int sig);
 // void	line_completion_prompt_sig_handler(int signum);
 // void	here_doc_prompt_sig_handler(int signum);
 

@@ -6,11 +6,19 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:40:20 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/24 18:25:31 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/24 18:34:30 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "signals.h"
+
+void	shell_executor_handler(int sig)
+{
+	if (sig == SIGUSR1)
+		exit(EXIT_FAILURE);
+	if (sig == SIGUSR2)
+		exit(EXIT_SUCCESS);
+}
 
 void	sig_handler(int	sig)
 {

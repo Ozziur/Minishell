@@ -3,6 +3,7 @@ piano di battaglia:
 normalizzare Makefile:
 	trovare la voglia
 
+Michele: completare sig_handler in signal.c
 Claudio : da fare parse_redir()
 
 report mini debug: parse_sub_tree(p_status) in parse_leaf, sub tree in generle non avvia il make
