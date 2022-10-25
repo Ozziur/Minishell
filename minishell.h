@@ -20,6 +20,7 @@
 
 // *stuff module
 # include "read/read_stuff.h"
+# include "signals/signals.h"
 
 // types
 // includere globals

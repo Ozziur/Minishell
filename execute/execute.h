@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:01:26 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/17 16:55:32 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/24 18:30:54 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 // * user defined modules //
 # include "../utils/utils.h"
-// # include "../signals/signals.h"
+# include "../signals/signals.h"
 # include "../read/read.h"
 // # include "../error_handling/error_handling_module.h"
 // # include "../exit/exit_module.h"
