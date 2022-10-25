@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   t_bindings_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 17:02:43 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/23 18:00:47 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:37:06 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "env_utils.h"
 
 size_t	env_size(t_bindings *env);
 //* end of static declarations

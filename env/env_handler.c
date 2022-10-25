@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 18:10:47 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/25 16:14:50 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:37:42 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	*env_return_cases(t_bindings *env, t_bindings *export,
 					t_env_handl_opcode opcode);
-static void	*env_management_cases(t_bindings **env_ref, t_bindings **export_ref,
+static void	env_management_cases(t_bindings **env_ref, t_bindings **export_ref,
 					t_env_handl_opcode opcode, void *argument);
 //* end of static declarations
 
@@ -65,7 +65,7 @@ static void	*env_return_cases(t_bindings *env, t_bindings *export,
 	return (NULL);
 }
 
-static void	*env_management_cases(t_bindings **env_ref, t_bindings **export_ref,
+static void	env_management_cases(t_bindings **env_ref, t_bindings **export_ref,
 					t_env_handl_opcode opcode, void *argument)
 {
 	if (opcode == ENV_INITIALIZE)
