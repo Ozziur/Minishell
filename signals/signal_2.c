@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sig_stuff.h                                        :+:      :+:    :+:   */
+/*   signal_2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 17:39:18 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/25 18:19:11 by mruizzo          ###   ########.fr       */
+/*   Created: 2022/10/25 18:10:58 by mruizzo           #+#    #+#             */
+/*   Updated: 2022/10/25 18:14:03 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SIG_STUFF_H
-# define SIG_STUFF_H
+#include "signal.h"
 
-// * user defined types //
-# include "sig_struct.h"
-
-void	sig_handler(int	sig);
-void	sig_ign(int sig);
-void	sig_handling_set(t_sig_handling_opcode opcode);
-void	shell_executor_handler(int sig);
-// void	line_completion_prompt_sig_handler(int signum);
-// void	here_doc_prompt_sig_handler(int signum);
-
-#endif
+void	sig_ign(int sig)
+{
+	if (sig)
+		;
+}

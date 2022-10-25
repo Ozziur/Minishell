@@ -24,6 +24,9 @@
 //* user defined types
 # include "../types.h"
 
+//*sub
+# include "easy_pf/ft_printf.h"
+
 //*shell_utils
 size_t	bash_next_string_len(char *str, size_t offset);
 size_t	skip_consecutive_chars(char *string, size_t offset,

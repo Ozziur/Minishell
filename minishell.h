@@ -20,10 +20,12 @@
 
 // *stuff module
 # include "read/read_stuff.h"
-# include "signals/signals.h"
+# include "signals/sig_stuff.h"
+# include "utils/utils.h"
+# include 
 
 // types
-// includere globals
+# include "global.h"
 # include "types.h"
 # include "colors.h"
 
