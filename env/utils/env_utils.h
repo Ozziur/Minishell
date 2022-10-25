@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.h                                              :+:      :+:    :+:   */
+/*   env_utils.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 18:13:21 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/25 16:13:01 by ccantale         ###   ########.fr       */
+/*   Created: 2022/10/24 18:26:45 by ccantale          #+#    #+#             */
+/*   Updated: 2022/10/24 18:33:45 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENV_H
-# define ENV_H
+#ifndef	ENV_UTILS_H
+# define ENV_UTILS_H
 
-// * user defined types //
-# include "../types.h"
-# include "env_types.h"
-# include "../colors.h"
-
-// * user defined modules //
-# include "../utils/utils.h"
-# include "utils/env_utils.h"
-
-void	*env_handler(t_env_handl_opcode opcode, void *argument);
-char	**bindings_list_to_array(t_bindings *env);
+# include "../env.h"
+# include "../env_types.h"
 
 #endif

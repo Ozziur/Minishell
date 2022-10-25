@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.h                                              :+:      :+:    :+:   */
+/*   env_types.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 18:13:21 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/25 16:13:01 by ccantale         ###   ########.fr       */
+/*   Created: 2022/10/24 18:06:22 by ccantale          #+#    #+#             */
+/*   Updated: 2022/10/24 18:09:30 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENV_H
-# define ENV_H
+#ifndef ENV_TYPES_H
+# define ENV_TYPES_H
 
-// * user defined types //
 # include "../types.h"
-# include "env_types.h"
-# include "../colors.h"
 
-// * user defined modules //
-# include "../utils/utils.h"
-# include "utils/env_utils.h"
-
-void	*env_handler(t_env_handl_opcode opcode, void *argument);
-char	**bindings_list_to_array(t_bindings *env);
+typedef enum e_env_hndl_opcode
+{
+	BINDING_UPDATE,
+	BINDING_UNSET,
+	BINDING_GET_VALUE,
+	ENV_RETURN,
+	EXPORT_RETURN,
+	ENV_LIST_TO_ARRAY,
+	ENV_CLEAN,
+	ENV_INITIALIZE,
+	_PRINT_ENV_
+}	t_env_handl_opcode;
 
 #endif

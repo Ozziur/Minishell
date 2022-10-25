@@ -6,7 +6,7 @@
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 18:10:47 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/22 16:07:13 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/25 16:14:50 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	*env_management_cases(t_bindings **env_ref, t_bindings **export_ref,
 					t_env_handl_opcode opcode, void *argument);
 //* end of static declarations
 
-t_bindings	*env_handler(t_env_handl_opcode opcode, void *argument)
+void	*env_handler(t_env_handl_opcode opcode, void *argument)
 {
 	static t_bindings	*env;
 	static t_bindings	*export;
@@ -30,7 +30,7 @@ t_bindings	*env_handler(t_env_handl_opcode opcode, void *argument)
 	}
 	if (opcode == ENV_RETURN
 			|| opcode == EXPORT_RETURN
-			|| opcode == ENV_LIST_TO_ARRRAY)
+			|| opcode == ENV_LIST_TO_ARRAY)
 	{
 		return(env_return_cases(env, export, opcode));
 	}
@@ -58,7 +58,7 @@ static void	*env_return_cases(t_bindings *env, t_bindings *export,
 	{
 		return (export);
 	}
-	else if (opcode == ENV_LIST_TO_ARRRAY)
+	else if (opcode == ENV_LIST_TO_ARRAY)
 	{
 		return ((void *)bindings_list_to_array(env));
 	}

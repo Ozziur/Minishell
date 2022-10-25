@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.h                                              :+:      :+:    :+:   */
+/*   free_split.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 18:13:21 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/25 16:13:01 by ccantale         ###   ########.fr       */
+/*   Created: 2022/10/24 17:45:27 by ccantale          #+#    #+#             */
+/*   Updated: 2022/10/24 17:57:38 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENV_H
-# define ENV_H
+#include "../utils.h"
 
-// * user defined types //
-# include "../types.h"
-# include "env_types.h"
-# include "../colors.h"
+void	free_split(char **split)
+{
+	int	i;
 
-// * user defined modules //
-# include "../utils/utils.h"
-# include "utils/env_utils.h"
-
-void	*env_handler(t_env_handl_opcode opcode, void *argument);
-char	**bindings_list_to_array(t_bindings *env);
-
-#endif
+	i = 0;
+	while (split[i])
+	{
+		ft_freee(split[i]);
+		++i;
+	}
+	ft_free(split);
+}

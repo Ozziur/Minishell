@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.h                                              :+:      :+:    :+:   */
+/*   find_substr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 18:13:21 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/25 16:13:01 by ccantale         ###   ########.fr       */
+/*   Created: 2022/10/24 17:35:32 by ccantale          #+#    #+#             */
+/*   Updated: 2022/10/24 17:44:49 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENV_H
-# define ENV_H
+#include "../utils.h"
 
-// * user defined types //
-# include "../types.h"
-# include "env_types.h"
-# include "../colors.h"
+char	*find_substr(char *str, char *substr)
+{
+	int	i;
+	int	j;
 
-// * user defined modules //
-# include "../utils/utils.h"
-# include "utils/env_utils.h"
-
-void	*env_handler(t_env_handl_opcode opcode, void *argument);
-char	**bindings_list_to_array(t_bindings *env);
-
-#endif
+	if (!str)
+		return (NULL);
+	if (!substr)
+		return (str);
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		while (str[i + j] && substr[j] && str[i + j] == substr[j])
+			++j;
+		if (substr[j] == '\0')
+			return (str[i]);
+		else
+			++i;
+	}
+	return (NULL);
+}
