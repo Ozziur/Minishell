@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:43:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/13 14:51:53 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:24:36 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ char	*ft_strjoin(char *pre, char *post, t_bool free_pre, t_bool free_post);
 size_t	skip_past_char(char *str, size_t offset,
 			char to_skip, int direction);
 char	**ft_split(char const *string, char delimiter);
+int	ft_atoi(char *str);
+char	*ft_itoa(int nbr);
 
 //* memory_utils
 void	*ft_malloc(size_t size);
