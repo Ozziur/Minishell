@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sig_stuff.h                                        :+:      :+:    :+:   */
+/*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 17:39:18 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/25 18:19:11 by mruizzo          ###   ########.fr       */
+/*   Created: 2022/10/25 16:18:59 by mruizzo           #+#    #+#             */
+/*   Updated: 2022/10/25 16:19:06 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SIG_STUFF_H
-# define SIG_STUFF_H
+#ifndef GLOBAL_H
+# define GLOBAL_H
 
-// * user defined types //
-# include "sig_struct.h"
+# include "types.h"
 
-void	sig_handler(int	sig);
-void	sig_ign(int sig);
-void	sig_handling_set(t_sig_handling_opcode opcode);
-void	shell_executor_handler(int sig);
-// void	line_completion_prompt_sig_handler(int signum);
-// void	here_doc_prompt_sig_handler(int signum);
+typedef struct g_global
+{
+	pid_t		pid;
+	int			last_executed_cmd_exit_status;
+	int			stdout_clone;
+}	t_global;
+
+t_global	g_env;
 
 #endif

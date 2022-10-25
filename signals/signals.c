@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:40:20 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/24 18:34:30 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/25 18:01:09 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	sig_handler(int	sig)
 		exit(EXIT_FAILURE);
 	if (sig == SIGINT)
 	{
-		// g_env.last_executed_cmd_exit_status = EXIT_FAILURE;
-		// ft_printf("\n");
-		// rl_replace_line("", 0);                             non esiste nulla di tutto ció 
-		// rl_on_new_line();
-		// rl_redisplay();
+		g_env.last_executed_cmd_exit_status = EXIT_FAILURE;
+		ft_printf("\n");
+		rl_replace_line("", 0);
+		rl_on_new_line();
+		rl_redisplay();
 	}
 	if (sig == SIGTERM)
 		exit(1);
