@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:53:50 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/25 17:44:33 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:33:00 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	set_env(char const **envp)
 static void	set_pid_variable(void)
 {
 	t_pid	pid;
-	char	pid_val_pipe[2];
+	int		pid_val_pipe[2];
 	int		shell_exit_valiue;
 
 	pipe(pid_val_pipe);
