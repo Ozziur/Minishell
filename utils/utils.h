@@ -52,6 +52,9 @@ char	**ft_split(char const *string, char delimiter);
 int	ft_atoi(char *str);
 char	*ft_itoa(int nbr);
 
+//split_utils in str_utils
+void	*ft_split_clear(char **split);
+
 //* memory_utils
 void	*ft_malloc(size_t size);
 void	ft_free(void *ptr);

@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 17:02:43 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/25 18:37:06 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/26 16:29:59 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,14 @@ size_t	env_size(t_bindings *env)
 		++i;
 	}
 	return (i);
+}
+
+void	free_env(t_bindings *head)
+{
+	if (!head)
+		return ;
+	free_env(head->next);
+	free(head->var_name);
+	free(head->var_val);
+	free(head);
 }

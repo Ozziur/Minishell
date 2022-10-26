@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_itoa.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:45:07 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/25 18:24:42 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:46:07 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_atoi_itoa.h"
+#include "../utils.h"
 
 int	ft_atoi(char *str)
 {

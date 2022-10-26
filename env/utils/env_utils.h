@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_utils.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:26:45 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/24 18:33:45 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:30:59 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 # include "../env.h"
 # include "../env_types.h"
+# include "binding_utils.h"
 
 #endif

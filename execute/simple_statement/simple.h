@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   simple.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 17:16:49 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/23 17:26:07 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:57:17 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIMPLE_H
+#ifndef SIMPLE_H
 # define SIMPLE_H
 
 # include <unistd.h>
