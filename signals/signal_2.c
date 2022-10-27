@@ -6,14 +6,22 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:10:58 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/25 18:14:03 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/27 15:43:12 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "signal.h"
+#include "signals.h"
 
 void	sig_ign(int sig)
 {
 	if (sig)
 		;
+}
+
+void	cmd_launcher_sig_handler(int sig)
+{
+	if (sig == SIGINT)
+		g_env.last_executed_cmd_exit_status = 130;
+	if (sig == SIGQUIT)
+		g_env.last_executed_cmd_exit_status = 131;
 }

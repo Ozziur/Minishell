@@ -69,6 +69,6 @@ size_t	scan_cmd_arg(char *cmd_line, size_t offset, t_token **tok_list_ref)
 	token = (t_token *) malloc(sizeof(t_token));
 	token->token_id = e_CMD_ARG;
 	token->token_val = args;
-	tok_add_back(tok_list_ref, token);// da creare (di base creare tutta la tok_utils)
+	tok_add_back(tok_list_ref, token);
 	return (new_offset);
 }
