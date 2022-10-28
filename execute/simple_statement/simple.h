@@ -6,12 +6,14 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 17:16:49 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/27 17:08:08 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/28 15:43:31 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SIMPLE_H
 # define SIMPLE_H
+
+# include <stdlib.h>
 
 # include "../execute_struct.h"
 # include "../../env/env.h"
