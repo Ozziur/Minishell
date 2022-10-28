@@ -6,11 +6,24 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:17:04 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/28 15:51:37 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/28 16:38:20 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "simple.h"
+
+static void	launch_ext_cmd(t_tree_node *root,
+				char *cmd_path, char *cmd_smpl_name,
+				char **args_split)
+{
+	t_bindings	*env;
+
+	env = env_handler(ENV_RETURN, NULL);
+	if (!cmd_path)
+		cmd_not_found(root, cmd_path, cmd_smpl_name, args_split);
+	if (execve(cmd_path, args_split, bindings_list_to_array(env)) == -1)
+		cmd_exe_fail(root, cmd_path, cmd_smpl_name, args_split);//da creare
+}
 
 static void	exe_ext_success_path(t_tree_node *root)
 {
@@ -31,7 +44,7 @@ static void	exe_ext_success_path(t_tree_node *root)
 				ft_strdup(root->content->simple_cmd.cmd_args),
 				e_true, e_true),
 				' ');
-		launch_ext_cmd(root, cmd_path, cmd_smpl_name, args_split);//da creare
+		launch_ext_cmd(root, cmd_path, cmd_smpl_name, args_split);
 	}
 }
 
