@@ -32,7 +32,7 @@ t_tree_node	*parse(void)
 	if (p_status.status == ERROR)
 	{
 		//gestione errori
-		free_tree(&tree);// da creare
+		free_tree(&tree);
 		tokenizer_free();
 	}
 	return (tree);
