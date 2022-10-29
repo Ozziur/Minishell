@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_name_and_path.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:53:49 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/24 18:11:04 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:55:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "../execute.h"
 
 t_bool	is_path_name(char *cmd)
 {
@@ -53,4 +53,29 @@ char	*get_pathname(char *cmd)
 	path = get_actual_path(cmd, env_paths_split);
 	free_split(env_paths_split);
 	return (path);
+}
+
+char	*get_cmd_name(char *cmd)
+{	//da capire meglio in funzione di cmd_expander
+	/*char		*name;
+	int			slash_idx;
+	size_t		i;
+
+	if (!cmd)
+		return (NULL);
+	name = NULL;
+	slash_idx = -1;
+	i = 0;
+	while (cmd[i])
+	{
+		if (cmd[i] == '/')
+			slash_idx = i;
+		i++;
+	}
+	name = ft_strcpy(
+			NULL,
+			cmd + (slash_idx + 1),
+			ft_strlen(cmd) - (slash_idx + 1)
+			);
+	return (name);*/
 }

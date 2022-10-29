@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 17:16:49 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/28 15:43:31 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/29 17:43:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 
+# include "../execute.h"
 # include "../execute_struct.h"
 # include "../../env/env.h"
 # include "../../read/parser/parser_struct.h"
