@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:31:36 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/27 15:43:38 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/10/30 11:55:29 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include "../read/prompt/prompt_stuff.h"
 // # include "../env/env_module.h"
 # include "../utils/utils.h"
-// # include "../global.h"
+# include "../global.h"
 // # include "../read/prompt/here_doc/here_doc_module.h"
 
 // * user defined types //

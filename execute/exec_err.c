@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   exec_err.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 17:13:26 by marvin            #+#    #+#             */
-/*   Updated: 2022/10/29 17:13:26 by marvin           ###   ########.fr       */
+/*   Created: 2022/10/30 11:36:19 by mruizzo           #+#    #+#             */
+/*   Updated: 2022/10/30 11:36:19 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//header da cambiare
 #include "../execute.h"
 
 void	cmd_not_found(t_tree_node *parse_tree,
