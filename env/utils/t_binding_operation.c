@@ -25,8 +25,10 @@ void	binding_add_new(t_bindings **head, t_bindings *new_binding,
 	if (!(*head))
 		binding_add_front(head,new_binding_copy);
 	else if (in_order == e_false)
+		binding_add_back(head, new_binding_copy);
+	else
 		binding_add_in_order(head, new_binding_copy);
-	}
+}
 
 t_bindings	*binding_over_write(t_bindings *head, t_bindings *binding)
 {
@@ -59,6 +61,7 @@ char	*binding_get_value(t_bindings *head, char *name)
 	while (cursor)
 	{
 		if (ft_strcmp(cursor->var_name, name))
+
 			return (cursor->var_val);
 		cursor = cursor->next;
 	}

@@ -1,101 +1,59 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 17:56:32 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/17 17:57:54 by mruizzo          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../utils.h"
 
-static size_t	ft_count_words(char *str, char delimiter)
+char	*splitcpy(char const *str, int *j, char delimiter)
 {
-	size_t	words;
-	t_bool	next_word_found;
+	int		i;
+	char	*new_str;
 
-	next_word_found = e_false;
-	words = 0;
-	while (*str != '\0')
+	i = 0;
+	while (str[i] != delimiter && str[i] != 0)
+		++i;
+	*j += i + 1;
+	new_str = ft_malloc(sizeof(char) * (i + 1));
+	i = 0;
+	while (str[i] != delimiter && str[i] != 0)
 	{
-		if (*str != delimiter && next_word_found == e_false)
-		{
-			words++;
-			next_word_found = e_true;
-		}
-		else if (*str == delimiter)
-		{
-			next_word_found = e_false;
-		}
-		str++;
+		new_str[i] = str[i];
+		++i;
 	}
-	return (words);
+	new_str[i] = 0;
+	return (new_str);
 }
 
-static void	ft_get_split(char *str, char delimiter, char **split)
+int	split_count(char *str, char delimiter)
 {
-	int		split_substr_idx;
+	int	i;
+	int	lines;
 
-	if (!str || !(*split))
-		return ;
-	split_substr_idx = 0;
-	while (*str != '\0')
+	lines = 1;
+	i = 0;
+	while (str[i])
 	{
-		if (*str == delimiter && split_substr_idx > 0)
-		{
-			split_substr_idx = 0;
-			split++;
-		}
-		else if (*str != delimiter)
-		{
-			*(*split + split_substr_idx) = *str;
-			split_substr_idx++;
-		}
-		str++;
+		if (str[i] == delimiter)
+			++lines;
+		++i;
 	}
+	return (lines);
 }
 
-static void	allocate_words(char *str, char delimiter, char **split)
+char	**ft_split(char const *str, char delimiter)
 {
-	size_t	word_len;
-
-	if (!str || !(*split))
-		return ;
-	word_len = 0;
-	while (e_true)
-	{
-		if (*str == delimiter || *str == '\0')
-		{
-			if (word_len > 0)
-			{
-				*split = (char *) ft_malloc((word_len + 1) * sizeof(char));
-				(*split)[word_len] = '\0';
-				word_len = 0;
-				split++;
-			}
-		}
-		else
-			word_len++;
-		if (*str == '\0')
-			break ;
-		str++;
-	}
-}
-
-char	**ft_split(char const *string, char delimiter)
-{
-	size_t	words;
+	int		i;
+	int		j;
+	int		lines;
 	char	**split;
 
-	if (!string)
+	if (!str)
 		return (NULL);
-	words = ft_count_words((char *) string, delimiter);
-	split = (char **) ft_malloc((words + 1) * sizeof(char *));
-	split[words] = NULL;
-	allocate_words((char *)string, delimiter, split);
-	ft_get_split((char *) string, delimiter, split);
+		lines = split_count((char *)str, delimiter);
+	split = ft_malloc(sizeof(char *) * (lines + 1));
+	split[lines] = 0;
+	i = 0;
+	j = 0;
+	while (i < lines)
+	{
+		split[i] = splitcpy(&str[j], &j, delimiter);
+		++i;
+	}
 	return (split);
 }

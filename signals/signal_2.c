@@ -15,7 +15,7 @@
 void	sig_ign(int sig)
 {
 	if (sig)
-		;
+	{}	
 }
 
 void	cmd_launcher_sig_handler(int sig)

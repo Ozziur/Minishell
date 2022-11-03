@@ -3,15 +3,14 @@ piano di battaglia:
 normalizzare Makefile:
 	trovare la voglia
 
-Ho messo in standby la faccenda expander e ho commentato tutto il commentabile per avere un eseguibile dritto.
-Ho fatto in modo che compilasse (fra le altre cose, il mio strdup() era bucato. Che vergogna...), ma adesso
-chiaramente dà problemi, tipo che lo eseguo e non fa nulla. Nulla di visibile, almeno. Let's debug!
+binding_add_new() era incompleta, ma soprattutto avevamo lo split buggato, quindi l'env non si riempiva. Adesso va.
+Chiaramente, dopo aver mostrato il prompt, il programma si chiude al primo comando che gli si dà, però è già qualcosa, dai :)
 
 Michele: 
 Claudio : da fare parse_redir()
 
 report mini debug: just_do_it.c non sto capendo che deve fare
-
+6
 sviluppare echo su una foglia:
 	creazione di un miniprompt ✅
 	tokenizazzione ✅
