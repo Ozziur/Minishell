@@ -20,7 +20,7 @@
 # include <unistd.h>
 
 //* external modules
-# include "../../global.h"
+//# include "../../global.h"
 
 # define PF_STDOUT_SET 0
 # define PF_STDOUT_RESTORE 1

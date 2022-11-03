@@ -22,6 +22,6 @@ typedef struct g_global
 	int			stdout_clone;
 }	t_global;
 
-t_global	g_env;
+extern t_global	g_env;
 
 #endif

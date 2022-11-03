@@ -19,7 +19,7 @@ void	free_split(char **split)
 	i = 0;
 	while (split[i])
 	{
-		ft_freee(split[i]);
+		ft_free(split[i]);
 		++i;
 	}
 	ft_free(split);

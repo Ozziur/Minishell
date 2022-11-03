@@ -51,7 +51,7 @@ char	*get_pathname(char *cmd)
 	if (!env_paths_split)
 		return (NULL);
 	path = get_actual_path(cmd, env_paths_split);
-	free_split(env_paths_split);
+	ft_split_clear(env_paths_split);
 	return (path);
 }
 

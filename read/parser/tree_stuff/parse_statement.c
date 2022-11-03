@@ -32,6 +32,7 @@ t_tree_node	*parse_statement(t_token *token, t_parser_status *p_status)
 {
 	t_node_content	*node_content;
 
+	node_content = NULL;
 	// token = parse_statement_redirs(token, &node_content, parser_status);
 	// if (!token)
 	// 	return (new_tree_node(NULL, node_content, NULL));

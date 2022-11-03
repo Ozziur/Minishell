@@ -28,7 +28,7 @@ char	*find_substr(char *str, char *substr)
 		while (str[i + j] && substr[j] && str[i + j] == substr[j])
 			++j;
 		if (substr[j] == '\0')
-			return (str[i]);
+			return (str + i);
 		else
 			++i;
 	}

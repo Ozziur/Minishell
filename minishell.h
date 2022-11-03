@@ -17,17 +17,21 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <sys/wait.h>
 
 // *stuff module
 # include "read/read_stuff.h"
 # include "signals/sig_stuff.h"
 # include "utils/utils.h"
 # include "env/env.h"
+# include "execute/execute.h"
 
 
 // types
 # include "global.h"
 # include "types.h"
 # include "colors.h"
+
+t_global	g_env;
 
 #endif

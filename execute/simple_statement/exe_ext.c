@@ -33,20 +33,20 @@ static void	exe_ext_success_path(t_tree_node *root)
 	char	*cmd_path;
 	char	**args_split;
 
-	cmd_expand(&root->content->simple_cmd);//da creare
+	//cmd_expand(&root->content->simple_cmd);//da creare
 	if (root->content->simple_cmd.cmd_name == NULL)
 		exit(EXIT_SUCCESS);
 	else
 	{
-		cmd_smpl_name = get_cmd_name(root->content->simple_cmd.cmd_name);//da creare
+		//cmd_smpl_name = get_cmd_name(root->content->simple_cmd.cmd_name);//da creare
 		cmd_path = get_pathname(root->content->simple_cmd.cmd_name);
 		args_split = ft_split(
 			ft_strjoin(
-				ft_strjoin(cmd_smpl_name, " ", e_false, e_false),
+				ft_strjoin(root->content->simple_cmd.cmd_name, " ", e_false, e_false), //sostituito cmd_smpl_name con root->content->simple_cmd.cmd_name. dopo andrà ripristinato
 				ft_strdup(root->content->simple_cmd.cmd_args),
 				e_true, e_true),
 				' ');
-		launch_ext_cmd(root, cmd_path, cmd_smpl_name, args_split);
+		launch_ext_cmd(root, cmd_path, root->content->simple_cmd.cmd_name, args_split); // same here
 	}
 }
 

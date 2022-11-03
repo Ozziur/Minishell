@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../execute.h"
+#include "execute.h"
 
 void	cmd_not_found(t_tree_node *parse_tree,
 			char *cmd_path, char *cmd_smpl_name, char **args_split)

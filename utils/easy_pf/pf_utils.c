@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "printf.h"
+#include <unistd.h>
 
 void	pf_write(const char *c, int *count)
 {

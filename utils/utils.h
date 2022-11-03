@@ -51,6 +51,7 @@ size_t	skip_past_char(char *str, size_t offset,
 char	**ft_split(char const *string, char delimiter);
 int	ft_atoi(char *str);
 char	*ft_itoa(int nbr);
+char	*find_substr(char *str, char *substr);
 
 //split_utils in str_utils
 void	*ft_split_clear(char **split);
