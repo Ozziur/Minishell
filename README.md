@@ -1,19 +1,19 @@
-piano di battaglia: 
+Diari dei monaci marinelliani
+- Claudio, copista del codice espanso
+Anno 1 d.M.
 
-normalizzare Makefile:
-	trovare la voglia
 
-binding_add_new() era incompleta, ma soprattutto avevamo lo split buggato, quindi l'env non si riempiva. Adesso va.
-Chiaramente, dopo aver mostrato il prompt, il programma si chiude al primo comando che gli si dà, però è già qualcosa, dai :)
 
-Michele: iniziato error_hand ma da completare, sono seimila stampe
-		tokenizzatore (dovrebbe) poter riconoscere le variabili d'ambiente 
-Claudio : da fare parse_redir()
+Giorno 1.
 
-report mini debug: just_do_it.c non sto capendo che deve fare
-6
-sviluppare echo su una foglia:
-	creazione di un miniprompt ✅
-	tokenizazzione ✅
-	parser su unica foglia ✅
-	esecutore del comando
+Molti pensieri mi attanagliano. Stanotte non ho dormito.
+Questo expander... L'ho letto con attenzione, io credo...
+Non so, c'è qualcosa di strano. Più lo guardo e più mi 
+sembra che si possa scrivere in modo più semplice.
+
+Ho un pensiero in testa a cui ho paura di cedere.
+L'Altissimo Maestro potrebbe aver scritto questa parte del
+codice con l'intento di fronteggiare situazioni più complesse
+di quelle che interessano noi oggi. Proprio noi, qui e ora,
+intendo. Mi chiedo se... 
+
