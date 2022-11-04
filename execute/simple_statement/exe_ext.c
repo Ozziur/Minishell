@@ -34,7 +34,7 @@ static void	exe_ext_success_path(t_tree_node *root)
 	char	*cmd_path;
 	char	**args_split;
 
-	//cmd_expand(&root->content->simple_cmd);//da creare
+	cmd_expand(&root->content->simple_cmd);
 	if (root->content->simple_cmd.cmd_name == NULL)
 		{			
 			exit(EXIT_SUCCESS);
