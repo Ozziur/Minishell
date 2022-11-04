@@ -60,10 +60,10 @@ void	exe_ext_smpl_cmd(t_tree_node *root, int in, int out)
 	// 	|| ERROR == external_handle_redirs(root->content->out_redir,
 	// 		out, STDOUT_FILENO, e_false))
 	// 	exe_ext_failure_path();
-	if (ft_strncmp(root->content->simple_cmd.cmd_name, "exit", 4) == 0)
+	if (ft_strcmp(root->content->simple_cmd.cmd_name, "exit") == 0)
 	{
 		sig_handling_set(SIG_AT_EXIT);
-		exit(EXIT_SUCCESS);
+		exit(0);
 	}
 	else
 		exe_ext_success_path(root);
