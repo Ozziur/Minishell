@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:53:49 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/23 21:28:58 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/23 23:05:31 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ static char	**return_paths(void)
 
 	paths = (char *) env_handler(BINDING_GET_VALUE, "PATH");
 
-				printf("\n%s\n", paths);
+				// printf("\n%s\n", paths);
 						
-	return (ft_split(paths, ':'));
+	return (dp_split(paths, ':'));
 }
 
 char	*get_pathname(char *cmd)
@@ -81,7 +81,9 @@ char	*get_pathname(char *cmd)
 	if (!env_paths_split)
 		return (NULL);
 								
+							// printmat(env_paths_split);	
 	path = return_path_name(cmd, env_paths_split);
+					// printf("%s",path);
 	ft_splitclear(env_paths_split);
 	return (path);
 }
