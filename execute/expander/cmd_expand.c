@@ -60,7 +60,7 @@ char	*expand_rec(char *to_expand, t_exp_phase phase)
 				expand_segment(to_expand, phase),
 				expand_rec(rest_of_str, phase),
 				e_true, e_true
-			));
+		));
 }
 
 char	*isolate_first_segment(char *to_expand, t_exp_phase phase)
@@ -94,7 +94,9 @@ char	*isolate_macro(char *to_expand, char special)
 	i = 1;
 	while (to_expand[i])
 	{
-		if (special == '$' && (to_expand[i] == ' ' || to_expand[0] == 0))
+		if (special == '$' && (to_expand[i] == ' '
+				|| is_char_to_expand(to_expand[i], e_NORMAL)
+				|| is_char_to_expand(to_expand[i], e_STAR)))
 			return (to_expand + i);
 		else if (special == '$' && to_expand[i] == '$')
 			return (to_expand + i + 1);
