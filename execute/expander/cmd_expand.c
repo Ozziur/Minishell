@@ -27,7 +27,8 @@ char	*expand_rec(char *to_expand)
 
 	if (to_expand == 0 || *to_expand == 0)
 	{
-		return (to_expand);
+		ft_free(to_expand);
+		return (ft_strdup(""));
 	}
 	rest_of_str = 0;
 	rest_of_str = isolate_first_segment(to_expand, rest_of_str);

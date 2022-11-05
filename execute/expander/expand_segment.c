@@ -69,41 +69,11 @@ char	*expand_quotes(char *quoted_str, char type_of_quotes)
 					quoted_str,
 					scroll_to_char(quoted_str, '"'));
 		new_content = carefully_expand_content(quotes_content);
-		free(quotes_content);
 		return (new_content);
 	}
 	else
 		return (ft_strcpy(NULL, quoted_str,
 					scroll_to_char(quoted_str, '\'')));
-}
-
-char	*rm_internal_double_quotes(char *quotes_content)
-{
-	int	i;
-	int	j;
-	int	quotes_nbr;
-	char	*final_str;
-
-	i = 0;
-	while (quotes_content[i])
-	{
-		if (quotes_content[i] == '"')
-			++quotes_nbr;
-		++i;
-	}
-	final_str = ft_malloc(sizeof(char)
-			* (ft_strlen(quotes_content) - quotes_nbr + 1));
-	j = 0;
-	i = 0;
-	while (quotes_content[i])
-	{
-		final_str[j] == quotes_content[i];
-		++i;
-		if (quotes_content[i] != '"')
-			++j;
-	}
-	free(quotes_content);
-	return (final_str);
 }
 
 /*
@@ -132,6 +102,7 @@ char	*carefully_expand_content(char *q_cont)
 						second_chunk,
 						third_chunk);
 		free(first_chunk);
+		free(second_chunk);
 		return (care_fully_expanded_str);
 	}
 	else
@@ -144,9 +115,8 @@ static char	*la_vergognosissima(
 	return (ft_strjoin_a_trois(
 			expand_rec(first_chunk),
 			ft_strjoin_a_trois(
-				"\'",
-				expand_rec(second_chunk),
-				"\'", e_false, e_true, e_false),
+				"\'", expand_rec(second_chunk), "\'",
+				e_false, e_true, e_false),
 			expand_rec(ft_strjoin_a_trois(
 				"\"", third_chunk, "\"",
 				e_false, e_false, e_false)),
@@ -156,13 +126,8 @@ static char	*la_vergognosissima(
 
 static char	*la_vergognosa(char *q_cont, int single_quote_pos)
 {
-	char	*first_chunk;
-
 	if (q_cont[0] == '\'')
-		first_chunk = ft_strdup("");
+		return (ft_strdup(""));
 	else
-		first_chunk = ft_strcpy(NULL, q_cont, single_quote_pos);
-	return (first_chunk);
+		return (ft_strcpy(NULL, q_cont, single_quote_pos));
 }
-
-
