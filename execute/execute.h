@@ -40,6 +40,8 @@
 # include "../colors.h"
 
 // * global variable module //
-// # include "../global.h"
+ # include "../global.h"
+
+void	cmd_expand(t_simple_cmd_node *cmd);
 
 #endif
