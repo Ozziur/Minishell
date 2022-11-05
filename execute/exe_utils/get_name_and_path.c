@@ -64,7 +64,7 @@ static char	**return_paths(void)
 
 	paths = (char *) env_handler(BINDING_GET_VALUE, "PATH");
 
-				// printf("\n%s\n", paths);
+				 //printf("\n%s\n", paths);
 						
 	return (dp_split(paths, ':'));
 }
@@ -80,7 +80,6 @@ char	*get_pathname(char *cmd)
 	env_paths_split = return_paths();
 	if (!env_paths_split)
 		return (NULL);
-								
 							// printmat(env_paths_split);	
 	path = return_path_name(cmd, env_paths_split);
 					// printf("%s",path);

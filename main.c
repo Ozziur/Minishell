@@ -129,8 +129,8 @@ static void	print_signature(void)
 #      #      ####     ##           ####\
     ##        ##    #         #\n\n" RESET);
 	printf(RED "Minishell\n" RESET);
-	printf(CYAN "La storia di" RED " CCantale " CYAN "e" RED " MRuizzo \n" RESET);
-	printf(CYAN "Lode allo Shogun " BOLDYELLBOLDOW "MMarinel " CYAN "che ci ha preceduti\n\n" RESET);
+	printf(CYAN "La storia di" BOLDYELLOW " CCantale " RESET CYAN "e" BOLDYELLOW " MRuizzo \n" RESET);
+	printf(CYAN "Lode allo Shogun " RED "MMarinel " CYAN "che ci ha preceduti\n\n" RESET);
 	// dup2(cur_stdout_backup, STDOUT_FILENO);
 	// close(cur_stdout_backup);
 }
