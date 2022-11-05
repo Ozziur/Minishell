@@ -9,8 +9,6 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 	}
 	cmd->cmd_name = expand(cmd->cmd_name, e_true);
 	cmd->cmd_args = expand(cmd->cmd_args, e_true);
-
-	// qui c'è un while loop che mi devo vedere
 }
 
 /*

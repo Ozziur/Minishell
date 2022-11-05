@@ -40,7 +40,7 @@ void	execute_cmd_builtin(t_simple_cmd_node *cmd)
 {
 	char	*simple_name;
 
-	// cmd_expand(cmd);
+	cmd_expand(cmd);
 	if (cmd->cmd_name == NULL)
 		g_env.last_executed_cmd_exit_status = EXIT_SUCCESS;
 	else

@@ -118,7 +118,7 @@ static void	print_signature(void)
 
 	// cur_stdout_backup = dup(STDOUT_FILENO);
 	// dup2(g_env.stdout_clone, STDOUT_FILENO);
-	printf(YELLOW "I devoti Jita dello Shogun presentano\n\n" RESET);
+	printf(CYAN "I devoti Jita dello Shogun presentano\n\n" RESET);
 	printf(BOLDYELLOW "\
 ########   ######     ######     ######   ##########          #\n\
        #     #                     #      #        #         #  ##########   ######     ######\n\
@@ -128,9 +128,9 @@ static void	print_signature(void)
  ##   #      #           ##        #          ##        ## #         #     ########## ##########\n\
 #      #      ####     ##           ####\
     ##        ##    #         #\n\n" RESET);
-	printf(BOLDYELLOW "Minishell\n" RESET);
-	printf(YELLOW "La storia di CCantale e MRuizzo \n\n" RESET);
-	printf(GREEN "Lode allo Shogun MMarinel che ci ha preceduti\n\n" RESET);
+	printf(RED "Minishell\n" RESET);
+	printf(CYAN "La storia di" RED " CCantale " CYAN "e" RED " MRuizzo \n" RESET);
+	printf(CYAN "Lode allo Shogun " BOLDYELLBOLDOW "MMarinel " CYAN "che ci ha preceduti\n\n" RESET);
 	// dup2(cur_stdout_backup, STDOUT_FILENO);
 	// close(cur_stdout_backup);
 }

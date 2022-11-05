@@ -106,7 +106,7 @@ char	*carefully_expand_content(char *q_cont)
 				single_quote(expand_rec(chunks[1], e_QUOTES_DOLLAR), e_true),
 				expand_rec(quote(chunks[2], e_false), e_QUOTES_DOLLAR),
 				e_true, e_true, e_true);
-		if (*chunks[0])
+		if (q_cont[0] != '\'')
 			free(chunks[0]);
 		free(chunks[1]);
 		return (care_fully_expanded_str);

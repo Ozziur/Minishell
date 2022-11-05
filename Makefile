@@ -12,7 +12,7 @@
 
 CC = @gcc
 CFLAGS = -g #-I -Wall -Werror -Wextra
-READLINE_FLAGS = -L/usr/include -lreadline -L$$HOME/.brew/opt/readline/lib -I $$HOME/.brew/opt/readline/include/readline
+READLINE_FLAGS = -L/usr/lib/x86_64-linux-gnu -lreadline  #-L$$HOME/.brew/opt/readline/lib -I $$HOME/.brew/opt/readline/include/readline
 
 INCLUDES = $(shell find . -name "*.h" -print)
 
@@ -27,7 +27,7 @@ all: .BUILD
 bonus: .BUILD
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(READLINE_FLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(READLINE_FLAGS)
 	@printf "\033[1m\033[32mMinishell Compiled!\n"
 	@echo "\033[0;37m"
 

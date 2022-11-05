@@ -34,14 +34,13 @@ static void	exe_ext_success_path(t_tree_node *root)
 	char	*cmd_path;
 	char	**args_split;
 
-	// cmd_expand(&root->content->simple_cmd);
+	cmd_expand(&root->content->simple_cmd);
 	if (root->content->simple_cmd.cmd_name == NULL)
 		exit(EXIT_SUCCESS);
 	else
 	{
 		cmd_smpl_name = get_cmd_name(root->content->simple_cmd.cmd_name);
 		cmd_path = get_pathname(root->content->simple_cmd.cmd_name);
-																		// printf("\n----->    |%s|\n", cmd_path);
 		args_split = ft_split(
 				ft_strjoin(
 					ft_strjoin(cmd_smpl_name, " ", e_false, e_false),
@@ -67,11 +66,6 @@ void	exe_ext_smpl_cmd(t_tree_node *root, int in, int out)
 			out,
 			STDOUT_FILENO, e_false))
 		exe_ext_failure_path();
-	if (ft_strcmp(root->content->simple_cmd.cmd_name, "exit") == 0)
-	{
-		sig_handling_set(SIG_AT_EXIT);
-		exit(0);
-	}
 	else
 		exe_ext_success_path(root);
 }
