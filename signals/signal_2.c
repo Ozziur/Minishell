@@ -15,7 +15,8 @@
 void	sig_ign(int sig)
 {
 	if (sig)
-		;
+	{
+	}
 }
 
 void	here_doc_prompt_sig_handler(int sig)

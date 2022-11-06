@@ -62,7 +62,7 @@ char	*match(char *path, char *dir_content)
 	char	*match;
 	char	*expanded;
 
-	expanded = NULL;
+	expanded = ft_strdup("");
 	to_expand = get_prefix(path, e_false);
 	i = 0;
 	while (dir_content[i])
@@ -80,7 +80,7 @@ char	*match(char *path, char *dir_content)
 		ft_free(expanded);
 		return (ft_strdup(path));
 	}
-	return (trim_first_last_char(expanded));
+	return (trim_first_last_char(expanded, path));
 }
 
 char	*find_match(char *dir_content, char *to_expand, int *i)

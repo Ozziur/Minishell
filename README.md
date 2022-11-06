@@ -1,3 +1,5 @@
+Diari di un giovane capitano
+=======
 Diario di bordo numero 1#
 I giorni sono diventati uno uguale all'altro e portare a termine il viaggio diventa sempre più dura.
 Secondo le mappe in un paio di settimane dovremmo attraccare al porto ma la ciurma è esausta e anche il più piccolo problema diventa insormontabile.
@@ -26,19 +28,13 @@ Ps. abbiamo mergiato ma non testato
 Diario di bordo numero 6#
 sembra strano a dirsi, ma forse il viaggio si é concluso. prima di arrivare a casa c'é qualcosa da finire. La nave va resa un pó piú presentabile e l'expander leggermente modificato. Non vedo l'ora di traccannare una bottiglia di rum in onore dello shogun e alla faccia di chi ha pensato che questo lavoro sia facile.   
 
-piano di battaglia:
 
-open_brk_node_redir é oggettivamente in un file a cazzo ma la norma rompeva i coglioni
-=======
 Diari dei monaci marinelliani
+=======
 - Claudio, copista del codice espanso
 Anno 1 d.M.
 
 
-potrebbe leakkare sul env, trovato free enve nel prototipo del token e va capito se é un refuso. add_history da warning ma potrebbe essere un problema del pc di casa mia, in lab non ricordo di aver avuto questi problemi.
-
-controllare leaks
-=======
 
 Giorno 1.
 
@@ -49,8 +45,34 @@ sembra che si possa scrivere in modo più semplice.
 
 Ho un pensiero in testa a cui ho paura di cedere.
 L'Altissimo Maestro potrebbe aver scritto questa parte del
-codice con l'intento di fronteggiare situazioni più complesse
+Codice con l'intento di fronteggiare situazioni più complesse
 di quelle che interessano noi oggi. Proprio noi, qui e ora,
 intendo. Mi chiedo se... 
->>>>>>> expander
 
+
+
+Giorno 31.
+
+Un mese è già passato. Sia lode al Maestro Celeste che ci ha
+donato il Sacro Codice, gli sia davvero lode. Non dormo da
+un mese intero. Oh, Grande Maestro, assistimi, se puoi. Fra
+non molto, lo sento, ci incontreremo ancora. Per un mese non
+ho pensato che al tuo scritto perfettissimo e alle sue molte
+diramazioni. Oh, Beato, angelo dai cento nomi, questa cella, 
+che è stata la mia dimora, sarà così il mio ultimo giaciglio.
+A terra, ad accogliermi, soltanto pagine e polvere. Non v'è 
+più cibo né acqua, poiché sono una creatura imperfetta ed ho 
+consumato ogni cosa, in preda ai miei bisogni spasmodici e 
+meschini. Persino le pagine di questo diario, persino quelle 
+la mia fame non ha saputo risparmiarle. Ma i miei codici no,
+mai oserei toccarli. Quelli, anche i più fallimentari, sono
+tutti perfetti, poiché tutti mi sono stati ispirati dal 
+Principe dei Principi, dal Primo fra i Molti, e tutti possono 
+essere raccolti e consultati. Ognuni di essi è insieme erroneo 
+e corretto, torbido e limpido, è come un reato virtuoso, un 
+gesto nobile che non si compie, ma piuttosto si commette. 
+Periò noi monaci li chiamiamo "committi". I committi sono 
+atti di piena fede, gli atti di chi sa che, se si ascolta 
+la voce iscritta del Semprevivo, nessun errore è davvero tale. 
+Ecco. Il momento è giunto. Sono pronto, Maestro, non farmi aspettare. 
+Sono sereno. Per chi conosce la verità, la morte è una cosa piccola.

@@ -35,15 +35,17 @@ char	*remove_invisibles(char *dir_content)
 	char	*new_content;
 
 	new_content = dir_content;
-	++new_content;
+	while (*new_content == ' ')
+		++new_content;
 	while (*new_content == '.')
 	{
 		while (*new_content != ' ')
 			++new_content;
 		++new_content;
 	}
+	new_content = ft_strdup(new_content);
 	ft_free(dir_content);
-	return (ft_strcpy(NULL, new_content, ft_strlen(new_content)));
+	return (new_content);
 }
 
 char	*get_dir_content(char *dir_path)
@@ -71,4 +73,48 @@ char	*get_dir_content(char *dir_path)
 	ft_free(dir_path);
 	dir_content = remove_invisibles(dir_content);
 	return (dir_content);
+}
+
+t_bool	wild_strcmp(char *dir_content, char *to_expand, int prev_cursor)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	if (to_expand[0] == '*')
+		++j;
+	i = 0;
+	while (dir_content[i] && to_expand[j]
+		&& dir_content[i] != ' '
+		&& to_expand[j] != ' '
+		&& to_expand[j] != '*'
+		&& dir_content[i] == to_expand[j])
+	{
+		++i;
+		++j;
+	}
+	if ((to_expand[0] != '*' && prev_cursor > 0 && dir_content[-1] != ' ')
+		|| (to_expand[j] != '*' && dir_content[i] && dir_content[i] != ' ')
+		|| (to_expand[j] && to_expand[j] != ' ' && to_expand[j] != '*'))
+		return (e_false);
+	else
+		return (e_true);
+}
+
+char	*trim_first_last_char(char *str, char *path)
+{
+	int		i;
+	char	*new_str;
+
+	if (!str || !*str)
+		return (str);
+	i = 0;
+	while (str[i])
+		++i;
+	if (i > 0 && str[i - 1] == ' ' && path[ft_strlen(path) - 1] != ' ')
+		new_str = ft_strcpy(NULL, str + 1, ft_strlen(str + 1) - 1);
+	else
+		new_str = ft_strcpy(NULL, str + 1, ft_strlen(str + 1));
+	ft_free(str);
+	return (new_str);
 }

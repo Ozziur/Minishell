@@ -33,7 +33,8 @@ t_node_content	*parse_env_statement(t_token *token,
 					t_parser_status *p_status)
 {
 	if (p_status)
-		;
+	{
+	}
 	node_content->content_type = ENV_STATEMENT;
 	node_content->env_decl.set = (token->token_id == e_ENV_VAR_DECL);
 	node_content->env_decl.bindings = (t_bindings *)token->token_val;

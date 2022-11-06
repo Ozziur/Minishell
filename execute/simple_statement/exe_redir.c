@@ -79,7 +79,8 @@ void	execute_redir_only_statement(t_tree_node *root,
 	}
 	g_env.last_executed_cmd_exit_status = EXIT_SUCCESS;
 	if (in || out)
-		;
+	{
+	}
 }
 
 t_status	builtin_handle_redirs(t_redirection redir, int cur_in_out,
