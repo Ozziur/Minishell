@@ -71,8 +71,8 @@ Principe dei Principi, dal Primo fra i Molti, e tutti possono
 essere raccolti e consultati. Ognuni di essi è insieme erroneo 
 e corretto, torbido e limpido, è come un reato virtuoso, un 
 gesto nobile che non si compie, ma piuttosto si commette. 
-Periò noi monaci li chiamiamo "committi". I committi sono 
+Perciò noi monaci li chiamiamo "committi". I committi sono 
 atti di piena fede, gli atti di chi sa che, se si ascolta 
 la voce iscritta del Semprevivo, nessun errore è davvero tale. 
-Ecco. Il momento è giunto. Sono pronto, Maestro, non farmi aspettare. 
+Ecco, il momento è giunto. Sono pronto, Maestro, non farmi aspettare. 
 Sono sereno. Per chi conosce la verità, la morte è una cosa piccola.
