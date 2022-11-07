@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binding_utils.h                                    :+:      :+:    :+:   */
+/*   t_binding_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 17:14:36 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/07 14:04:20 by mruizzo          ###   ########.fr       */
+/*   Created: 2022/11/07 14:03:09 by mruizzo           #+#    #+#             */
+/*   Updated: 2022/11/07 14:03:39 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BINDING_UTILS_H
-# define BINDING_UTILS_H
+#include "env_utils.h"
 
-# include "../env.h"
+size_t	bindings_len(t_bindings *head)
+{
+	size_t	j;
 
-void		*ft_malloc(size_t size);
-void		free_env(t_bindings *head);
-t_bindings	*get_new_binding(char *var_name, char *var_val, t_bool concat);
-void		copy_env(char **envp);
-char		*binding_get_value(t_bindings *head, char *name);
-t_bool		binding_exist(t_bindings *head, t_bindings *binding);
-size_t		bindings_len(t_bindings *head);
+	j = 0;
+	while (head)
+	{
+		j++;
+		head = head->next;
+	}
+	return (j);
+}
 
-#endif
+t_bool	binding_exist(t_bindings *head, t_bindings *binding)
+{
+	t_bindings	*cur;
+
+	cur = head;
+	while (cur)
+	{
+		if (0 == ft_strcmp(cur->var_name, binding->var_name))
+			return (e_true);
+		cur = cur->next;
+	}
+	return (e_false);
+}

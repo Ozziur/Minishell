@@ -18,3 +18,8 @@ char	*ft_strdup(char *str)
 	return (new_str);
 }
 
+void	ft_str_replace(char **str, char *new)
+{
+	ft_free(*str);
+	*str = ft_strdup(new);
+}

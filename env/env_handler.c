@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 18:10:47 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/07 13:03:33 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/07 14:07:30 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,18 +86,18 @@ static void	env_management_cases(t_bindings **env_ref, t_bindings **export_ref,
 static void	*env_operations_cases(t_bindings **env_ref, t_bindings **export_ref,
 				t_env_handl_opcode opcode, void *argument)
 {
-	// if(opcode == BINDING_UPDATE)
-	// {
-	// 	if (binding_exist(*env_ref, argument) == e_true)
-	// 	{
-	// 		binding_over_write(*env_ref, argument);
-	// 		binding_over_write(*export_ref, argument);
-	// 	}
-	// 	else
-	// 	{
-	// 		binding_add_new(env_ref, argument, e_false);
-	// 		binding_add_new(export_ref, argument, e_true);
-	// 	}
+	if(opcode == BINDING_UPDATE)
+	{
+		if (binding_exist(*env_ref, argument) == e_true) 
+		{
+			binding_over_write(*env_ref, argument);//da creare
+			binding_over_write(*export_ref, argument);
+		}
+		else
+		{
+			binding_add_new(env_ref, argument, e_false);//da creare
+			binding_add_new(export_ref, argument, e_true);
+		}
 	// 	free_binding(argument);
 	// }
 	// if (opcode == BINDING_UNSET)
