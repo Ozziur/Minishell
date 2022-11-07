@@ -12,6 +12,15 @@
 
 #include "minishell.h"
 
+//////////
+
+void debug(char	*x)
+{
+
+	printf("\n///////////\n%s \n///////////\n ", x);
+}
+
+
 static void	set_pid_variable(void);
 static void	set_env(char const **envp);
 
@@ -47,20 +56,18 @@ static void	set_env(char const **envp)
 	env_handler(ENV_INITIALIZE, (char **)envp);
 	set_pid_variable();
 	printf("my pid is %d\n", g_env.pid);
-	
 	cur_shell_lvl = ft_atoi(env_handler(BINDING_GET_VALUE, "SHLVL"));
-
-	// new_shell_lvl_string = ft_itoa(cur_shell_lvl + 1);
-	// env_handler(BINDING_UPDATE,
-	// 		get_new_binding("SHLVL", new_shell_lvl_string, e_false));
-	// free(new_shell_lvl_string);
-	// if (env_handler(BINDING_GET_VALUE, "minishell_first_call_set") == NULL)
-	// {
-	// 	env_handler(BINDING_UPDATE,
-	// 			get_new_binding("minishell_fiirst_call_set", "1", e_false));
-	// 	g_env.stdout_clone = dup(STDOUT_FILENO);
-	// }
-	// g_env.last_executed_cmd_exit_status = EXIT_SUCCESS;
+	new_shell_lvl_string = ft_itoa(cur_shell_lvl + 1);
+	env_handler(BINDING_UPDATE,
+			get_new_binding("SHLVL", new_shell_lvl_string, e_false));
+	free(new_shell_lvl_string);
+	if (env_handler(BINDING_GET_VALUE, "minishell_first_call_set") == NULL)
+	{
+		env_handler(BINDING_UPDATE,
+				get_new_binding("minishell_fiirst_call_set", "1", e_false));
+		g_env.stdout_clone = dup(STDOUT_FILENO);
+	}
+	g_env.last_executed_cmd_exit_status = EXIT_SUCCESS;
 }
 		
 static void	set_pid_variable(void)
