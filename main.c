@@ -14,13 +14,6 @@
 
 static void	set_pid_variable(void);
 static void	set_env(char const **envp);
-//////////
-
-void debug(char	*x)
-{
-
-	printf("\n///////////\n%s \n///////////\n ", x);
-}
 
 int	main(int argc, char const **argv, char const **envp)
 {

@@ -6,11 +6,21 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 18:10:47 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/07 16:03:16 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/07 16:14:10 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
+
+//////////
+
+void debug(char	*x)
+{
+
+	printf("\n///////////\n%s \n///////////\n ", x);
+}
+
+
 
 static void	*env_return_cases(t_bindings *env, t_bindings *export,
 					t_env_handl_opcode opcode);
@@ -46,6 +56,7 @@ void	*env_handler(t_env_handl_opcode opcode, void *argument)
 	// {
 	// 	return (debug_cases(env, export, opcode, argument));
 	// }
+							debug("porco dio 1");
 	return (NULL);
 }
 
@@ -98,16 +109,16 @@ static void	*env_operations_cases(t_bindings **env_ref, t_bindings **export_ref,
 			binding_add_new(env_ref, argument, e_false);
 			binding_add_new(export_ref, argument, e_true);
 		}
-		free_binding(argument);//da creare
+		free_binding(argument);
 	// }
 	// if (opcode == BINDING_UNSET)
 	// {
 	// 	binding_remove(env_ref, ((t_bindings *) argument)->var_name);
 	// 	binding_remove(export_ref, ((t_bindings *) argument)->var_name);
 	// }
-	// 	if (opcode == BINDING_GET_VALUE)
-	// {
-	// // 	return (binding_get_value(*env_ref, argument));
+		if (opcode == BINDING_GET_VALUE)
+	{
+		return (binding_get_value(*env_ref, argument));
 	}
 	return (NULL);
 }				
