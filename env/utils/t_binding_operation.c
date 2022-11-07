@@ -6,11 +6,17 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:49:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/07 14:24:43 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/07 15:07:24 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env_utils.h"
+
+void	binding_add_new(t_bindings **head, t_bindings *new_binding,
+			t_bool in_order)
+{
+	t_bindings
+}
 
 t_bindings	*binding_over_write(t_bindings *head, t_bindings *binding)
 {
