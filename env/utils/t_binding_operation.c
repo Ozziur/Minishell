@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:49:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/07 15:07:24 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/07 15:09:23 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 void	binding_add_new(t_bindings **head, t_bindings *new_binding,
 			t_bool in_order)
 {
-	t_bindings
-}
+	t_bindings	*cursor;
+	t_bindings	*new_binding_copy;
+	
+	new_binding_copy
+	}
 
 t_bindings	*binding_over_write(t_bindings *head, t_bindings *binding)
 {
