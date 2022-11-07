@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 18:10:47 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/07 16:03:16 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/07 16:08:14 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ static void	*env_operations_cases(t_bindings **env_ref, t_bindings **export_ref,
 			binding_add_new(env_ref, argument, e_false);
 			binding_add_new(export_ref, argument, e_true);
 		}
-		free_binding(argument);//da creare
+		free_binding(argument);
 	// }
 	// if (opcode == BINDING_UNSET)
 	// {
