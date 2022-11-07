@@ -53,6 +53,7 @@ int		ft_atoi(char *str);
 char	*ft_itoa(int nbr);
 char	*find_substr(char *str, char *substr);
 int		ft_strcmp(const char *s1, const char *s2);
+void	ft_str_replace(char **str, char *new);
 
 //split_utils in str_utils
 void	*ft_split_clear(char **split);
