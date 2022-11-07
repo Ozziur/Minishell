@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:49:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/07 15:09:23 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/07 15:26:52 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,14 @@ void	binding_add_new(t_bindings **head, t_bindings *new_binding,
 	t_bindings	*cursor;
 	t_bindings	*new_binding_copy;
 	
-	new_binding_copy
+	new_binding_copy = get_new_binding(
+		new_binding->var_name,
+		new_binding->var_val,
+		new_binding->concat_mode);
+	if (!(*head))
+		binding_add_front(head,new_binding_copy);//da creare
+	else if (in_order == e_false)
+		binding_add_in_order(head, new_binding_copy);//da creare
 	}
 
 t_bindings	*binding_over_write(t_bindings *head, t_bindings *binding)
