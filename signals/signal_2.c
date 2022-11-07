@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:10:58 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/27 15:43:12 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/07 11:29:25 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sig_ign(int sig)
 {
 	if (sig)
-	{}
+		;
 }
 
 void	cmd_launcher_sig_handler(int sig)

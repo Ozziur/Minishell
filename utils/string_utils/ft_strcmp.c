@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binding_utils.h                                    :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 17:14:36 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/07 13:00:54 by mruizzo          ###   ########.fr       */
+/*   Created: 2022/11/07 12:56:29 by mruizzo           #+#    #+#             */
+/*   Updated: 2022/11/07 12:57:03 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BINDING_UTILS_H
-# define BINDING_UTILS_H
+#include "../utils.h"
 
-# include "../env.h"
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	i;
 
-void		*ft_malloc(size_t size);
-void		free_env(t_bindings *head);
-t_bindings	*get_new_binding(char *var_name, char *var_val, t_bool concat);
-void		copy_env(char **envp);
-char	*binding_get_value(t_bindings *head, char *name);
-
-#endif
+	if (!s1 || !s2)
+		return (1);
+	i = 0;
+	while (e_true)
+	{
+		if (s1[i] == '\0' || s2[i] == '\0'
+			|| s1[i] != s2[i])
+			break ;
+		i++;
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}

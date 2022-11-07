@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:45:07 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/26 16:46:07 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/07 11:10:52 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(char *str)
 
 	result = 0;
 	i = 0;
-	while (str[i] = ' ')
+	while (str[i] == ' ')
 		++i;
 	while (str[i] >= '0' && str[i] <= '9')
 	{

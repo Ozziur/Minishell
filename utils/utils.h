@@ -49,9 +49,10 @@ char	*ft_strjoin(char *pre, char *post, t_bool free_pre, t_bool free_post);
 size_t	skip_past_char(char *str, size_t offset,
 			char to_skip, int direction);
 char	**ft_split(char const *string, char delimiter);
-int	ft_atoi(char *str);
+int		ft_atoi(char *str);
 char	*ft_itoa(int nbr);
 char	*find_substr(char *str, char *substr);
+int		ft_strcmp(const char *s1, const char *s2);
 
 //split_utils in str_utils
 void	*ft_split_clear(char **split);

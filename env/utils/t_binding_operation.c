@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binding_utils.h                                    :+:      :+:    :+:   */
+/*   t_binding_operation.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 17:14:36 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/07 13:00:54 by mruizzo          ###   ########.fr       */
+/*   Created: 2022/11/07 12:49:05 by mruizzo           #+#    #+#             */
+/*   Updated: 2022/11/07 12:59:17 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BINDING_UTILS_H
-# define BINDING_UTILS_H
+#include "env_utils.h"
 
-# include "../env.h"
+char	*binding_get_value(t_bindings *head, char *name)
+{
+	t_bindings	*cursor;
 
-void		*ft_malloc(size_t size);
-void		free_env(t_bindings *head);
-t_bindings	*get_new_binding(char *var_name, char *var_val, t_bool concat);
-void		copy_env(char **envp);
-char	*binding_get_value(t_bindings *head, char *name);
-
-#endif
+	cursor = head;
+	while (cursor)
+	{
+		if (ft_strcmp(cursor->var_name, name))
+			return (cursor->var_val);
+		cursor = cursor->next;
+	}
+	return (NULL);
+}

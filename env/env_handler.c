@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 18:10:47 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/25 18:37:42 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/07 13:03:33 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static void	*env_return_cases(t_bindings *env, t_bindings *export,
 					t_env_handl_opcode opcode);
 static void	env_management_cases(t_bindings **env_ref, t_bindings **export_ref,
 					t_env_handl_opcode opcode, void *argument);
+static void	*env_operations_cases(t_bindings **env_ref, t_bindings **export_ref,
+				t_env_handl_opcode opcode, void *argument);
 //* end of static declarations
 
 void	*env_handler(t_env_handl_opcode opcode, void *argument)
@@ -34,16 +36,16 @@ void	*env_handler(t_env_handl_opcode opcode, void *argument)
 	{
 		return(env_return_cases(env, export, opcode));
 	}
-	/*if (opcode == BINDING_UPDATE
+	if (opcode == BINDING_UPDATE
 			|| opcode == BINDING_UNSET
 			|| opcode == BINDING_GET_VALUE)
 	{
 		return (env_operations_cases(&env, &export, opcode, argument));
 	}
-	if (opcode == _PRINT_ENV_)
-	{
-		return (debug_cases(env, export, opcode, argument));
-	}*/
+	// if (opcode == _PRINT_ENV_)
+	// {
+	// 	return (debug_cases(env, export, opcode, argument));
+	// }
 	return (NULL);
 }
 
@@ -80,3 +82,32 @@ static void	env_management_cases(t_bindings **env_ref, t_bindings **export_ref,
 		*export_ref = NULL;
 	}
 }
+
+static void	*env_operations_cases(t_bindings **env_ref, t_bindings **export_ref,
+				t_env_handl_opcode opcode, void *argument)
+{
+	// if(opcode == BINDING_UPDATE)
+	// {
+	// 	if (binding_exist(*env_ref, argument) == e_true)
+	// 	{
+	// 		binding_over_write(*env_ref, argument);
+	// 		binding_over_write(*export_ref, argument);
+	// 	}
+	// 	else
+	// 	{
+	// 		binding_add_new(env_ref, argument, e_false);
+	// 		binding_add_new(export_ref, argument, e_true);
+	// 	}
+	// 	free_binding(argument);
+	// }
+	// if (opcode == BINDING_UNSET)
+	// {
+	// 	binding_remove(env_ref, ((t_bindings *) argument)->var_name);
+	// 	binding_remove(export_ref, ((t_bindings *) argument)->var_name);
+	// }
+		if (opcode == BINDING_GET_VALUE)
+	{
+		return (binding_get_value(*env_ref, argument));
+	}
+	return (NULL);
+}				

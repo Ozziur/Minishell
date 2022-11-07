@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC = @gcc
-CFLAGS = -I -Wall -Werror -Wextra -g
+CFLAGS = #-I -Wall -Werror -Wextra -g
 READLINE_FLAGS = -L/usr/include -lreadline -L$$HOME/.brew/opt/readline/lib -I $$HOME/.brew/opt/readline/include/readline
 
 INCLUDES = $(shell find . -name "*.h" -print)
