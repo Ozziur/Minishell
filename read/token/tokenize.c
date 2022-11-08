@@ -17,18 +17,18 @@ static t_token	*tokenize(char	*command_line)
 	t_token	*token_list;
 
 	token_list = NULL;
-	// if (occ_outside_quotes(command_line, '\'') % 2 != 0
-	// 	|| occ_outside_quotes(command_line, '"') % 2 != 0
-	// 	|| occ_outside_quotes(command_line, '(')				gestione errori ,da studiare capire ed implementare
-	// 	!= occ_outside_quotes(command_line, ')')
-	// )
-	// {
-	// 	put_error(TOK_UNBALANCED_ERROR, 258, NULL);
-	// }
-	// else
-	// {
+	if (occ_outside_quotes(command_line, '\'') % 2 != 0
+		|| occ_outside_quotes(command_line, '"') % 2 != 0
+		|| occ_outside_quotes(command_line, '(')
+		!= occ_outside_quotes(command_line, ')')
+	)
+	{
+		put_error(TOK_UNBALANCED_ERROR, 258, NULL);
+	}
+	else
+	{
 		scan(command_line, &token_list);
-	// }
+	}
 	return (token_list);
 }
 
