@@ -24,18 +24,18 @@ size_t	scan_env_declaration(char *str, size_t offset, t_token **token_list)
 	{
 		next_var = NULL;
 		// new_offset = scan_redirs(str, new_offset, token_list);
-		new_offset = scan_var(str, new_offset, token->token_id, &next_var);//da creare
+		new_offset = scan_var(str, new_offset, token->token_id, &next_var);
 		if (!next_var)
 			break ;
 		else if (str[new_offset]
 			&& bash_control_character(str[new_offset] == e_false))
-			return (scan_env_revert(token, offset));//da creare
+			return (scan_env_revert(token, offset));
 		else
-			env_tok_add_new_binding(&token, next_var);// da creare
+			env_tok_add_new_binding(&token, next_var);
 	}
 	if (token->token_id == e_ENV_VAR_DECL && token->token_val == NULL)
-		return (scan_env_revert(token, token_list));
-	tok_add_back(token_list, token);//env_dec_add_token sostituito da questa funzione
+		return (scan_env_revert(token, offset));
+	tok_add_back(token_list, token);//env_decl_add_token sostituito da questa funzione
 	return (new_offset);	
 }
 

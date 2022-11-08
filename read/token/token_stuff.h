@@ -41,5 +41,10 @@ size_t	scan_initial_keyword_set_token(char *str, size_t offset,
 size_t	scan_var(char *str, size_t offset,
 			t_token_id tok_type, t_bindings **next_var);
 size_t	scan_var_name(char *str, size_t offset, char **name);
+size_t scan_env_revert(t_token *token, size_t offset);
+size_t	occ_outside_quotes(char *str, char to_count);
+size_t	scan_var_mode(char *command_line, size_t offset, t_bool *concat_mode);
+size_t	scan_var_value(char *str, size_t offset, char **value,
+	t_bool *concat_mode);
 
 #endif

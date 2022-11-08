@@ -28,3 +28,10 @@ void	tok_add_back(t_token **token_list, t_token *token)
 	}
 	tail->next = NULL;
 }
+
+void	env_tok_add_new_binding(t_token **token_ref,
+		t_bindings *next_binding)
+{
+	next_binding->next = (t_bindings *)(*token_ref)->token_val;
+	(*token_ref)->token_val = next_binding;
+}

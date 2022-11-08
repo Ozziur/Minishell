@@ -25,7 +25,7 @@ static size_t	scan_body(char *cmd_line, size_t offset, t_token **tok_list_ref)
 {
 	offset = scan_invariants(cmd_line, offset);
 	if (e_true == is_env_statement(cmd_line, offset))
-		return (scan_env_declaration(cmd_line, offset, tok_list_ref));//da creare
+		return (scan_env_declaration(cmd_line, offset, tok_list_ref));
 	else
 		return (scan_simple_command(cmd_line, offset, tok_list_ref));
 }

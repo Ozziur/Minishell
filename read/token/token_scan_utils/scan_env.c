@@ -6,11 +6,27 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:36:49 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/08 16:19:07 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/08 17:16:18 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tokenize.h"
+
+size_t scan_env_revert(t_token *token, size_t offset)
+{
+	t_bindings *cur;
+	t_bindings *prev;
+
+	cur = (t_bindings *) token->token_val;
+	while (cur)
+	{
+		prev = cur;
+		cur = cur->next;
+		free(prev);
+	}
+	free(token);
+	return (offset);
+}
 
 size_t	scan_var_name(char *str, size_t offset, char **name)
 {
@@ -48,11 +64,11 @@ size_t	scan_var(char *str, size_t offset,
 	concat_mode = e_false;
 	var_name = NULL;
 	var_value = NULL;
-	new_offset = scan_var_name(str, offset, &var_name);//da creare
+	new_offset = scan_var_name(str, offset, &var_name);
 	if (!var_name)
 		return (offset);
 	if (tok_type == e_ENV_VAR_DECL)
-		new_offset = scan_var_value(str, new_offset, &var_value, &concat_mode);//da creare
+		new_offset = scan_var_value(str, new_offset, &var_value, &concat_mode);
 	(*next_var) = (t_bindings *) malloc(sizeof(t_bindings));
 	(*next_var)->var_name =  var_name;
 	(*next_var)->var_val = var_value;

@@ -3,14 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   find_substr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:35:32 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/24 17:44:49 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:22:03 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../utils.h"
+
+char	*ft_substr(char *str, char delimiter)
+{
+	char	*substr;
+	size_t	len_substr;
+
+	substr = NULL;
+	len_substr = 0;
+	while (str[len_substr])
+	{
+		if (str[len_substr] == delimiter)
+			break ;
+		len_substr++;
+	}
+	if (len_substr == 0)
+		return (NULL);
+	substr = ft_strcpy(substr, str, len_substr);
+	return (substr);
+}
 
 char	*find_substr(char *str, char *substr)
 {

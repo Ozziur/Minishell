@@ -18,11 +18,18 @@
 # include "../../../utils/utils.h"
 # include "../token_struct.h"
 # include "../../../types.h"
-// # include "../../../global.h"
-// # include "../../../env/env_utils/env_utils.h"
+# include "../../../global.h"
+# include "../../../env/utils/env_utils.h"
 
 //tok_mem_utils
 void	tok_add_back(t_token **token_list, t_token *token);
+void	env_tok_add_new_binding(t_token **token_ref,
+		t_bindings *next_binding);
+t_bool	is_env_statement(char *command_line, size_t offset);
 
+//scan
+size_t	scan_spaces(char *str, size_t offset);
+size_t	scan_invariant_quotes(char *str, size_t offset);
+size_t	scan_invariants(char *str, size_t offset);
 
 #endif
