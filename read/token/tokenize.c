@@ -23,7 +23,7 @@ static t_token	*tokenize(char	*command_line)
 		!= occ_outside_quotes(command_line, ')')
 	)
 	{
-		put_error(TOK_UNBALANCED_ERROR, 258, NULL);
+		put_error(TOK_UNBALANCED_ERROR, 258, NULL);//da finire
 	}
 	else
 	{
@@ -43,10 +43,7 @@ static void	*tokenizer(char *cmd_line, t_op_code op_code)
 
 	if (op_code == e_READ_INPUT)
 	{
-		// printf("$   %s\n", cmd_line);
 		token_list = tokenize(cmd_line);
-			// printf("jnjhkjkjkjk\n\n%s   \n",  token_list->token_val);
-
 		current_token = token_list;
 	}
 	if (op_code == e_NEXT_TOKEN)

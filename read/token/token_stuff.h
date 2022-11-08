@@ -35,5 +35,11 @@ size_t	scan_next_arg(char *cmd_line, size_t offset,
 size_t	scan_cmd_arg(char *cmd_line, size_t offset, t_token **tok_list_ref);
 void	free_token_list(t_token **list);
 void	scan(char *cmd_line, t_token **tok_list_ref);
+size_t	scan_env_declaration(char *str, size_t offset, t_token **token_list);
+size_t	scan_initial_keyword_set_token(char *str, size_t offset,
+			t_token **token);
+size_t	scan_var(char *str, size_t offset,
+			t_token_id tok_type, t_bindings **next_var);
+size_t	scan_var_name(char *str, size_t offset, char **name);
 
 #endif

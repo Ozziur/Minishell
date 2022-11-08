@@ -39,7 +39,9 @@ void set_error(t_status *status);
 //* is something
 t_bool	ft_isspace(char c);
 t_bool	ft_is_quote(char c);
+t_bool	char_is_alpha(char c);
 t_bool	bash_control_character(char c);
+t_bool	char_is_digit(char c);
 
 //* str_utils
 char	*ft_strcpy(char *buf, char *src, int copy_len);

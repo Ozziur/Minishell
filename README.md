@@ -6,7 +6,7 @@ normalizzare Makefile:
 binding_add_new() era incompleta, ma soprattutto avevamo lo split buggato, quindi l'env non si riempiva. Adesso va.
 Chiaramente, dopo aver mostrato il prompt, il programma si chiude al primo comando che gli si dà, però è già qualcosa, dai :)
 
-Michele: 
+Michele: iniziato error_hand ma da completare, sono seimila stampe
 Claudio : da fare parse_redir()
 
 report mini debug: just_do_it.c non sto capendo che deve fare

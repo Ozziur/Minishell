@@ -24,9 +24,9 @@ static size_t	scan_head(char *cmd_line, size_t offset, t_token **tok_list_ref)
 static size_t	scan_body(char *cmd_line, size_t offset, t_token **tok_list_ref)
 {
 	offset = scan_invariants(cmd_line, offset);
-	// if (e_true == is_env_statement(cmd_line, offset))
-	// 	return (scan_env_declaration(cmd_line, offset, tok_list_ref));
-	// else
+	if (e_true == is_env_statement(cmd_line, offset))
+		return (scan_env_declaration(cmd_line, offset, tok_list_ref));//da creare
+	else
 		return (scan_simple_command(cmd_line, offset, tok_list_ref));
 }
 
@@ -63,9 +63,8 @@ void	scan(char *cmd_line, t_token **tok_list_ref)
 		}
 		if (offset < ft_strlen(cmd_line))
 		{
-			// put_error(TOK_NOT_RECOGNIZED_ERROR, 258, command_line + offset);
+			put_error(TOK_NOT_RECOGNIZED_ERROR, 258, cmd_line + offset);
 			free_token_list(tok_list_ref);
-			exit(0); //rimuovere
 		}
 	}
 }

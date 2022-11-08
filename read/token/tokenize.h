@@ -16,12 +16,14 @@
 // * standard libraries //
 # include <stdlib.h>
 # include <unistd.h>
+#include <stdio.h>
 
 // * types //
-//# include "../../global.h"
+# include "../../global.h"
 # include "token_struct.h"
 # include "../../types.h"
 # include "token_stuff.h"
+# include "../../error_hand/error_hand.h"
 
 # include "../../utils/utils.h"
 # include "tok_utils/tok_utils.h"
