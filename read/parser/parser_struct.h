@@ -32,8 +32,23 @@ typedef struct s_braket_node			t_braket_node;
 typedef struct s_redirection			t_redirection;
 typedef struct s_simple_command_node	t_simple_cmd_node;
 typedef struct s_node_content			t_node_content;
+typedef struct s_env_decl_node			t_env_decl_node;
+typedef struct s_operator_node			t_operator_node;
+typedef enum e_operator					t_operator;
 
 //* creation
+
+enum e_operator
+{
+	e_PIPE,
+	e_OR,
+	e_AND
+};
+
+struct s_operator_node
+{
+	t_operator	operator;
+};
 
 struct	s_redirection
 {
@@ -69,6 +84,12 @@ struct s_parser_status
 	int			last_read_tok_pos;
 };
 
+struct s_env_decl_node
+{
+	t_bool		set;
+	t_bindings	*bindings;
+};
+
 struct	s_node_content
 {
 	t_redirection		in_redir;
@@ -76,8 +97,8 @@ struct	s_node_content
 	short				content_type;
 	t_braket_node		braket_node;
 	t_simple_cmd_node	simple_cmd;
-	// t_env_decl_node		env_decl;
-	//t_operator_node		operator_node;
+	t_env_decl_node		env_decl;
+	t_operator_node		operator_node;
 };
 
 struct s_tree_node

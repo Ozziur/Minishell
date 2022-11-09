@@ -41,7 +41,7 @@ t_tree_node	*parse_leaf(t_parser_status *p_status)
 	 {
 	 	p_status->open.parenthesis += 1;
 	 	// bracket = new_tree_node(
-	 	// 		NULL,
+	 			// NULL,
 	 	// 		parse_sub_tree(p_status),
 	 	// 		NULL
 	 	// 		);

@@ -28,28 +28,41 @@ static t_node_content	*parse_simple_command(t_token *token,
 	return (node_content);
 }
 
+t_node_content	*parse_env_statement(t_token *token,
+					t_node_content *node_content,
+					t_parser_status *p_status)
+{
+	// if (p_status)
+	// 	;
+	node_content->content_type = ENV_STATEMENT;
+	node_content->env_decl.set = (token->token_id == e_ENV_VAR_DECL);
+	node_content->env_decl.bindings = (t_bindings *)token->token_val;
+	token->token_val = NULL;
+	return (node_content); 
+}
+
 t_tree_node	*parse_statement(t_token *token, t_parser_status *p_status)
 {
 	t_node_content	*node_content;
 
 	node_content = NULL;
 	// token = parse_statement_redirs(token, &node_content, parser_status);
-	// if (!token)
-	// 	return (new_tree_node(NULL, node_content, NULL));
-	// else
-	// {
+	if (!token)
+		return (new_tree_node(NULL, node_content, NULL));
+	else
+	{
 			if (token->token_id == e_CMD_NAME || token->token_id == e_CMD_ARG)
 				return (new_tree_node(NULL,
 				parse_simple_command(token, node_content, p_status), //da creare
 				NULL));
-		// 	else if (token->token_id == e_ENV_VAR_DECL
-		// 	|| token->token_id == e_ENV_VAR_UNSET)
-		// 	return (new_tree_node(NULL,
-		// 			parse_env_statement(token, node_content, parser_status),
-		// 			NULL));
-		// ft_free(node_content->in_redir.file_name);
-		// ft_free(node_content->out_redir.file_name);
-		// free(node_content);
+			else if (token->token_id == e_ENV_VAR_DECL
+			|| token->token_id == e_ENV_VAR_UNSET)
+			return (new_tree_node(NULL,
+					parse_env_statement(token, node_content, p_status),
+					NULL));
+		ft_free(node_content->in_redir.file_name);
+		ft_free(node_content->out_redir.file_name);
+		free(node_content);
 		return (NULL);
-	// }	
+	}	
 }
