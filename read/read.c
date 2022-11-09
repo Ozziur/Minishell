@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 15:29:50 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/12 15:26:15 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:08:43 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_tree_node	*shell_read(void)
 		return (NULL);
 	}
 	else
-	{printf("dio e poi madonna\n");
+	{
 		lunch_tokenizer(command);
 		
 									//				printf("\n\n%s   \n",  next_token()->token_val);
