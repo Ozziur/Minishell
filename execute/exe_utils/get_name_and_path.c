@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_name_and_path.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:53:49 by ccantale          #+#    #+#             */
-/*   Updated: 2022/10/29 17:55:05 by marvin           ###   ########.fr       */
+/*   Updated: 2022/11/09 16:55:23 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*get_pathname(char *cmd)
 
 char	*get_cmd_name(char *cmd)
 {	//da capire meglio in funzione di cmd_expander
-	/*char		*name;
+	char		*name;
 	int			slash_idx;
 	size_t		i;
 
@@ -77,5 +77,5 @@ char	*get_cmd_name(char *cmd)
 			cmd + (slash_idx + 1),
 			ft_strlen(cmd) - (slash_idx + 1)
 			);
-	return (name);*/
+	return (name);
 }

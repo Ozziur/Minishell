@@ -28,13 +28,13 @@ t_tree_node	*shell_read(void)
 
 	command = next_command();
 									// printf("\n%s\n\n", command);
-	// if (command_is_empty())
-	// {
-	// 	//ft_free
-	// 	return (NULL);
-	// }
-	// else
-	// {
+	if (command_is_empty())
+	{
+		ft_free(command);
+		return (NULL);
+	}
+	else
+	{
 		lunch_tokenizer(command);
 		
 									//				printf("\n\n%s   \n",  next_token()->token_val);
