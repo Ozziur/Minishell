@@ -15,8 +15,7 @@
 t_node_content	*parse_simple_command(t_token *token,
 				t_node_content *node_content, t_parser_status *p_status)
 {
-	node_content->content_type = SIMPL_CMD;
-ft_printf("\ndioporco\n");									
+	node_content->content_type = SIMPL_CMD;								
 	node_content->simple_cmd.cmd_args = NULL;
 	if (token->token_id == e_CMD_ARG)
 	{
@@ -55,25 +54,14 @@ t_tree_node	*parse_statement(t_token *token, t_parser_status *p_status)
 			if (token->token_id == e_CMD_NAME || token->token_id == e_CMD_ARG)
 			{
 				return (new_tree_node(NULL,
-<<<<<<< HEAD
 				parse_simple_command(token, node_content, p_status),
 				NULL));
+			}
 			else if (token->token_id == e_ENV_VAR_DECL
 			|| token->token_id == e_ENV_VAR_UNSET)
 			return (new_tree_node(NULL,
 					parse_env_statement(token, node_content, p_status),
 					NULL));
-=======
-									parse_simple_command(token, node_content, p_status),
-									NULL));
-			}
-			else if (token->token_id == e_ENV_VAR_DECL || token->token_id == e_ENV_VAR_UNSET)
-			{
-				return (new_tree_node(NULL,
-									parse_env_statement(token, node_content, p_status),
-									NULL));
-			}
->>>>>>> 531ad149e6169cfd19bdbeb1b7a105d2b5472268
 		ft_free(node_content->in_redir.file_name);
 		ft_free(node_content->out_redir.file_name);
 		free(node_content);
