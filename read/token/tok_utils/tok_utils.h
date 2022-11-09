@@ -21,6 +21,9 @@
 # include "../../../global.h"
 # include "../../../env/utils/env_utils.h"
 
+//tok_utils
+char	*tok_to_string(t_token *token);
+
 //tok_mem_utils
 void	tok_add_back(t_token **token_list, t_token *token);
 void	env_tok_add_new_binding(t_token **token_ref,
