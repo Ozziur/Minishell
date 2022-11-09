@@ -20,5 +20,7 @@ t_tree_node *new_tree_node(t_tree_node *left, t_node_content *content,
 		t_tree_node *right);
 t_tree_node	*parse_sub_tree(t_parser_status *p_status);
 t_tree_node	*parse_statement(t_token *token, t_parser_status *p_status);
+t_node_content	*parse_simple_command(t_token *token,
+				t_node_content *node_content, t_parser_status *p_status);
 
 #endif

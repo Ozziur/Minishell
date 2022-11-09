@@ -28,12 +28,13 @@ t_tree_node	*parse(void)
 	t_parser_status	p_status;
 
 	parser_init(&p_status);
-	tree = plant_tree(&p_status);      ///provvissorio, vedi parse_cmd_list mmarinel*/
+	tree = plant_tree(&p_status);   ///provvissorio, vedi parse_cmd_list mmarinel*/
 	if (p_status.status == ERROR)
 	{
 		//gestione errori
 		free_tree(&tree);
 		tokenizer_free();
 	}
+
 	return (tree);
 }

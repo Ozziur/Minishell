@@ -12,10 +12,11 @@
 
 #include "tree.h"
 
-static t_node_content	*parse_simple_command(t_token *token,
+t_node_content	*parse_simple_command(t_token *token,
 				t_node_content *node_content, t_parser_status *p_status)
 {
 	node_content->content_type = SIMPL_CMD;
+ft_printf("\ndioporco\n");									
 	node_content->simple_cmd.cmd_args = NULL;
 	if (token->token_id == e_CMD_ARG)
 	{
@@ -50,10 +51,10 @@ t_tree_node	*parse_statement(t_token *token, t_parser_status *p_status)
 	if (!token)
 		return (new_tree_node(NULL, node_content, NULL));
 	else
-	{
+	{ 
 			if (token->token_id == e_CMD_NAME || token->token_id == e_CMD_ARG)
 				return (new_tree_node(NULL,
-				parse_simple_command(token, node_content, p_status), //da creare
+				parse_simple_command(token, node_content, p_status),
 				NULL));
 			else if (token->token_id == e_ENV_VAR_DECL
 			|| token->token_id == e_ENV_VAR_UNSET)

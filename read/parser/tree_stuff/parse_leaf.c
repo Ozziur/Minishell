@@ -33,8 +33,7 @@ t_tree_node	*parse_leaf(t_parser_status *p_status)
 	t_token		*token;
 	t_tree_node	*bracket;
 
-	bracket = NULL;					 //da levare
-	token = leaf_get_next_token(p_status);
+	token = leaf_get_next_token(p_status); 
 	if (!token)
 		return (NULL);
 	 if (is_open_paren(token))

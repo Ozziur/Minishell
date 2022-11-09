@@ -16,7 +16,6 @@ t_tree_node	*new_tree_node(t_tree_node *left, t_node_content *content,
 				t_tree_node *right)
 {
 	t_tree_node	*new_node;
-
 	new_node = (t_tree_node *) malloc(sizeof(t_tree_node));
 	new_node->left = left;
 	new_node->content = content;
