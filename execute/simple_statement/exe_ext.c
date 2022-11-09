@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:36:10 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/09 19:47:09 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/09 20:08:53 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	launch_ext_cmd(t_tree_node *root,
 	t_bindings	*env;
 
 	env = env_handler(ENV_RETURN, NULL);
-																						printf("\n%s\n",cmd_path);
+																					//	printf("\n%s\n",cmd_path);
 	if (!cmd_path)
 		cmd_not_found(root, cmd_path, cmd_smpl_name, args_split);
 	if (execve(cmd_path, args_split, bindings_list_to_array(env)) == -1)
@@ -42,7 +42,7 @@ static void	exe_ext_success_path(t_tree_node *root)
 	else
 	{
 		cmd_smpl_name = get_cmd_name(root->content->simple_cmd.cmd_name);
-		cmd_path = get_pathname(root->content->simple_cmd.cmd_name);        printf("\n%s\n",cmd_path);
+		cmd_path = get_pathname(root->content->simple_cmd.cmd_name);       // printf("\n%s\n",cmd_path);
 		args_split = ft_split(
 			ft_strjoin(
 				ft_strjoin(cmd_smpl_name, " ", e_false, e_false), 
