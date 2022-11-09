@@ -30,7 +30,7 @@ int	main(int argc, char const **argv, char const **envp)
 
 	if (argc != 1)
 	{
-		//put_error(ARGS_ERROR, EXIT_FAILURE, (void *)(argv[1]));
+		put_error(ARGS_ERROR, EXIT_FAILURE, (void *)(argv[1]));
 		exit(EXIT_FAILURE);
 	}
 	set_env(envp);
@@ -38,10 +38,6 @@ int	main(int argc, char const **argv, char const **envp)
 	while (e_true)
 	{
 		parse_tree = shell_read();									
-		// debug(parse_tree);
-		// debug(parse_tree);									
-									//	printf("\n///////////\n%s %s \n///////////\n ", temp->content->simple_cmd.cmd_name, temp->content->simple_cmd.cmd_args);
-
 		execute(parse_tree);
 	}
 	return (EXIT_SUCCESS);
