@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:24:03 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/09 17:16:21 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:42:03 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_tree_node	*parse_statement(t_token *token, t_parser_status *p_status)
 {
 	t_node_content	*node_content;
 
-	node_content = NULL;
+	node_content = ft_malloc(sizeof(t_node_content)); // da levare quando si fa parse_statement_redir
 	// token = parse_statement_redirs(token, &node_content, parser_status);
 	if (!token)
 		return (new_tree_node(NULL, node_content, NULL));

@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 21:17:25 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/09 17:07:33 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:39:23 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ t_tree_node	*parse(void)
 
 	parser_init(&p_status);
 	tree = plant_tree(&p_status);      ///provvissorio, vedi parse_cmd_list mmarinel*/
-	printf("QUI");
 	if (p_status.status == ERROR)
 	{
 		//gestione errori
