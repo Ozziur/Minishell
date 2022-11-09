@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:49:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/07 16:00:34 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/09 18:29:58 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ char	*binding_get_value(t_bindings *head, char *name)
 	cursor = head;
 	while (cursor)
 	{
-		if (ft_strcmp(cursor->var_name, name))
-
+		if (ft_strcmp(cursor->var_name, name) == 0)
 			return (cursor->var_val);
 		cursor = cursor->next;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:01:26 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/29 17:18:17 by marvin           ###   ########.fr       */
+/*   Updated: 2022/11/09 17:54:30 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include "../utils/utils.h"
 # include "../signals/signals.h"
 # include "../read/read.h"
-// # include "../error_handling/error_handling_module.h"
+# include "../error_hand/error_hand.h"
 // # include "../exit/exit_module.h"
 
 // * user defined SUBmodules //
