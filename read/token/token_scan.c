@@ -17,7 +17,7 @@ static size_t	scan_head(char *cmd_line, size_t offset, t_token **tok_list_ref)
 	size_t	pre_offset;
 
 	offset = scan_brackets(cmd_line, offset, tok_list_ref);
-	//offset = scan_redirs(cmd_line, offset, tok_list_ref);
+	offset = scan_redirs(cmd_line, offset, tok_list_ref);
 	return (offset);
 }
 
@@ -34,9 +34,9 @@ static size_t	scan_tail(char *cmd_line, size_t offset, t_token **tok_list_ref)
 {
 	size_t	pre_offset;
 
-	//offset = scan_redirs(cmd_line, offset, tok_list_ref);
+	offset = scan_redirs(cmd_line, offset, tok_list_ref);
 	offset = scan_brackets(cmd_line, offset, tok_list_ref);
-	//offset = scan_redirs(cmd_line, offset, tok_list_ref);
+	offset = scan_redirs(cmd_line, offset, tok_list_ref);
 	//offset = scan_operator(cmd_line, offset, tok_list_ref);
 	return (offset);
 }

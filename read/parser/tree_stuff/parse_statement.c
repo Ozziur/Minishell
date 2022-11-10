@@ -45,8 +45,8 @@ t_tree_node	*parse_statement(t_token *token, t_parser_status *p_status)
 {
 	t_node_content	*node_content;
 
-	node_content = ft_malloc(sizeof(t_node_content)); // da levare quando si fa parse_statement_redir
-	// token = parse_statement_redirs(token, &node_content, parser_status);
+	node_content = ft_malloc(sizeof(t_node_content)); // sto provando a canbiare TUTTO
+	token = parse_statement_redirs(token, node_content, p_status);
 	if (!token)
 		return (new_tree_node(NULL, node_content, NULL));
 	else

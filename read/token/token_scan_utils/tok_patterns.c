@@ -23,7 +23,7 @@ size_t	scan_env_declaration(char *str, size_t offset, t_token **token_list)
 	while (e_true)
 	{
 		next_var = NULL;
-		// new_offset = scan_redirs(str, new_offset, token_list);
+		new_offset = scan_redirs(str, new_offset, token_list);
 		new_offset = scan_var(str, new_offset, token->token_id, &next_var);
 		if (!next_var)
 			break ;
@@ -55,7 +55,7 @@ size_t	scan_simple_command(char *cmd_line, size_t offset,
 	token->token_id = e_CMD_NAME;
 	token->token_val = ft_strcpy(NULL, cmd_line + offset, len_cmd_name);
 	offset += len_cmd_name;
-	//offset = scan_redirs(command_line, offset, token_list);
+	offset = scan_redirs(command_line, offset, token_list);
 	offset = scan_cmd_arg(cmd_line, offset, tok_list_ref);
 	tok_add_back(tok_list_ref, token);
 	return (offset);
