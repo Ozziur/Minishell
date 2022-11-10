@@ -12,7 +12,7 @@
 
 #include "../utils.h"
 
-void set_error(t_status *status)
+void	set_error(t_status *status)
 {
-    *status = ERROR;
+	*status = ERROR;
 }

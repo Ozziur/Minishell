@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:58:41 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/07 15:59:57 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:37:20 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_bindings	*get_new_binding(char *var_name, char *var_val, t_bool concat)
 {
-	t_bindings *new_binding;
+	t_bindings	*new_binding;
 
 	new_binding = (t_bindings *) ft_malloc(sizeof(t_bindings));
 	new_binding->var_name = ft_strdup(var_name);

@@ -12,15 +12,6 @@
 
 #include "minishell.h"
 
-//////////
-
-void debug(char	*x)
-{
-
-	printf("\n///////////\n%s \n///////////\n ", x);
-}
-
-
 static void	set_pid_variable(void);
 static void	set_env(char const **envp);
 
@@ -37,7 +28,7 @@ int	main(int argc, char const **argv, char const **envp)
 	sig_handling_set(SIG_INITIAL);
 	while (e_true)
 	{
-		parse_tree = shell_read();									
+		parse_tree = shell_read();
 		execute(parse_tree);
 	}
 	return (EXIT_SUCCESS);
@@ -54,17 +45,17 @@ static void	set_env(char const **envp)
 	cur_shell_lvl = ft_atoi(env_handler(BINDING_GET_VALUE, "SHLVL"));
 	new_shell_lvl_string = ft_itoa(cur_shell_lvl + 1);
 	env_handler(BINDING_UPDATE,
-			get_new_binding("SHLVL", new_shell_lvl_string, e_false));
+		get_new_binding("SHLVL", new_shell_lvl_string, e_false));
 	free(new_shell_lvl_string);
 	if (env_handler(BINDING_GET_VALUE, "minishell_first_call_set") == NULL)
 	{
 		env_handler(BINDING_UPDATE,
-				get_new_binding("minishell_fiirst_call_set", "1", e_false));
+			get_new_binding("minishell_fiirst_call_set", "1", e_false));
 		g_env.stdout_clone = dup(STDOUT_FILENO);
 	}
 	g_env.last_executed_cmd_exit_status = EXIT_SUCCESS;
 }
-		
+
 static void	set_pid_variable(void)
 {
 	pid_t	pid;

@@ -18,6 +18,9 @@
 # include <stdlib.h>
 # include <readline/readline.h>
 
+// * libraries
+# include "../../../global.h"
+
 char	*my_readline(char *prompt);
 
 #endif

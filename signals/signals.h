@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:31:36 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/30 11:55:29 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/10 12:28:00 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@
 
 extern void	rl_replace_line(const char *text, int clear_undo);
 
-void	sig_handler(int	sig);
-void	sig_ign(int sig);
-void	cmd_launcher_sig_handler(int sig);
-void	sig_handling_set(t_sig_handling_opcode opcode);
-void	shell_executor_handler(int sig);
+void		sig_handler(int sig);
+void		sig_ign(int sig);
+void		cmd_launcher_sig_handler(int sig);
+void		sig_handling_set(t_sig_handling_opcode opcode);
+void		shell_executor_handler(int sig);
 // void		line_completion_prompt_sig_handler(int signum);
 
 #endif

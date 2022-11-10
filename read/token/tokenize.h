@@ -16,7 +16,7 @@
 // * standard libraries //
 # include <stdlib.h>
 # include <unistd.h>
-#include <stdio.h>
+# include <stdio.h>
 
 // * types //
 # include "../../global.h"

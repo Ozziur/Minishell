@@ -27,7 +27,7 @@ char	*tok_to_string(t_token *token);
 //tok_mem_utils
 void	tok_add_back(t_token **token_list, t_token *token);
 void	env_tok_add_new_binding(t_token **token_ref,
-		t_bindings *next_binding);
+				t_bindings *next_binding);
 t_bool	is_env_statement(char *command_line, size_t offset);
 
 //scan

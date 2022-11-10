@@ -58,12 +58,12 @@ size_t	occ_outside_quotes(char *str, char to_count)
 	i = 0;
 	while (str[i])
 	{
-		if((str[i] == to_count && quote =='\0')
+		if ((str[i] == to_count && quote == '\0')
 			|| (str[i] == to_count && quote == to_count))
 			occurrences++;
 		if (ft_is_quote(str[i]))
 		{
-			if (quote &&str[i] == quote)
+			if (quote && str[i] == quote)
 				quote = '\0';
 			else if (quote == '\0')
 				quote = str[i];

@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:40:20 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/25 18:01:09 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/10 12:28:14 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	shell_executor_handler(int sig)
 		exit(EXIT_SUCCESS);
 }
 
-void	sig_handler(int	sig)
+void	sig_handler(int sig)
 {
 	if (sig == SIGUSR1)
 		exit(EXIT_FAILURE);

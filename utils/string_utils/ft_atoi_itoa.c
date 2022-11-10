@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:45:07 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/07 11:10:52 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/10 12:24:23 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(char *str)
 {
-	int	i;
-	long long result;
+	int			i;
+	long long	result;
 
 	result = 0;
 	i = 0;
@@ -46,6 +46,6 @@ char	*ft_itoa(int nbr)
 	digit[0] = (nbr % 10) + '0';
 	digit[1] = 0;
 	if (nbr < 10)
-	   return (ft_strdup(digit));
+		return (ft_strdup(digit));
 	return (ft_strjoin(ft_itoa(nbr / 10), digit, e_true, e_false));
 }	

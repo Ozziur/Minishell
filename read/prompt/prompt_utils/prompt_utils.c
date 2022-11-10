@@ -17,11 +17,11 @@ char	*my_readline(char *prompt)
 	char	*line;
 	int		cur_stdout_bkp;
 
-	// cur_stdout_bkp = dup(STDOUT_FILENO);
-	// dup2(g_env.stdout_clone, STDOUT_FILENO);
+	cur_stdout_bkp = dup(STDOUT_FILENO);
+	dup2(g_env.stdout_clone, STDOUT_FILENO);
 	line = readline(prompt);
-	// dup2(cur_stdout_backup, STDOUT_FILENO);
-	// close(cur_stdout_backup);
+	dup2(cur_stdout_bkp, STDOUT_FILENO);
+	close(cur_stdout_bkp);
 	if (!line)/*    Ctrl+D   */
 		return (NULL);
 	else if (*line == '\0')/*          new line*/

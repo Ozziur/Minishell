@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:39:18 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/25 18:19:11 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/10 12:31:12 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // * user defined types //
 # include "sig_struct.h"
 
-void	sig_handler(int	sig);
+void	sig_handler(int sig);
 void	sig_ign(int sig);
 void	sig_handling_set(t_sig_handling_opcode opcode);
 void	shell_executor_handler(int sig);

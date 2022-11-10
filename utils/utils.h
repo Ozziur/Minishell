@@ -34,7 +34,7 @@ size_t	skip_consecutive_chars(char *string, size_t offset,
 t_bool	command_is_empty(char *command);
 
 //* error
-void set_error(t_status *status);
+void	set_error(t_status *status);
 
 //* is something
 t_bool	ft_isspace(char c);

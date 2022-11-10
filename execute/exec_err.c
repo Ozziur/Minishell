@@ -15,7 +15,7 @@
 void	cmd_not_found(t_tree_node *parse_tree,
 			char *cmd_path, char *cmd_smpl_name, char **args_split)
 {
-		put_error(CMD_NOT_FOUND_ERROR, 127,
+	put_error(CMD_NOT_FOUND_ERROR, 127,
 		parse_tree->content->simple_cmd.cmd_name);
 	ft_free(cmd_path);
 	ft_free(cmd_smpl_name);
@@ -26,7 +26,7 @@ void	cmd_not_found(t_tree_node *parse_tree,
 void	cmd_exe_fail(t_tree_node *parse_tree,
 			char *cmd_path, char *cmd_smpl_name, char **args_split)
 {
-		put_error(CMD_FAILED_ERROR, EXIT_FAILURE,
+	put_error(CMD_FAILED_ERROR, EXIT_FAILURE,
 		parse_tree->content->simple_cmd.cmd_name);
 	ft_free(cmd_path);
 	ft_free(cmd_smpl_name);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 16:39:34 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/11 17:35:29 by mruizzo          ###   ########.fr       */
+/*   Created: 2022/11/10 12:42:42 by mruizzo           #+#    #+#             */
+/*   Updated: 2022/11/10 12:42:42 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ size_t	scan_env_declaration(char *str, size_t offset, t_token **token_list)
 	if (token->token_id == e_ENV_VAR_DECL && token->token_val == NULL)
 		return (scan_env_revert(token, offset));
 	tok_add_back(token_list, token);//env_decl_add_token sostituito da questa funzione
-	return (new_offset);	
+	return (new_offset);
 }
 
 size_t	scan_simple_command(char *cmd_line, size_t offset,

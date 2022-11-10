@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:01:04 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/24 18:29:49 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/10 12:14:18 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static void	execute_in_shell(t_tree_node *root, int in, int out)
 {
 	if (root->content->content_type == SIMPL_CMD
-		/*|| root->content->content_type == ENV_STATEMENT
-		|| root->content->content_type == REDIR*/)
+		|| root->content->content_type == ENV_STATEMENT
+		/*|| root->content->content_type == REDIR*/)
 		execute_simple_statement(root, in, out);
 	//else if pipe,and e or
 		else

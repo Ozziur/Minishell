@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:39:09 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/25 17:56:09 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/10 12:26:13 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@
 //* includes end //
 
 //* user defined exposed functions
-int		ft_printf(const char *format_string, ...);
+int					ft_printf(const char *format_string, ...);
 
 void				pf_write(const char *c, int *count);
 unsigned long long	pf_abs(long long nbr);
 void				pf_put_nbr_base(long long num, const char *base,
-			int base_num, int *count);
+						int base_num, int *count);
 
 //* printf cases
 // void	pf_case_str(char *str, int *count);

@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:49:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/09 18:29:58 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/10 12:40:54 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	binding_add_new(t_bindings **head, t_bindings *new_binding,
 {
 	t_bindings	*cursor;
 	t_bindings	*new_binding_copy;
-	
+
 	new_binding_copy = get_new_binding(
-		new_binding->var_name,
-		new_binding->var_val,
-		new_binding->concat_mode);
+			new_binding->var_name,
+			new_binding->var_val,
+			new_binding->concat_mode);
 	if (!(*head))
-		binding_add_front(head,new_binding_copy);
+		binding_add_front(head, new_binding_copy);
 	else if (in_order == e_false)
 		binding_add_back(head, new_binding_copy);
 	else
@@ -35,14 +35,15 @@ t_bindings	*binding_over_write(t_bindings *head, t_bindings *binding)
 	t_bindings	*cursor;
 	char		*new_val;
 
-	new_val =ft_strdup(binding->var_val);
+	new_val = ft_strdup(binding->var_val);
 	cursor = head;
 	while (cursor)
 	{
 		if (ft_strcmp(cursor->var_val, binding->var_name) == 0)
 		{
-			if (binding->concat_mode ==e_true)
-				cursor->var_val = ft_strjoin(cursor->var_val, new_val, e_true, e_true);
+			if (binding->concat_mode == e_true)
+				cursor->var_val = ft_strjoin(cursor->var_val, new_val,
+						e_true, e_true);
 			else
 				ft_str_replace(&cursor->var_val, new_val);
 			break ;
