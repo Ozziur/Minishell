@@ -46,5 +46,8 @@ size_t	occ_outside_quotes(char *str, char to_count);
 size_t	scan_var_mode(char *command_line, size_t offset, t_bool *concat_mode);
 size_t	scan_var_value(char *str, size_t offset, char **value,
 				t_bool *concat_mode);
+size_t	scan_redirs(char *cmd_line, size_t offset, t_token **token_list);
+t_token *in_out_tok_record_file_name(char *next_wrd_begin,
+			size_t next_wrd_len, t_token_id code);
 
 #endif
