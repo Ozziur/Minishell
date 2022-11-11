@@ -45,12 +45,15 @@ t_tree_node	*parse_statement(t_token *token, t_parser_status *p_status)
 {
 	t_node_content	*node_content;
 
-	node_content = ft_malloc(sizeof(t_node_content)); // sto provando a canbiare TUTTO
-	token = parse_statement_redirs(token, node_content, p_status);
+	token = parse_statement_redirs(token, &node_content, p_status);
+			write(2,"ciao\n",6);
 	if (!token)
-		return (new_tree_node(NULL, node_content, NULL));
+		{
+			return (new_tree_node(NULL, node_content, NULL));
+		}
 	else
 	{ 
+			write(2,"----\n",6);
 			if (token->token_id == e_CMD_NAME || token->token_id == e_CMD_ARG)
 			{
 				return (new_tree_node(NULL,

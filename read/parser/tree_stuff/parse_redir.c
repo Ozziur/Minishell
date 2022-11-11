@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 16:44:29 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/11 18:17:59 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/11 19:17:09 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ void	parse_redir(t_node_content *node_content,
 }
 
 t_token	*parse_statement_redirs(t_token *token,
-	t_node_content *node_content_ref, t_parser_status *p_status)
+	t_node_content **node_content_ref, t_parser_status *p_status)
 {
-	node_content_ref->in_redir.file_name = NULL;
-	node_content_ref->out_redir.file_name = NULL;
+	(*node_content_ref) = ft_malloc(sizeof(t_node_content));
+	(*node_content_ref)->in_redir.file_name = NULL;
+	(*node_content_ref)->out_redir.file_name = NULL;
 	while (
 		token->token_id == e_IN_FILE_TRUNC
 		|| token->token_id == e_HERE_DOC
@@ -42,11 +43,11 @@ t_token	*parse_statement_redirs(t_token *token,
 		|| token->token_id == e_OUT_FILE_APPEND
 	)
 	{
-		parse_redir(node_content_ref, token->token_val, token->token_id);// da creare stando molto attenti
+		parse_redir(*node_content_ref, token->token_val, token->token_id);// da creare stando molto attenti
 		token = take_next_token(p_status);
 		if (!token)
 		{
-			node_content_ref->content_type = REDIR;
+			(*node_content_ref)->content_type = REDIR;
 			break ;
 		}
 	}

@@ -23,7 +23,7 @@ static t_token	*tokenize(char	*command_line)
 		!= occ_outside_quotes(command_line, ')')
 	)
 	{
-		put_error(TOK_UNBALANCED_ERROR, 258, NULL);//da finire
+		put_error(TOK_UNBALANCED_ERROR, 258, NULL);
 	}
 	else
 	{
