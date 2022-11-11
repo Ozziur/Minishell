@@ -6,13 +6,13 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:48 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/10 16:14:04 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/11 18:49:08 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tokenize.h"
 
-t_token_id	scan_redir_type(char *command_line, size_t offset)
+t_token_id	scan_redir_code(char *command_line, size_t offset)
 {
 	t_token_id	code;
 
@@ -32,16 +32,19 @@ static size_t	take_here_docs(void)
 {
 	size_t	i;
 	char	*hdoc_file_name;
+	char	*prefix;
 	t_bool	repeat;
 
+	prefix = ".here_doc-";
 	i = 0;
 	repeat = e_true;
 	while (repeat)
 	{
 		hdoc_file_name = ft_strjoin(
-				".here_doc-", ft_itoa(i),
-				e_false, e_true);
-		if (access(hdoc_file_name, R_OK | W_OK) != 0)
+				prefix, ft_itoa(i),
+				e_false, e_true
+				);
+		if (0 != access(hdoc_file_name, R_OK | W_OK))
 			repeat = e_false;
 		else
 			i++;
@@ -49,6 +52,7 @@ static size_t	take_here_docs(void)
 	}
 	return (i);
 }
+
 
 t_token *in_out_tok_record_file_name(char *next_wrd_begin,
 			size_t next_wrd_len, t_token_id code)
@@ -90,6 +94,9 @@ size_t	scan_inout_file(char *cmd_line, size_t offset, t_token **token_list)
 		+ (code == e_IN_FILE_TRUNC || code == e_OUT_FILE_TRUNC);
 	pre_offset = scan_invariants(cmd_line, pre_offset);
 	if (!cmd_line[pre_offset])
+		return (offset);
+		next_word_len = read_file_name(cmd_line, pre_offset);
+	if (next_word_len == 0)
 		return (offset);
 	tok_add_back(
 		token_list,

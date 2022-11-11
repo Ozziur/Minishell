@@ -27,7 +27,6 @@ t_tree_node	*shell_read(void)
 	char	*command;
 
 	command = next_command();
-									// printf("\n%s\n\n", command);
 	if (command_is_empty(command))
 	{
 		ft_free(command);
@@ -39,5 +38,4 @@ t_tree_node	*shell_read(void)
 		free(command);
 		return (parse());
 	}
-	return (0); //da eliminare
 }

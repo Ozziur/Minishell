@@ -6,11 +6,29 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 16:44:29 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/10 17:08:20 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/11 18:17:59 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tree.h"
+
+void	parse_redir(t_node_content *node_content,
+			char *file_name,
+			t_token_id code)
+{
+	t_redirection	*direction;
+
+	if (code == e_HERE_DOC || code == e_IN_FILE_TRUNC)
+		direction = &(node_content->in_redir);
+	else
+		direction = &(node_content->out_redir);
+	ft_free(direction->file_name);
+	direction->file_name = ft_strdup(file_name);
+	if (code == e_OUT_FILE_APPEND)
+		direction->append_mode = e_true;
+	else
+		direction->append_mode = e_false;
+}
 
 t_token	*parse_statement_redirs(t_token *token,
 	t_node_content *node_content_ref, t_parser_status *p_status)
@@ -24,7 +42,7 @@ t_token	*parse_statement_redirs(t_token *token,
 		|| token->token_id == e_OUT_FILE_APPEND
 	)
 	{
-		parse_resir(node_content_ref, token->token_val, token->token_id);// da creare stando molto attenti
+		parse_redir(node_content_ref, token->token_val, token->token_id);// da creare stando molto attenti
 		token = take_next_token(p_status);
 		if (!token)
 		{
