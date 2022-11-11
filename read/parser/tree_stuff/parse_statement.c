@@ -46,15 +46,13 @@ t_tree_node	*parse_statement(t_token *token, t_parser_status *p_status)
 	t_node_content	*node_content;
 
 	token = parse_statement_redirs(token, &node_content, p_status);
-			write(2,"ciao\n",6);
 	if (!token)
 		{
 			return (new_tree_node(NULL, node_content, NULL));
 		}
 	else
-	{ 
-			write(2,"----\n",6);
-			if (token->token_id == e_CMD_NAME || token->token_id == e_CMD_ARG)
+	{
+		if (token->token_id == e_CMD_NAME || token->token_id == e_CMD_ARG)
 			{
 				return (new_tree_node(NULL,
 				parse_simple_command(token, node_content, p_status),

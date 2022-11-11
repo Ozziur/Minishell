@@ -36,7 +36,7 @@ static t_tree_node	*parse_branch(t_tree_node *current,
 		return (current);
 	operator_tok = take_next_operator_or_bracket_token(p_status);
 	if (operator_tok == NULL
-		|| 0 != ft_strcmp(operator_tok->token_val, "|"))
+		|| ft_strcmp(operator_tok->token_val, "|") != 0)
 	{
 		if (operator_tok
 			&& operator_tok->token_id != e_BRAKETS
