@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:38:35 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/09 18:09:30 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/12 20:13:50 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	execute_simple_statement(t_tree_node *root, int in, int out);
 //* end of declarations
+
+static void	execute_builtin(t_tree_node *root, int in, int out)
+{
+	// da creare
+}
 
 static void	exe_cmd_and_exit(t_tree_node *root, int in, int out)
 {
@@ -65,8 +70,8 @@ void	execute_external(t_tree_node *root, int in, int out)
 
 void	execute_simple_statement(t_tree_node *root, int in, int out)
 {
-	//if (is_builtin(root))
-	//	exec_builtin
-	//	else
-	execute_external(root, in, out);
+	if (is_builtin(root))
+		exec_builtin(root, in, out);
+	else
+		execute_external(root, in, out);
 }

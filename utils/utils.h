@@ -33,7 +33,9 @@ size_t	skip_consecutive_chars(char *string, size_t offset,
 			char to_skip, int direction);
 t_bool	command_is_empty(char *command);
 size_t	bash_next_word_len(char *cmd_line, size_t offset);
-
+int		ft_open(char *file_name, unsigned long long flags, int mode,
+		t_bool free_file_name);
+int		ft_unlink(char *file_name, t_bool free_file_name);
 
 //* error
 void	set_error(t_status *status);
@@ -44,6 +46,7 @@ t_bool	ft_is_quote(char c);
 t_bool	char_is_alpha(char c);
 t_bool	bash_control_character(char c);
 t_bool	char_is_digit(char c);
+t_bool	redirect_char(char c);
 
 //* str_utils
 char	*ft_strcpy(char *buf, char *src, int copy_len);

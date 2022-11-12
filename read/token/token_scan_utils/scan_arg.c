@@ -24,12 +24,10 @@ size_t	scan_next_arg(char *cmd_line, size_t offset,
 	size_t	len_cmd_arg;
 	char	*next_arg;
 
-	if (!tok_list)
-		return (0);                											 // FLAGGGGGGGGG
 	new_offset = scan_invariants(cmd_line, offset);
-	// if (e_true == redirect_char(cmd_line[new_offset]))
-	// 	new_offset = scan_inout_file(cmd_line, new_offset, tok_list);
-	// else
+	if (redirect_char(cmd_line[new_offset]) == e_true)
+		new_offset = scan_inout_file(cmd_line, new_offset, tok_list);
+	else
 	{
 		len_cmd_arg = take_next_arg_len(cmd_line, new_offset);
 		next_arg = ft_strcpy(NULL, cmd_line + new_offset, len_cmd_arg);

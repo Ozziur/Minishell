@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:48 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/11 18:49:08 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/12 16:04:34 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ size_t	scan_inout_file(char *cmd_line, size_t offset, t_token **token_list)
 	pre_offset = scan_invariants(cmd_line, pre_offset);
 	if (!cmd_line[pre_offset])
 		return (offset);
-		next_word_len = read_file_name(cmd_line, pre_offset);
+	next_word_len = read_file_name(cmd_line, pre_offset);
 	if (next_word_len == 0)
 		return (offset);
 	tok_add_back(

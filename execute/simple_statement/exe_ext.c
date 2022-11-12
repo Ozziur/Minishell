@@ -6,11 +6,9 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:36:10 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/09 20:08:53 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/12 19:12:25 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "simple.h"
 
@@ -21,7 +19,6 @@ static void	launch_ext_cmd(t_tree_node *root,
 	t_bindings	*env;
 
 	env = env_handler(ENV_RETURN, NULL);
-																					//	printf("\n%s\n",cmd_path);
 	if (!cmd_path)
 		cmd_not_found(root, cmd_path, cmd_smpl_name, args_split);
 	if (execve(cmd_path, args_split, bindings_list_to_array(env)) == -1)
@@ -53,13 +50,21 @@ static void	exe_ext_success_path(t_tree_node *root)
 	}
 }
 
+static void	exe_ext_failure_path(void)
+{
+	perror("minishell");
+	exit(1);
+}
+
 void	exe_ext_smpl_cmd(t_tree_node *root, int in, int out)
 {
-	// if (ERROR == external_handle_redirs(root->content->in_redir,
-	// 		in, STDIN_FILENO, e_true)
-	// 	|| ERROR == external_handle_redirs(root->content->out_redir,
-	// 		out, STDOUT_FILENO, e_false))
-	// 	exe_ext_failure_path();
-	// else
+								printf("%s\n", root->content->out_redir.file_name);
+	if (ERROR == external_handle_redirs(root->content->in_redir,
+			in, STDIN_FILENO, e_true)
+		|| ERROR == external_handle_redirs(root->content->out_redir,
+			out,
+			 STDOUT_FILENO, e_false))
+		exe_ext_failure_path();
+	else
 		exe_ext_success_path(root);
 }

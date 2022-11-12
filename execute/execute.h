@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:01:26 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/09 17:54:30 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/12 17:49:42 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
 // # include "expander/expander_module.h"
 # include "simple_statement/simple.h"
 # include "execute_stuff.h"
-// # include "exec_utils/exec_utils.h"
 
 // * user defined types //
 # include "execute_struct.h"
@@ -40,6 +39,6 @@
 # include "../colors.h"
 
 // * global variable module //
-// # include "../global.h"
+# include "../global.h"
 
 #endif

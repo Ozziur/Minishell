@@ -51,5 +51,6 @@ t_token_id	scan_redir_code(char *command_line, size_t offset);
 t_token 	*in_out_tok_record_file_name(char *next_wrd_begin,
 			size_t next_wrd_len, t_token_id code);
 size_t	read_file_name(char *str, size_t offset);
+size_t	scan_inout_file(char *cmd_line, size_t offset, t_token **token_list);
 
 #endif
