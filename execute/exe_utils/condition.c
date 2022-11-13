@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 19:33:29 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/12 19:36:49 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/13 15:56:26 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,6 @@ t_bool	is_builtin(t_tree_node *root)
 	if (root->content->content_type != SIMPL_CMD)
 		return (e_true);
 		//da creare o meglio da completare
+	else//<--togliere
+		return (e_false);//<--togliere
 }

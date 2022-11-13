@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:36:10 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/12 19:12:25 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/13 15:57:08 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static void	exe_ext_failure_path(void)
 
 void	exe_ext_smpl_cmd(t_tree_node *root, int in, int out)
 {
-								printf("%s\n", root->content->out_redir.file_name);
 	if (ERROR == external_handle_redirs(root->content->in_redir,
 			in, STDIN_FILENO, e_true)
 		|| ERROR == external_handle_redirs(root->content->out_redir,

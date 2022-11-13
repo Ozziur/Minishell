@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:38:35 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/12 20:13:50 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/13 16:02:24 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,32 @@
 void	execute_simple_statement(t_tree_node *root, int in, int out);
 //* end of declarations
 
-static void	execute_builtin(t_tree_node *root, int in, int out)
+static void	exec_builtin(t_tree_node *root, int in, int out)
 {
-	// da creare
+	int			stdin_clone;
+	int			stdout_clone;
+
+	stdin_clone = dup(STDIN_FILENO);
+	stdout_clone = dup(STDOUT_FILENO);
+	if (ERROR == builtin_handle_redirs(root->content->in_redir,//da creare
+			in, STDIN_FILENO, e_true)
+		|| ERROR == builtin_handle_redirs(root->content->out_redir,
+			out, STDOUT_FILENO, e_false))
+	{
+		perror("minishell");
+		g_env.last_executed_cmd_exit_status = 1;
+	}
+	else
+	{
+	// 	if (root->content->content_type == ENV_STATEMENT)
+	// 		execute_env_statement(root->content->env_decl);
+		/*else*/ if (root->content->content_type == REDIR)
+			execute_redir_only_statement(root, in, out);
+		// else
+		// 	execute_cmd_builtin(&root->content->simple_cmd);
+	}
+	dup2(stdin_clone, STDIN_FILENO);
+	dup2(stdout_clone, STDOUT_FILENO);
 }
 
 static void	exe_cmd_and_exit(t_tree_node *root, int in, int out)
