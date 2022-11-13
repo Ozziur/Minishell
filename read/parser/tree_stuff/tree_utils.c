@@ -34,7 +34,7 @@ void	free_tree(t_tree_node **root_ref)
 	free_tree(&(root->right));
 	ft_free(root->content->in_redir.file_name);
 	ft_free(root->content->out_redir.file_name);
-	//free_tree_content(root->content);
+	// free_tree_content(root->content);
 	free(root);
 	*root_ref = NULL;
 }

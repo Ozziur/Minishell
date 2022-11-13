@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:38:35 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/13 16:02:24 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/13 18:40:51 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	exec_builtin(t_tree_node *root, int in, int out)
 
 	stdin_clone = dup(STDIN_FILENO);
 	stdout_clone = dup(STDOUT_FILENO);
-	if (ERROR == builtin_handle_redirs(root->content->in_redir,//da creare
+	if (ERROR == builtin_handle_redirs(root->content->in_redir,
 			in, STDIN_FILENO, e_true)
 		|| ERROR == builtin_handle_redirs(root->content->out_redir,
 			out, STDOUT_FILENO, e_false))

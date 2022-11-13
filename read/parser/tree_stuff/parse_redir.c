@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 16:44:29 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/11 19:17:09 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/13 18:44:17 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_token	*parse_statement_redirs(t_token *token,
 		|| token->token_id == e_OUT_FILE_APPEND
 	)
 	{
-		parse_redir(*node_content_ref, token->token_val, token->token_id);// da creare stando molto attenti
+		parse_redir(*node_content_ref, token->token_val, token->token_id);
 		token = take_next_token(p_status);
 		if (!token)
 		{
