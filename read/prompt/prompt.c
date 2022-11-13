@@ -14,12 +14,13 @@
 
 char	*read_command(char *main_prompt)
 {
-	char		*command;
-	//t_status	p_status;
+	char		*cmd;
+	t_status	p_status;
 
-	command = my_readline(main_prompt);
-	if (!command)
+	cmd = my_readline(main_prompt);
+	if (!cmd)
 		exit(0); //provvissorio
-	//prompt_status = complete_line(&command, command);
-	return (command);
+	//prompt_status = complete_line(&cmd, cmd);
+	my_add_history(cmd);
+	return (cmd);
 }

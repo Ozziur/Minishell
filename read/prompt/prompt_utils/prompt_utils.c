@@ -32,3 +32,22 @@ char	*my_readline(char *prompt)
 	else
 		return (line);//linea letta (enrico?)
 }
+
+char	**my_add_history(char *cmd)
+{
+	static char	*last= NULL;
+
+	if (cmd)
+	{
+		if (str_not_empty(cmd)
+		&& (!last || (ft_strcmp(last, cmd) != 0 ))
+		)
+		{
+			add_history(cmd);
+			ft_free(last);
+			last = NULL;
+			last = ft_strcpy(last,cmd, ft_strlen(cmd));
+		}
+	}
+	return (&last);
+}

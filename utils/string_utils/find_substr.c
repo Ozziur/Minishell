@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:35:32 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/08 17:22:03 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/13 19:22:07 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,19 @@ char	*find_substr(char *str, char *substr)
 			++i;
 	}
 	return (NULL);
+}
+
+t_bool	str_not_empty(char *str)
+{
+	if (!str)
+		return (e_false);
+	while (*str)
+	{
+		if (e_false == ft_isspace(*str)
+			&& *str != '\''
+			&& *str != '"')
+			return (e_true);
+		str++;
+	}
+	return (e_false);
 }

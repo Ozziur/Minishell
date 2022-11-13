@@ -20,7 +20,9 @@
 
 // * libraries
 # include "../../../global.h"
+# include "../../../utils/utils.h"
 
 char	*my_readline(char *prompt);
+char	**my_add_history(char *cmd);
 
 #endif
