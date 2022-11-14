@@ -35,7 +35,7 @@ char	*my_readline(char *prompt)
 
 char	**my_add_history(char *cmd)
 {
-	static char	*last= NULL;
+	static char	*last = NULL;
 
 	if (cmd)
 	{

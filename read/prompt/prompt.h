@@ -21,6 +21,7 @@
 //* user defined types
 //# include "prompt_types.h"
 # include "../../types.h"
+# include "../../exit/exit.h"
 
 //sub
 # include "prompt_utils/prompt_utils.h"
