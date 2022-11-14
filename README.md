@@ -3,8 +3,8 @@ piano di battaglia:
 normalizzare Makefile:
 	trovare la voglia
 
-Michele: potrebbe leakkare sul env, trovato free enve nel prototipo del token e va capito se é un refuso
-			ricominciare da execute_builtin cercando di gestire solo le redirection e non il mondo.
+Michele: potrebbe leakkare sul env, trovato free enve nel prototipo del token e va capito se é un refuso. add_history da warning ma potrebbe essere un problema del pc di casa mia, in lab non ricordo di aver avuto questi problemi.
+
 Claudio : da fare expand()
 
 sviluppare echo su una foglia:

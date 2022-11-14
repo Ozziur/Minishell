@@ -37,7 +37,7 @@ static size_t	scan_tail(char *cmd_line, size_t offset, t_token **tok_list_ref)
 	offset = scan_redirs(cmd_line, offset, tok_list_ref);
 	offset = scan_brackets(cmd_line, offset, tok_list_ref);
 	offset = scan_redirs(cmd_line, offset, tok_list_ref);
-	//offset = scan_operator(cmd_line, offset, tok_list_ref);
+	offset = scan_operator(cmd_line, offset, tok_list_ref);
 	return (offset);
 }
 
@@ -57,9 +57,9 @@ void	scan(char *cmd_line, t_token **tok_list_ref)
 			offset = scan_head(cmd_line, offset, tok_list_ref);
 			offset = scan_body(cmd_line, offset, tok_list_ref);
 			offset = scan_tail(cmd_line, offset, tok_list_ref);
-			// if (cursor == cmd_line + offset)
-			// 	break ;                         //da eliminare ??????
-			// cursor = cmd_line + offset;
+			if (cursor == cmd_line + offset)
+				break ;
+			cursor = cmd_line + offset;
 		}
 		if (offset < ft_strlen(cmd_line))
 		{

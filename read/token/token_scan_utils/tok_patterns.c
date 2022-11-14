@@ -60,3 +60,29 @@ size_t	scan_simple_command(char *cmd_line, size_t offset,
 	tok_add_back(tok_list_ref, token);
 	return (offset);
 }
+
+size_t scan_operator(char *cmd_line, size_t offset, t_token **tok_list)
+{
+	t_token	*token;
+	size_t	pre_offset;
+
+	if (!cmd_line[offset])
+		return (offset);
+	pre_offset = scan_invariants(cmd_line, offset);
+	if ((cmd_line[pre_offset] != '|'
+			&& cmd_line[pre_offset] != '&')
+		|| (cmd_line[pre_offset] == '&'
+			&& cmd_line[pre_offset + 1] != '&'))
+		return (offset);
+	token = (t_token *) malloc(sizeof(t_token));
+	token->token_id =e_OPERATOR;
+	if (cmd_line[pre_offset] == '&')
+		token->token_val = "&&";
+	else if (cmd_line[pre_offset] == '|'
+		&& cmd_line[pre_offset + 1] != '|')
+		token->token_val = "|";
+	else
+		token->token_val = "||";
+	tok_add_back(tok_list, token);
+	return (pre_offset + ft_strlen((char *)token->token_val));
+}
