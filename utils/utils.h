@@ -36,6 +36,8 @@ size_t	bash_next_word_len(char *cmd_line, size_t offset);
 int		ft_open(char *file_name, unsigned long long flags, int mode,
 		t_bool free_file_name);
 int		ft_unlink(char *file_name, t_bool free_file_name);
+void	close_pipe(int pipe_[]);
+void	clone_pipe(int target[2], int clone[2]);
 
 //* error
 void	set_error(t_status *status);

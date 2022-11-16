@@ -6,17 +6,11 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:38:06 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/25 17:52:36 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/16 16:03:41 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-// static void	stdout_manage(int opcode)
-// {
-// 	if (opcode)
-// 		;
-// }
 
 void	pf_case_int(int n, int *count)
 {

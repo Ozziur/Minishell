@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:10:46 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/12 19:37:33 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/16 16:45:52 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "../read/parser/parser_struct.h"
 
 void	execute(t_tree_node *parse_tree);
+void	execute_rec(t_tree_node *root, int in, int out);
 
 //*utils
 char	*get_pathname(char *cmd);
@@ -24,6 +25,11 @@ char	*get_cmd_name(char *cmd);
 void	dup_std_fd(int cur_in_out, int std_in_out,
 			t_bool close_cur);
 t_bool	is_builtin(t_tree_node *root);
+
+//*branch
+void	execute_pipe_statement(t_tree_node *root, int in, int out);
+void	execute_and_statement(t_tree_node *root, int in, int out);
+void	execute_or_statement(t_tree_node *root, int in, int out);
 
 //*errori exe
 void	cmd_not_found(t_tree_node *parse_tree,

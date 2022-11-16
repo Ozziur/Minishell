@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 16:41:18 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/13 16:11:19 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/16 17:10:51 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ t_status	external_handle_redirs(t_redirection redir, int cur_in_out,
 				input_redir_case);
 	}
 	if (outcome == OK)
-	{
 		dup_std_fd(cur_in_out, std_in_out, e_true);
-	}
 	return (outcome);
 }
 

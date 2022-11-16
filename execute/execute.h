@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:01:26 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/12 17:49:42 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/16 14:52:51 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include "../signals/signals.h"
 # include "../read/read.h"
 # include "../error_hand/error_hand.h"
-// # include "../exit/exit_module.h"
+# include "../exit/exit.h"
 
 // * user defined SUBmodules //
 // # include "builtin/builtin.h"

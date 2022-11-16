@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:36:10 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/13 15:57:08 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/16 16:09:19 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,11 @@ static void	exe_ext_success_path(t_tree_node *root)
 
 	//cmd_expand(&root->content->simple_cmd);//da creare
 	if (root->content->simple_cmd.cmd_name == NULL)
-		{			
-			exit(EXIT_SUCCESS);
-		}
+		exit(EXIT_SUCCESS);
 	else
 	{
 		cmd_smpl_name = get_cmd_name(root->content->simple_cmd.cmd_name);
-		cmd_path = get_pathname(root->content->simple_cmd.cmd_name);       // printf("\n%s\n",cmd_path);
+		cmd_path = get_pathname(root->content->simple_cmd.cmd_name);
 		args_split = ft_split(
 			ft_strjoin(
 				ft_strjoin(cmd_smpl_name, " ", e_false, e_false), 
