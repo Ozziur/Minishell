@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_redir.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 16:44:29 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/13 18:44:17 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/17 03:10:59 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	parse_redir(t_node_content *node_content,
 t_token	*parse_statement_redirs(t_token *token,
 	t_node_content **node_content_ref, t_parser_status *p_status)
 {
-	(*node_content_ref) = ft_malloc(sizeof(t_node_content));
+	(*node_content_ref) = (t_node_content *) ft_malloc(sizeof(t_node_content));
 	(*node_content_ref)->in_redir.file_name = NULL;
 	(*node_content_ref)->out_redir.file_name = NULL;
 	while (

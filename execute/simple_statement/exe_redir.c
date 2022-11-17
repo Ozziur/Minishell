@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exe_redir.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 16:41:18 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/16 17:10:51 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/17 03:01:00 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	execute_redir_only_statement(t_tree_node *root,
 	int	out_fd;
 
 	out_fd = 0;
-	if (root->content->out_redir.append_mode == e_true)
+	if (root->content->out_redir.file_name)
 	{
 		if (root->content->out_redir.append_mode == e_true)
 			out_fd = open(root->content->out_redir.file_name,
@@ -93,16 +93,18 @@ t_status	builtin_handle_redirs(t_redirection redir, int cur_in_out,
 		{
 			if (redir.append_mode == e_true)
 				cur_in_out = ft_open(redir.file_name,
-					O_CREAT | O_APPEND | O_WRONLY, 0777, e_false);
+						O_CREAT | O_APPEND | O_WRONLY, 0777, e_false);
 			else
 				cur_in_out = ft_open(redir.file_name,
-					O_CREAT | O_TRUNC | O_WRONLY, 0777, e_false);
+						O_CREAT | O_TRUNC | O_WRONLY, 0777, e_false);
 		}
 		dup_std_fd(cur_in_out, std_in_out, e_true);
 		if (-1 == cur_in_out)
 			return (ERROR);
 	}
 	else
-		dup_std_fd(cur_in_out, std_in_out, e_true);
+	{
+		dup_std_fd(cur_in_out, std_in_out, e_false);
+	}
 	return (OK);
 }
