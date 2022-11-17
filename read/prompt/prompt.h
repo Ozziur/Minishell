@@ -19,7 +19,7 @@
 # include <stdio.h>
 
 //* user defined types
-//# include "prompt_types.h"
+# include "prompt_struct.h"
 # include "../../types.h"
 # include "../../exit/exit.h"
 

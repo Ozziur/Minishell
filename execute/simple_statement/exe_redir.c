@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exe_redir.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 16:41:18 by mruizzo           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/11/16 19:38:08 by mruizzo          ###   ########.fr       */
-=======
-/*   Updated: 2022/11/17 03:01:00 by mruizzo          ###   ########.fr       */
->>>>>>> d409bb90ff117b89b93fb45ec12b343467f393af
+/*   Updated: 2022/11/17 16:33:06 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +59,16 @@ void	execute_redir_only_statement(t_tree_node *root,
 				int in, int out)
 {
 	int	out_fd;
-																
+		
 	out_fd = 0;
 	if (root->content->out_redir.file_name)
 	{
 		if (root->content->out_redir.append_mode == e_true)
 			out_fd = open(root->content->out_redir.file_name,
-			O_CREAT | O_APPEND | O_WRONLY, 0777);
+				O_CREAT | O_APPEND | O_WRONLY, 0777);
 		else
 			out_fd = open(root->content->out_redir.file_name,
-			O_CREAT | O_TRUNC | O_WRONLY, 0777); 
+				O_CREAT | O_TRUNC | O_WRONLY, 0777); 
 		if (out_fd == -1)
 		{
 			perror("minishell at execute_redir_only_statement");
@@ -90,11 +86,11 @@ t_status	builtin_handle_redirs(t_redirection redir, int cur_in_out,
 				int std_in_out, t_bool input_redir_case)
 {
 	if (redir.file_name)
-	{
+	{							
 		if (input_redir_case == e_true)
 			cur_in_out = open(redir.file_name, O_RDONLY);
 		else
-		{
+		{	
 			if (redir.append_mode == e_true)
 				cur_in_out = ft_open(redir.file_name,
 						O_CREAT | O_APPEND | O_WRONLY, 0777, e_false);
@@ -104,7 +100,11 @@ t_status	builtin_handle_redirs(t_redirection redir, int cur_in_out,
 		}
 		dup_std_fd(cur_in_out, std_in_out, e_true);
 		if (-1 == cur_in_out)
+		{
+			
 			return (ERROR);
+												printf("non caga er cazz pls\n");		
+		}
 	}
 	else
 	{
