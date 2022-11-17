@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:53:49 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/16 16:03:31 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/16 18:53:09 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*get_pathname(char *cmd)
 }
 
 char	*get_cmd_name(char *cmd)
-{	//da capire meglio in funzione di cmd_expander
+{	
 	char		*name;
 	int			slash_idx;
 	size_t		i;

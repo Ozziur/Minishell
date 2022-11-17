@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:36:10 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/16 16:09:19 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/16 18:57:14 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static void	launch_ext_cmd(t_tree_node *root,
 	env = env_handler(ENV_RETURN, NULL);
 	if (!cmd_path)
 		cmd_not_found(root, cmd_path, cmd_smpl_name, args_split);
+																// printf("path:    %s\n", cmd_path);
+																// printf("arg  ->.%s., arg1 %s\n", args_split[0], args_split[1]);
 	if (execve(cmd_path, args_split, bindings_list_to_array(env)) == -1)
 		cmd_exe_fail(root, cmd_path, cmd_smpl_name, args_split);
 }

@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 16:41:18 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/16 17:10:51 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/16 19:38:08 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ void	execute_redir_only_statement(t_tree_node *root,
 				int in, int out)
 {
 	int	out_fd;
-
+																
 	out_fd = 0;
-	if (root->content->out_redir.append_mode == e_true)
+	if (root->content->out_redir.file_name)
 	{
 		if (root->content->out_redir.append_mode == e_true)
 			out_fd = open(root->content->out_redir.file_name,

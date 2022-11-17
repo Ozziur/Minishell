@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:01:04 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/16 17:14:38 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/16 19:02:57 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	execute_in_shell(t_tree_node *root, int in, int out)
 		else if (root->content->operator_node.operator == e_AND)
 			execute_and_statement(root, in, out);
 		else if (root->content->operator_node.operator == e_OR)
-			execute_or_statement(root, in, out);// da creare
+			execute_or_statement(root, in, out);
 		else
 			(EXIT_FAILURE);
 	}

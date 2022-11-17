@@ -35,6 +35,5 @@ t_tree_node	*parse(void)
 		free_tree(&tree);
 		tokenizer_free();
 	}
-
 	return (tree);
 }
