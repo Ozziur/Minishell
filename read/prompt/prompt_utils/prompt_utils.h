@@ -30,5 +30,10 @@ char	**my_add_history(char *cmd);
 void	line_continuation_prompt(t_prompt_behav opcode, char *initial_command,
 			int line_channel[2], int line_size_channel[2]);
 t_status	here_doc_handling(char *last);
+t_status	here_doc_read(char *cmd);
+
+//* heredocs utils
+size_t	here_docs_count(char *cmd);
+char	**here_doc_take_delimiters(char *cmd);
 
 #endif
