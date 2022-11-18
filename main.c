@@ -30,6 +30,9 @@ int	main(int argc, char const **argv, char const **envp)
 	{
 		parse_tree = shell_read();
 		execute(parse_tree);
+		tokenizer_free();
+		free_tree(&parse_tree)
+		//unlink_here_docs();
 	}
 	return (EXIT_SUCCESS);
 }
