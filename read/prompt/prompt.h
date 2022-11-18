@@ -22,6 +22,7 @@
 # include "prompt_struct.h"
 # include "../../types.h"
 # include "../../exit/exit.h"
+# include "../../signals/signals.h"
 
 //sub
 # include "prompt_utils/prompt_utils.h"

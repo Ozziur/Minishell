@@ -38,6 +38,8 @@ int		ft_open(char *file_name, unsigned long long flags, int mode,
 int		ft_unlink(char *file_name, t_bool free_file_name);
 void	close_pipe(int pipe_[]);
 void	clone_pipe(int target[2], int clone[2]);
+t_bool	ft_pending_logical_op(char *command);
+t_bool	ft_pending_pipe(char *command);
 
 //* error
 void	set_error(t_status *status);

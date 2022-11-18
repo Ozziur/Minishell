@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signal_2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:10:58 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/10 12:30:24 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/18 11:10:58 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@ void	sig_ign(int sig)
 {
 	if (sig)
 		;
+}
+
+void	line_completion_prompt_sig_handler(int sig)
+{
+	if (sig == SIGINT)
+	{
+		line_continuation_prompt(KILL, NULL, NULL, NULL);
+	}
 }
 
 void	cmd_launcher_sig_handler(int sig)

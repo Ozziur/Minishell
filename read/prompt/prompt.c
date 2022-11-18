@@ -52,7 +52,7 @@ static t_status complete_line(char **cmd_reference, char *cmd)
 	pipe(line_size_channel);
 	line_cont_prmp_pid = fork();
 	if(!line_cont_prmp_pid)
-		line_continuation_prompt(COMPLETE_LINE, cmd, line_channel, line_size_channel);//da creare
+		line_continuation_prompt(COMPLETE_LINE, cmd, line_channel, line_size_channel);
 	else
 	{
 		signal(SIGINT, sig_ign);

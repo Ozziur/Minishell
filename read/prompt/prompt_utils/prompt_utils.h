@@ -23,10 +23,12 @@
 # include "../../../global.h"
 # include "../../../utils/utils.h"
 # include "../prompt_struct.h"
+# include "../../../signals/signals.h"
 
 char	*my_readline(char *prompt);
 char	**my_add_history(char *cmd);
 void	line_continuation_prompt(t_prompt_behav opcode, char *initial_command,
 			int line_channel[2], int line_size_channel[2]);
+t_status	here_doc_handling(char *last);
 
 #endif

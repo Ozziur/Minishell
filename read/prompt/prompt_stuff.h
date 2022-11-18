@@ -15,6 +15,7 @@
 
 // * user defined types //
 # include "../../types.h"
+# include "prompt_utils/prompt_utils.h"
 
 char	*read_command(char *main_prompt);
 
