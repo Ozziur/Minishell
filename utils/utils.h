@@ -68,7 +68,7 @@ void	ft_str_replace(char **str, char *new);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_substr(char *str, char delimiter);
 t_bool	str_not_empty(char *str);
-void	*ft_splitclear(char **split)
+void	*ft_splitclear(char **split);
 
 //split_utils in str_utils
 void	*ft_split_clear(char **split);

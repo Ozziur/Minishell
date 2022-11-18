@@ -17,6 +17,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 # include <readline/readline.h>
 
 // * libraries
@@ -24,6 +26,13 @@
 # include "../../../utils/utils.h"
 # include "../prompt_struct.h"
 # include "../../../signals/signals.h"
+
+//enum h_doc
+typedef enum e_hdoc_prompt_behav
+{
+	KILL_HDOC,
+	CONTINUE
+}	t_hdoc_prompt_behav;
 
 char	*my_readline(char *prompt);
 char	**my_add_history(char *cmd);

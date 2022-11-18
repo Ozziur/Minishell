@@ -39,7 +39,7 @@ static char	*take_next_delimiter(char *cmd, size_t offset)
 
 	offset = skip_consecutive_chars(cmd, offset, ' ', +1);
 	deli_len = hdoc_read_file_name(cmd, offset);
-	deli = ft_strcpy(NULL, cmd + offs);
+	deli = ft_strcpy(NULL, cmd + offset, deli_len);
 	return (deli);
 }
 
