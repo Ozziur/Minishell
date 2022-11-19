@@ -27,7 +27,7 @@ all: .BUILD
 bonus: .BUILD
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(READLINE_FLAGS) $(OBJS) -L/usr/include/readline -lreadline -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L/usr/include/readline -lreadline 
 	@printf "\033[1m\033[32mMinishell Compiled!\n"
 	@echo "\033[0;37m"
 

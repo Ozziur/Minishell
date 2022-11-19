@@ -77,35 +77,6 @@ char	*expand_quotes(char *quoted_str, char type_of_quotes)
 					scroll_to_char(quoted_str, '\'')));
 }
 
-char	*rm_internal_double_quotes(char *quotes_content)
-{
-	int	i;
-	int	j;
-	int	quotes_nbr;
-	char	*final_str;
-
-	i = 0;
-	while (quotes_content[i])
-	{
-		if (quotes_content[i] == '"')
-			++quotes_nbr;
-		++i;
-	}
-	final_str = ft_malloc(sizeof(char)
-			* (ft_strlen(quotes_content) - quotes_nbr + 1));
-	j = 0;
-	i = 0;
-	while (quotes_content[i])
-	{
-		final_str[j] == quotes_content[i];
-		++i;
-		if (quotes_content[i] != '"')
-			++j;
-	}
-	free(quotes_content);
-	return (final_str);
-}
-
 /*
 ** The +2 to third_chunk is due to the subsequent addition of 
 ** the two ' to second_chunk
