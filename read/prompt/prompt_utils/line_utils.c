@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 18:18:26 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/18 11:45:40 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/19 19:17:29 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_status	here_doc_handling(char *last)
 	t_status	prompt_status;
 
 	signal(SIGINT, sig_ign);
-	prompt_status = here_doc_read(last);//da creare
+	prompt_status = here_doc_read(last);
 	signal(SIGINT, line_completion_prompt_sig_handler);
 	if (prompt_status == ERROR)
 		return (ERROR);
@@ -36,7 +36,7 @@ static void	read_until_complete_rec(char **command_ref, char *last)
 				e_true, e_false);
 	else
 		*command_ref = ft_strdup(last);
-	if (OK == here_doc_handling(last))// da creare
+	if (here_doc_handling(last) == OK)
 	{
 		if (e_true == ft_pending_pipe(last)
 			|| e_true == ft_pending_logical_op(last))

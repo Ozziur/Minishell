@@ -69,6 +69,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_substr(char *str, char delimiter);
 t_bool	str_not_empty(char *str);
 void	*ft_splitclear(char **split);
+char	*string_strip(char *str, char to_strip, t_bool free_input);
+int		str_number_occurrences(char *str, char c);
 
 //split_utils in str_utils
 void	*ft_split_clear(char **split);

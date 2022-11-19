@@ -20,7 +20,7 @@ static void	expand_delimiter_take_quote(char **delimiter,
 		*delimiter_enclosing_quote = '\0';
 	else
 	{
-		*delimiter = string_strip(*delimiter, (*delimiter)[0], e_true);// da creare
+		*delimiter = string_strip(*delimiter, (*delimiter)[0], e_true);
 		*delimiter_enclosing_quote = (*delimiter)[0];
 	}
 }
@@ -36,7 +36,7 @@ static t_status	here_doc_read_current(char **delimiter, char *hdoc_file_name)
 	if (!hdoc_prompt_pid)
 	{
 		expand_delimiter_take_quote(delimiter, &delimiter_enclosing_quote);
-		here_doc_prompt(CONTINUE, delimiter_enclosing_quote,// da creare
+		here_doc_prompt(CONTINUE, delimiter_enclosing_quote,
 			*delimiter, hdoc_file_name);
 	}
 	waitpid(hdoc_prompt_pid, &hdoc_prompt_exit_status, 0);

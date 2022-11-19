@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:10:58 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/18 11:10:58 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/19 19:25:44 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ void	sig_ign(int sig)
 {
 	if (sig)
 		;
+}
+
+void	here_doc_prompt_sig_handler(int sig)
+{
+	if (sig == SIGINT)
+		here_doc_prompt(KILL_HDOC, '\0', NULL, NULL);
 }
 
 void	line_completion_prompt_sig_handler(int sig)

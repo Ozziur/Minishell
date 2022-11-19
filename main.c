@@ -14,6 +14,7 @@
 
 static void	set_pid_variable(void);
 static void	set_env(char const **envp);
+static void	unlink_here_docs(void);
 
 int	main(int argc, char const **argv, char const **envp)
 {
@@ -32,10 +33,34 @@ int	main(int argc, char const **argv, char const **envp)
 		execute(parse_tree);
 		tokenizer_free();
 		free_tree(&parse_tree);
-		//unlink_here_docs();
+		unlink_here_docs();
 	}
 	return (EXIT_SUCCESS);
 }
+
+static void	unlink_here_docs(void)
+{
+	t_bool			repeat;
+	char			*next_here_doc;
+	size_t			progressive_nbr;
+	char			*prefix;
+
+	prefix = ".here_doc-";
+	progressive_nbr = 0;
+	repeat = e_true;
+	while (repeat)
+	{
+		next_here_doc = ft_strjoin(prefix, ft_itoa(progressive_nbr),
+				e_false, e_true);
+		if (access(next_here_doc, R_OK | W_OK) != 0)
+			repeat = e_false;
+		else
+			unlink(next_here_doc);
+		free(next_here_doc);
+		progressive_nbr++;
+	}
+}
+
 
 static void	set_env(char const **envp)
 {

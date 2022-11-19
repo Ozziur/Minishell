@@ -44,5 +44,7 @@ t_status	here_doc_read(char *cmd);
 //* heredocs utils
 size_t	here_docs_count(char *cmd);
 char	**here_doc_take_delimiters(char *cmd);
+void	here_doc_prompt(t_hdoc_prompt_behav opcode, char enclosing_quote,
+			char *delimiter, char *hdoc_file_name);
 
 #endif

@@ -12,24 +12,72 @@
 
 #include "prompt_utils.h"
 
-size_t	here_docs_count(char *cmd)
+static void	hdoc_read_until_complete(int hdoc_fd,
+				char enclosing_quote, char *delimiter)
 {
-	size_t	here_docs;
-	size_t	i;
+	char	*next_line;
 
-	here_docs = 0;
-	i = 0;
-	while (cmd[i])
+	next_line = readline("heredoc> ");
+	if (!next_line ||
+		ft_strcmp(next_line, delimiter) == 0)
 	{
-		if (cmd[i] == '<' && cmd[i + 1] == '<')
-		{
-			if (cmd[i + 2] == '<')
-				return (0);
-			here_docs++;
-		}
-		i++;
+		close(hdoc_fd);
+		ft_free(next_line);
+		exit(EXIT_SUCCESS);
 	}
-	return (here_docs);
+	else if (*next_line == '\0')
+	{
+		free(next_line);
+		hdoc_read_until_complete(hdoc_fd, enclosing_quote, delimiter);
+	}
+	else
+	{
+		next_line = ft_strjoin(next_line, "\n", e_true, e_false);
+//		if (enclosing_quote == '\0')
+//			next_line = expand_rec(next_line);//expander
+		write(hdoc_fd, next_line, ft_strlen(next_line));
+		free(next_line);
+	}
+}
+
+void	here_doc_prompt(t_hdoc_prompt_behav opcode, char enclosing_quote,
+			char *delimiter,
+			char *hdoc_file_name)
+{
+	int	fd_here_doc;
+
+	if(opcode == KILL_HDOC)
+		exit(EXIT_FAILURE);
+	else
+	{
+		signal(SIGINT, here_doc_prompt_sig_handler);
+		unlink(hdoc_file_name);
+		fd_here_doc = open(hdoc_file_name,
+				O_CREAT | O_RDWR | O_TRUNC, 0777);
+		if (fd_here_doc == -1)
+		{
+			perror("minishell at here_doc_prompt");
+			exit(EXIT_FAILURE);
+		}
+		while (e_true)
+			hdoc_read_until_complete(fd_here_doc,
+				enclosing_quote, delimiter);
+	}
+}
+
+static size_t	hdoc_read_file_name(char *str, size_t offset)
+{
+	size_t	len_file_name;
+	size_t	alphanumeric_offset;
+
+	alphanumeric_offset = skip_consecutive_chars(str, offset, '$', +1);
+	len_file_name = bash_next_word_len(str, alphanumeric_offset)
+		+ (alphanumeric_offset - offset);
+	if (str[offset + len_file_name] && str[offset + len_file_name] == '$')
+		return (len_file_name
+			+ hdoc_read_file_name(str, offset + len_file_name));
+	else
+		return (len_file_name);
 }
 
 static char	*take_next_delimiter(char *cmd, size_t offset)
