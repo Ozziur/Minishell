@@ -1,9 +1,8 @@
 #include "expander.h"
 
-static char	*la_vergognosa(char *q_cont, int single_quote_pos);
-static char	*la_vergognosissima(
+static char	*la_vergognosa(
 		char *first_chunk, char *second_chunk, char *third_chunk);
-/////// embarassing static declaration //////////////////////
+//////////// embarassing static declaration //////////////////////
 
 char	*expand_segment(char *seg)
 {
@@ -69,6 +68,7 @@ char	*expand_quotes(char *quoted_str, char type_of_quotes)
 					quoted_str,
 					scroll_to_char(quoted_str, '"'));
 		new_content = carefully_expand_content(quotes_content);
+		free(quotes_content);
 		return (new_content);
 	}
 	else
@@ -77,8 +77,19 @@ char	*expand_quotes(char *quoted_str, char type_of_quotes)
 }
 
 /*
+** If there's single quotes in it, the original double-quoted
+** content is splitted into 3 chunks: the segment that precedes
+** the single-quoted section, the single-quoted section itself
+** and then the rest of the string. Each chunk is expanded indi-
+** vidually. To split the chunks, the two ' characters are re-
+** placed with 0s. The ' char are reattached to the sides of the
+** second chunk after it's been expanded, so that the eventual
+** env variables in it are regularily interpreted. Two " char
+** are attached to the thirc chunk before it is expanded, so
+** that the eventual single-quoted segments in it are correctly
+** expanded.
 ** The +2 to third_chunk is due to the subsequent addition of 
-** the two ' to second_chunk
+** the two ' characters to second_chunk
 */
 char	*carefully_expand_content(char *q_cont)
 {
@@ -91,13 +102,13 @@ char	*carefully_expand_content(char *q_cont)
 	single_quote_pos = scroll_to_char(q_cont, '\'');
 	if (single_quote_pos || q_cont[0] == '\'')
 	{
-		first_chunk = la_vergognosa(q_cont, single_quote_pos);
+		first_chunk = ft_strcpy(NULL, q_cont, single_quote_pos);
 		second_chunk = ft_strcpy(NULL,
 			q_cont + single_quote_pos + 1,
 			scroll_to_char(q_cont + single_quote_pos + 1, '\''));
 		third_chunk = q_cont
 			+ ft_strlen(first_chunk) + ft_strlen(second_chunk) + 2;
-		care_fully_expanded_str = la_vergognosissima(
+		care_fully_expanded_str = la_vergognosa(
 						first_chunk,
 						second_chunk,
 						third_chunk);
@@ -109,7 +120,10 @@ char	*carefully_expand_content(char *q_cont)
 		return (expand_rec(q_cont));
 }
 
-static char	*la_vergognosissima(
+/*
+** We don't talk about this.
+*/
+static char	*la_vergognosa(
 		char *first_chunk, char *second_chunk, char *third_chunk)
 {
 	return (ft_strjoin_a_trois(
@@ -122,12 +136,4 @@ static char	*la_vergognosissima(
 				e_false, e_false, e_false)),
 			e_true, e_true, e_true)
 		);
-}
-
-static char	*la_vergognosa(char *q_cont, int single_quote_pos)
-{
-	if (q_cont[0] == '\'')
-		return (ft_strdup(""));
-	else
-		return (ft_strcpy(NULL, q_cont, single_quote_pos));
 }

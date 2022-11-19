@@ -17,10 +17,23 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 	
 	free(cmd->cmd_name);
 	free(cmd->cmd_args);
-	cmd->cmd_name = new_cmd_name;
-	cmd->cmd_args = new_cmd_args;
+	cmd->cmd_name = check_expansion(new_cmd_name);
+	cmd->cmd_args = check_expansion(new_cmd_args);
 }
 
+char	*check_expansion(char *expanded_str)
+{
+	if (!*expanded_str)
+	{
+		free(expanded_str);
+		return (NULL);
+	}
+	return (expanded_str);
+}
+
+/*
+** The return of expand_rec is always allocated.
+*/
 char	*expand_rec(char *to_expand)
 {	
 	char	*rest_of_str;
