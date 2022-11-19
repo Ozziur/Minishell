@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 18:18:26 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/19 19:17:29 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/19 21:38:03 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	line_continuation_prompt(t_prompt_behav opcode, char *initial_command,
 	{
 		cmd = NULL;
 		clone_pipe(line_channel, line_chl);
-		clone_pipe(line_size_channel, line_chl);
+		clone_pipe(line_size_channel, line_size_chl);
 		close(line_chl[0]);
 		close(line_size_chl[0]);
 		signal(SIGINT, line_completion_prompt_sig_handler);
