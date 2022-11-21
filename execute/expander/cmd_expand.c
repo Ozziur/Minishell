@@ -10,13 +10,11 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 		sig_handling_set(SIG_AT_EXIT);
 		exit(0);
 	}
-	new_cmd_name = expand_rec(cmd->cmd_name);
-	new_cmd_args = expand_rec(cmd->cmd_args);
+	new_cmd_name = expand(cmd->cmd_name, e_true);
+	new_cmd_args = expand(cmd->cmd_args, e_true);
 
 	// qui c'è un while loop che mi devo vedere
 	
-	free(cmd->cmd_name);
-	free(cmd->cmd_args);
 	cmd->cmd_name = check_expansion(new_cmd_name);
 	cmd->cmd_args = check_expansion(new_cmd_args);
 }
@@ -32,9 +30,50 @@ char	*check_expansion(char *expanded_str)
 }
 
 /*
-** The return of expand_rec is always allocated.
+** This function is the one to call to expand any
+** string, from whatever part of the code.
+**
+** The return of expand_rec() is always allocated.
 */
-char	*expand_rec(char *to_expand)
+char	*expand(char *to_expand, t_bool free_original)
+{
+	char	*expanded;
+
+	expanded = expand_quotes_dollar(to_expand);
+	expanded = expand_wildcards(expanded);
+	expanded = check_expansion(expanded);
+	if (free_original == e_true)
+		ft_free(to_expand);
+	return (expanded);
+}
+
+t_bool	check_for_stars(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (is_char_to_expand(str[i], e_STAR))
+		{
+			return (e_true);
+		}
+		++i;
+	}
+	return (e_false);
+}
+
+char	*expand_wildcards(char *to_expand)
+{
+	char	*expanded;
+
+	if (check_for_stars == e_false)
+		return (to_expand);
+	expanded = ft_strjoin(
+			)	
+	free(to_expand);
+
+char	*expand_quotes_dollar(char *to_expand)
 {	
 	char	*rest_of_str;
 
@@ -59,7 +98,7 @@ char	*isolate_first_segment(char *to_expand, char *rest_of_str)
 	i = 0;
 	while (to_expand[i])
 	{
-		if (is_special_char(to_expand[i]))
+		if (is_char_to_expand(to_expand[i], e_QUOTES_DOLLAR))
 		{
 			if (i > 0)
 				rest_of_str = to_expand + i;
@@ -96,7 +135,10 @@ char	*isolate_macro(char *to_expand, char *rest_of_str, char special)
 	return (to_expand + i);
 }
 
-int	is_special_char(char c)
+int	is_char_to_expand(char c, t_exp_phase phase)
 {
-	return (c == '"' || c == '\'' || c == '$' || c == '*');
+	if (phase == e_QUOTES_DOLLAR)
+		return (c == '"' || c == '\'' || c == '$');
+	else if (phase == e_STAR)
+		return (c == '*');
 }
