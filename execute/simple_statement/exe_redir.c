@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 16:41:18 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/17 16:33:06 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/21 14:23:37 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,30 @@ t_status	builtin_handle_redirs(t_redirection redir, int cur_in_out,
 	else
 	{
 		dup_std_fd(cur_in_out, std_in_out, e_false);
+	}
+	return (OK);
+}
+
+t_status	open_brk_node_redir(int *in, int *out,
+				t_node_content *sub_node)
+{
+	if (sub_node->in_redir.file_name)
+	{
+		*in = open(sub_node->in_redir.file_name, O_RDONLY);
+		if(*in == -1)
+			return (ERROR);
+	}
+	if (sub_node->out_redir.file_name)
+	{
+		if (sub_node->out_redir.append_mode == e_true)
+			*out = ft_open(sub_node->out_redir.file_name,
+					O_CREAT | O_APPEND | O_WRONLY, 0777, e_false);
+		else
+			if (sub_node->out_redir.append_mode == e_true)
+			*out = ft_open(sub_node->out_redir.file_name,
+					O_CREAT | O_TRUNC | O_WRONLY, 0777, e_false);
+		if (*out == -1)
+			return (ERROR);
 	}
 	return (OK);
 }

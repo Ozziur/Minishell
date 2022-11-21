@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:01:04 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/21 12:33:19 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/21 14:15:36 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,18 @@ static void	execute_subshell(t_tree_node *root, int in, int out)
 	if (subshell_pid == 0)
 	{
 		new_shlvl = ft_atoi(env_handler(BINDING_GET_VALUE, "SHLVL")) + 1;
-		
+		env_handler(BINDING_UPDATE,
+			get_new_binding("SHLV", ft_itoa(new_shlvl), e_false));
+		if(open_brk_node_redir(&in, &out, root->content) == ERROR)
+		{
+			perror("minishell");
+			exit(1);
+		}
+		execute_rec(root->content->braket_node.sub_tree, in, out);
+		exit(g_env.last_executed_cmd_exit_status);
 	}
-	
+	waitpid(subshell_pid, &subshell_exit_status, 0);
+	g_env.last_executed_cmd_exit_status = WEXITSTATUS(subshell_exit_status);
 }
 
 void	execute_rec(t_tree_node *root, int in, int out)
