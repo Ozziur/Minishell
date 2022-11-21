@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_simple_statement.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:38:35 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/19 21:28:32 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/21 16:15:27 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static void	exec_builtin(t_tree_node *root, int in, int out)
 	// 		execute_env_statement(root->content->env_decl);
 		/*else*/ if (root->content->content_type == REDIR)
 			execute_redir_only_statement(root, in, out);
-		// else
-		// 	execute_cmd_builtin(&root->content->simple_cmd);
+		else
+			execute_cmd_builtin(&root->content->simple_cmd);//da ceare
 	}
 	dup2(stdin_clone, STDIN_FILENO);
 	dup2(stdout_clone, STDOUT_FILENO);

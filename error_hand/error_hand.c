@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:43:09 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/21 15:59:52 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/21 18:33:21 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static void	put_builtin_error(t_err_handl_opcodes error_type, void *argument)
 {
 // 	if (error_type == CD_PATH_ERROR)
 // 		put_cd_path_error_message();
-// 	if (error_type == PWD_ARGS_ERROR)
-// 		put_pwd_args_error_message();
+	if (error_type == PWD_ARGS_ERROR)
+		put_pwd_args_error_message();
 // 	if (error_type == EXIT_NON_NUMERIC_ARGS_ERROR)
 // 		put_exit_non_numeric_err_msg();
 // 	if (error_type == EXIT_TOO_MANY_ARGS_ERROR)

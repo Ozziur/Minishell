@@ -14,6 +14,7 @@
 
 static char	*next_command(void)
 {
+	printf("\1");
 	return (
 		read_command(
 			ft_strjoin("mini hell test : ",

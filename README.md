@@ -1,7 +1,7 @@
 Diario di bordo numero 1#
 I giorni sono diventati uno uguale all'altro e portare a termine il viaggio diventa sempre più dura.
 Secondo le mappe in un paio di settimane dovremmo attraccare al porto ma la ciurma è esausta e anche il più piccolo problema diventa insormontabile.
-durante la notte abbiamo deviato dal percorso e invece di passare il triangolo del here_doc abbiamo allungato passando dal pending, uno scorcio interessante ma futile.
+Durante la notte abbiamo deviato dal percorso e invece di passare il triangolo del here_doc abbiamo allungato passando dal pending, uno scorcio interessante ma futile.
 Anche lo shogun c'era passato ma la nostra situazione è diversa, il tempo stringe.
 Giungono voci che a baia Cantale, nel Monastero, Fratello Claudio sia a buon punto con l'expander, un tassello essenziale per la buona uscita del piano.
 La nostra nave invece è di nuovo vicina al triangolo dell'here_doc, contiamo di superarla entro sera è lasciare il mar delle redirection e rifocillarci nella baia delle builtin.
@@ -12,6 +12,9 @@ Durante la navigazione nel triangolo del here_doc siamo stati approcciati da  di
 Diario di bordo numero 2#
 Abbiamo finalmente lasciato il triangolo del here_doc. Ammetto che è stata estremamente dura, che l'inventore delle pipe possa marcire nelle budella del Kraken, e senza l'expander non sappiamo davvero come andrà ma da Fratello Claudio, che attualmente è a Londra, le notizie sono prommettenti.
 Non so quando raggiungeremo la baia delle builtin, forse sta notte, forse domani non so. Aspetto con ansia il giorno dedicato al Loa Ocumare protettore della ricchezza e dei mutamenti, colui che incarna il mistero della trasmutazione e del movimento continuo.
+
+Diario di bordo numero 3#
+Abbiamo aggiornato la nostra inbarcazione con i nuovi cannoni Brackets Sub Tree. Armi potenti che daranno risalto alla nostra nave e la renderanno ancora piú leggendaria. Ma un pensiero arriva e inpedisce di lavorare serenamente: dov'é Ciro? É stato un pensiero improvviso, un fulmine a ciel sereno che colpisce l'albero maestro durante la navigazione nell'internet e, con il rischio di sembrare volgare, per il deltoide di Nettuno, a costo di vendere il buco del culo sará di nuovo mio.
 
 piano di battaglia: 
 
