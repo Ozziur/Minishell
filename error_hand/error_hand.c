@@ -6,14 +6,14 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:43:09 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/09 15:06:53 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/21 15:59:52 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "error_hand.h"
 
-// static void	put_builtin_error(t_err_handl_opcodes error_type, void *argument)
-// {
+static void	put_builtin_error(t_err_handl_opcodes error_type, void *argument)
+{
 // 	if (error_type == CD_PATH_ERROR)
 // 		put_cd_path_error_message();
 // 	if (error_type == PWD_ARGS_ERROR)
@@ -26,7 +26,7 @@
 // 		put_env_opt_err();
 // 	if (error_type == ENV_CMD_NOT_FOUND_ERR)
 // 		put_env_cmd_err(argument);
-// }
+}
 
 void	put_error(t_err_handl_opcodes error_type, int error_status,
 			void *argument)
@@ -47,13 +47,13 @@ void	put_error(t_err_handl_opcodes error_type, int error_status,
 		put_cmd_not_found_error_message(argument);
 	if (error_type == CMD_FAILED_ERROR)
 		put_cmd_failed_error_message(argument);
-	// if (error_type == CD_PATH_ERROR
-	// 	|| error_type == EXIT_NON_NUMERIC_ARGS_ERROR
-	// 	|| error_type == EXIT_TOO_MANY_ARGS_ERROR
-	// 	|| error_type == ENV_OPT_ERR
-	// 	|| error_type == ENV_CMD_NOT_FOUND_ERR
-	// 	|| error_type == PWD_ARGS_ERROR)
-	// 	put_builtin_error(error_type, argument);
+	if (error_type == CD_PATH_ERROR
+		|| error_type == EXIT_NON_NUMERIC_ARGS_ERROR
+		|| error_type == EXIT_TOO_MANY_ARGS_ERROR
+		|| error_type == ENV_OPT_ERR
+		|| error_type == ENV_CMD_NOT_FOUND_ERR
+		|| error_type == PWD_ARGS_ERROR)
+		put_builtin_error(error_type, argument);
 	g_env.last_executed_cmd_exit_status = error_status;
 	dup2(stdout_clone, STDOUT_FILENO);
 }

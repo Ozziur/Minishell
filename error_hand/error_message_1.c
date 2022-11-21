@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:12:21 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/09 15:19:22 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/21 16:00:05 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	put_error_message(char *preamble, char *message, char *epilogue,
 	if (free_epilogue && epilogue)
 		free(epilogue);
 }
-
 
 void	put_args_error_message(char *arg_found)
 {

@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:38:06 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/16 16:03:41 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/21 15:50:28 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	ft_printf(const char *format_string, ...)
 	int		count;
 	va_list	args;
 
-	//stdout_manage(PF_STDOUT_SET);
 	i = 0;
 	count = 0;
 	va_start(args, format_string);
@@ -69,6 +68,5 @@ int	ft_printf(const char *format_string, ...)
 		i++;
 	}
 	va_end(args);
-	//stdout_manage(PF_STDOUT_RESTORE);
 	return (count);
 }

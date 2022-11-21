@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:01:04 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/21 14:15:36 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/21 15:57:20 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	execute_subshell(t_tree_node *root, int in, int out)
 		new_shlvl = ft_atoi(env_handler(BINDING_GET_VALUE, "SHLVL")) + 1;
 		env_handler(BINDING_UPDATE,
 			get_new_binding("SHLV", ft_itoa(new_shlvl), e_false));
-		if(open_brk_node_redir(&in, &out, root->content) == ERROR)
+		if (open_brk_node_redir(&in, &out, root->content) == ERROR)
 		{
 			perror("minishell");
 			exit(1);

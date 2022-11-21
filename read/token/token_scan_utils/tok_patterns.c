@@ -35,7 +35,7 @@ size_t	scan_env_declaration(char *str, size_t offset, t_token **token_list)
 	}
 	if (token->token_id == e_ENV_VAR_DECL && token->token_val == NULL)
 		return (scan_env_revert(token, offset));
-	tok_add_back(token_list, token);//env_decl_add_token sostituito da questa funzione
+	tok_add_back(token_list, token);
 	return (new_offset);
 }
 
@@ -61,7 +61,7 @@ size_t	scan_simple_command(char *cmd_line, size_t offset,
 	return (offset);
 }
 
-size_t scan_operator(char *cmd_line, size_t offset, t_token **tok_list)
+size_t	scan_operator(char *cmd_line, size_t offset, t_token **tok_list)
 {
 	t_token	*token;
 	size_t	pre_offset;
@@ -75,7 +75,7 @@ size_t scan_operator(char *cmd_line, size_t offset, t_token **tok_list)
 			&& cmd_line[pre_offset + 1] != '&'))
 		return (offset);
 	token = (t_token *) malloc(sizeof(t_token));
-	token->token_id =e_OPERATOR;
+	token->token_id = e_OPERATOR;
 	if (cmd_line[pre_offset] == '&')
 		token->token_val = "&&";
 	else if (cmd_line[pre_offset] == '|'

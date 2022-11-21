@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:31:36 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/19 20:09:57 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/21 15:52:05 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ void		sig_ign(int sig);
 void		cmd_launcher_sig_handler(int sig);
 void		sig_handling_set(t_sig_handling_opcode opcode);
 void		shell_executor_handler(int sig);
-void	    line_completion_prompt_sig_handler(int sig);
-void    	here_doc_prompt_sig_handler(int sig);
-
+void		line_completion_prompt_sig_handler(int sig);
+void		here_doc_prompt_sig_handler(int sig);
 
 #endif

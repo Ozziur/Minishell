@@ -22,7 +22,7 @@ char	*my_readline(char *prompt)
 	line = readline(prompt);
 	dup2(cur_stdout_bkp, STDOUT_FILENO);
 	close(cur_stdout_bkp);
-	if (!line)/*    Ctrl+D   */
+	if (!line)
 		return (NULL);
 	else if (*line == '\0')/*          new line*/
 	{

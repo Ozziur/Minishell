@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 16:41:18 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/21 14:23:37 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/21 15:57:01 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ static t_status	external_redir_in_or_out(t_redirection redir, int *cur_in_out,
 	{
 		if (redir.append_mode == e_true)
 			*cur_in_out = ft_open(redir.file_name,
-				O_CREAT | O_APPEND | O_WRONLY, 0777, e_false);
+					O_CREAT | O_APPEND | O_WRONLY, 0777, e_false);
 		else
 			*cur_in_out = ft_open(redir.file_name,
-				O_CREAT | O_TRUNC | O_WRONLY, 0777, e_false);
+					O_CREAT | O_TRUNC | O_WRONLY, 0777, e_false);
 	}
 	if (*cur_in_out == -1)
 		return (ERROR);

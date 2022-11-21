@@ -34,7 +34,7 @@ size_t	skip_consecutive_chars(char *string, size_t offset,
 t_bool	command_is_empty(char *command);
 size_t	bash_next_word_len(char *cmd_line, size_t offset);
 int		ft_open(char *file_name, unsigned long long flags, int mode,
-		t_bool free_file_name);
+			t_bool free_file_name);
 int		ft_unlink(char *file_name, t_bool free_file_name);
 void	close_pipe(int pipe_[]);
 void	clone_pipe(int target[2], int clone[2]);
