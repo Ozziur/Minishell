@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:01:04 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/16 19:02:57 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/21 12:33:19 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,30 @@ static void	execute_in_shell(t_tree_node *root, int in, int out)
 	}
 }
 
+static void	execute_subshell(t_tree_node *root, int in, int out)
+{
+	int		subshell_pid;
+	int		subshell_exit_status;
+	size_t	new_shlvl;
+
+	subshell_pid = fork();
+	if (subshell_pid == 0)
+	{
+		new_shlvl = ft_atoi(env_handler(BINDING_GET_VALUE, "SHLVL")) + 1;
+		
+	}
+	
+}
+
 void	execute_rec(t_tree_node *root, int in, int out)
 {
 	if (!root)
 		return ;
 	signal(SIGUSR1, shell_executor_handler);
 	signal(SIGUSR2, shell_executor_handler);
-		// if (root->content->content_type == PAREN_EXP)
-		// 	execute_subshell(root, in, out);
-	// else
+		if (root->content->content_type == SUB_CONTENT)
+			execute_subshell(root, in, out);
+	else
 		execute_in_shell(root, in, out);
 }
 

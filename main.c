@@ -78,7 +78,7 @@ static void	set_env(char const **envp)
 	if (env_handler(BINDING_GET_VALUE, "minishell_first_call_set") == NULL)
 	{
 		env_handler(BINDING_UPDATE,
-			get_new_binding("minishell_fiirst_call_set", "1", e_false));
+			get_new_binding("minishell_first_call_set", "1", e_false));
 		g_env.stdout_clone = dup(STDOUT_FILENO);
 	}
 	g_env.last_executed_cmd_exit_status = EXIT_SUCCESS;
