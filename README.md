@@ -16,6 +16,9 @@ Non so quando raggiungeremo la baia delle builtin, forse sta notte, forse domani
 Diario di bordo numero 3#
 Abbiamo aggiornato la nostra inbarcazione con i nuovi cannoni Brackets Sub Tree. Armi potenti che daranno risalto alla nostra nave e la renderanno ancora piú leggendaria. Ma un pensiero arriva e inpedisce di lavorare serenamente: dov'é Ciro? É stato un pensiero improvviso, un fulmine a ciel sereno che colpisce l'albero maestro durante la navigazione nell'internet e, con il rischio di sembrare volgare, per il deltoide di Nettuno, a costo di vendere il buco del culo sará di nuovo mio.
 
+Diario di bordo numero 4#
+Abbiamo iniziato il saccheggio delle varie cittá della baia delle builtin. Lo so che sembra brutto ma di qualcosa dovremmo pur mangiare e per concludere la missione abbiamo bisogno dei sette anelli che danno nome alle cittá che le custodiscono. Nomi terribili se posso permettermi ma paese che vai usanza che trovi. Ad ora ne abbiamo tre: pwd, cd, ed echo (avevo detto che erano nomi terribili per delle cittá). Stiamo pianificando come ottenere i prossimi preziosi, alcuni di loro sembrano ben protetti ma nulla potra farci desistere dal conpletare la missione.
+
 piano di battaglia: 
 
 normalizzare Makefile:
