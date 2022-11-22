@@ -126,7 +126,8 @@ static void	print_signature(void)
     ##       #      #        #     #             #       # #           #        #          #\n\
   ## #       #             ##      #            #         #         # #         #          #\n\
  ##   #      #           ##        #          ##        ## #         #     ########## ##########\n\
-#      #      ####     ##           ####    ##        ##    #         #\n\n" RESET);
+#      #      ####     ##           ####\
+    ##        ##    #         #\n\n" RESET);
 	printf(BOLDYELLOW "Minishell\n" RESET);
 	printf(YELLOW "La storia di CCantale e MRuizzo \n\n" RESET);
 	printf(GREEN "Lode allo Shogun MMarinel che ci ha preceduti\n\n" RESET);
