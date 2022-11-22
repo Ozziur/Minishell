@@ -54,6 +54,23 @@ size_t	bash_next_string_len(char *str, size_t offset)
 	return (bash_string_len);
 }
 
+t_bool	bash_word_is_empty(char *command)
+{
+	size_t	offset;
+
+	if (!command)
+		return (e_true);
+	offset = 0;
+	while (command[offset])
+	{
+		if (e_false == ft_isspace(command[offset]
+				&& e_false == ft_is_quote(command[offset])))
+			return (e_false);
+		offset++;
+	}
+	return (e_true);
+}
+
 t_bool	command_is_empty(char *command)
 {
 	size_t	offset;

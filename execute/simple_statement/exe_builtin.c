@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:41:08 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/21 18:40:33 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/22 16:22:58 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	execute_cmd_builtin(t_simple_cmd_node *cmd)
 		simple_name = get_cmd_name(cmd->cmd_name);
 		if (ft_strcmp(simple_name, "pwd") == 0)
 			execute_pwd(*cmd);
+		if (ft_strcmp(simple_name, "cd") == 0)
+			execute_cd(*cmd);
 		// aggiungere le altre
 		free(simple_name);
 	}		

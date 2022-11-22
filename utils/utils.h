@@ -40,6 +40,7 @@ void	close_pipe(int pipe_[]);
 void	clone_pipe(int target[2], int clone[2]);
 t_bool	ft_pending_logical_op(char *command);
 t_bool	ft_pending_pipe(char *command);
+t_bool	bash_word_is_empty(char *command);
 
 //* error
 void	set_error(t_status *status);
