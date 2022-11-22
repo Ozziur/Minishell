@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:44:30 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/21 18:34:37 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/22 14:56:49 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,10 @@ void	put_parser_syntax_error_message(t_parser_status *parser_status);
 void	put_cmd_not_found_error_message(char *cmd_name);
 void	put_cmd_failed_error_message(char *cmd_name);
 void	put_pwd_args_error_message(void);
+void	put_cd_path_error_message(void);
+void	put_exit_too_many_args_err_msg(void);
+void	put_exit_non_numeric_err_msg(void);
+void	put_env_opt_err(void);
+void	put_env_cmd_err(char *cmd_name);
 
 #endif

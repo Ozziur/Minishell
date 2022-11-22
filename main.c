@@ -15,6 +15,7 @@
 static void	set_pid_variable(void);
 static void	set_env(char const **envp);
 static void	unlink_here_docs(void);
+static void	print_signature(void);
 
 int	main(int argc, char const **argv, char const **envp)
 {
@@ -27,6 +28,7 @@ int	main(int argc, char const **argv, char const **envp)
 	}
 	set_env(envp);
 	sig_handling_set(SIG_INITIAL);
+	print_signature();
 	while (e_true)
 	{
 		parse_tree = shell_read();
@@ -60,7 +62,6 @@ static void	unlink_here_docs(void)
 		progressive_nbr++;
 	}
 }
-
 
 static void	set_env(char const **envp)
 {
@@ -109,4 +110,26 @@ static void	set_pid_variable(void)
 		waitpid(pid, &shell_exit_value, 0);
 		exit(WEXITSTATUS(shell_exit_value));
 	}
+}
+
+static void	print_signature(void)
+{
+	int		cur_stdout_backup;
+
+	cur_stdout_backup = dup(STDOUT_FILENO);
+	dup2(g_env.stdout_clone, STDOUT_FILENO);
+	printf(YELLOW "I devoti Jita dello Shogun presentano\n\n" RESET);
+	printf(BOLDYELLOW "\
+########   ######     ######     ######   ##########          #\n\
+       #     #                     #      #        #         #  ##########   ######     ######\n\
+      #  ########## ########## ##########         #     #   #           #        #          #\n\
+    ##       #      #        #     #             #       # #           #        #          #\n\
+  ## #       #             ##      #            #         #         # #         #          #\n\
+ ##   #      #           ##        #          ##        ## #         #     ########## ##########\n\
+#      #      ####     ##           ####    ##        ##    #         #\n\n" RESET);
+	printf(BOLDYELLOW "Minishell\n" RESET);
+	printf(YELLOW "La storia CCantale e MRuizzo \n\n" RESET);
+	printf(GREEN "Lode allo Shogun MMarinel che ci ha preceduti\n\n" RESET);
+	dup2(cur_stdout_backup, STDOUT_FILENO);
+	close(cur_stdout_backup);
 }

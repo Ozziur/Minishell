@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:01:04 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/21 15:57:20 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/22 14:53:17 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void	execute_rec(t_tree_node *root, int in, int out)
 		return ;
 	signal(SIGUSR1, shell_executor_handler);
 	signal(SIGUSR2, shell_executor_handler);
-		if (root->content->content_type == SUB_CONTENT)
-			execute_subshell(root, in, out);
+	if (root->content->content_type == SUB_CONTENT)
+		execute_subshell(root, in, out);
 	else
 		execute_in_shell(root, in, out);
 }
