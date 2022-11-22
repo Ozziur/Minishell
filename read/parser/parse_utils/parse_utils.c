@@ -32,12 +32,12 @@ t_bool	is_operator_tok(t_token *token)
 
 t_bool	is_closing_paren(t_token *token)
 {
-	return(token->token_id == e_BRAKETS
+	return (token->token_id == e_BRAKETS
 		&& *(char *)token->token_val == ')');
 }
 
 t_bool	is_open_paren(t_token *token)
 {
-	return(token->token_id == e_BRAKETS
+	return (token->token_id == e_BRAKETS
 		&& *(char *)token->token_val == '(');
 }

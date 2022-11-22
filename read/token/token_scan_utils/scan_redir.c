@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:48 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/12 16:04:34 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/22 18:55:43 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ static size_t	take_here_docs(void)
 	return (i);
 }
 
-
-t_token *in_out_tok_record_file_name(char *next_wrd_begin,
+t_token	*in_out_tok_record_file_name(char *next_wrd_begin,
 			size_t next_wrd_len, t_token_id code)
 {
 	t_token		*token;
@@ -104,7 +103,7 @@ size_t	scan_inout_file(char *cmd_line, size_t offset, t_token **token_list)
 			code)
 		);
 	return (pre_offset + next_word_len);
-	}
+}
 
 size_t	scan_redirs(char *cmd_line, size_t offset, t_token **token_list)
 {

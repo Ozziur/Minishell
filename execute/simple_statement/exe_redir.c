@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 16:41:18 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/21 15:57:01 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/22 18:42:35 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,16 @@ void	execute_redir_only_statement(t_tree_node *root,
 				int in, int out)
 {
 	int	out_fd;
-		
+
 	out_fd = 0;
 	if (root->content->out_redir.file_name)
 	{
 		if (root->content->out_redir.append_mode == e_true)
 			out_fd = open(root->content->out_redir.file_name,
-				O_CREAT | O_APPEND | O_WRONLY, 0777);
+					O_CREAT | O_APPEND | O_WRONLY, 0777);
 		else
 			out_fd = open(root->content->out_redir.file_name,
-				O_CREAT | O_TRUNC | O_WRONLY, 0777); 
+					O_CREAT | O_TRUNC | O_WRONLY, 0777);
 		if (out_fd == -1)
 		{
 			perror("minishell at execute_redir_only_statement");
@@ -78,8 +78,6 @@ void	execute_redir_only_statement(t_tree_node *root,
 			close(out_fd);
 	}
 	g_env.last_executed_cmd_exit_status = EXIT_SUCCESS;
-	// if (in || out)
-	// 	;
 }
 
 t_status	builtin_handle_redirs(t_redirection redir, int cur_in_out,
@@ -100,39 +98,11 @@ t_status	builtin_handle_redirs(t_redirection redir, int cur_in_out,
 		}
 		dup_std_fd(cur_in_out, std_in_out, e_true);
 		if (-1 == cur_in_out)
-		{
-			
 			return (ERROR);
-												printf("non caga er cazz pls\n");		
-		}
 	}
 	else
 	{
 		dup_std_fd(cur_in_out, std_in_out, e_false);
-	}
-	return (OK);
-}
-
-t_status	open_brk_node_redir(int *in, int *out,
-				t_node_content *sub_node)
-{
-	if (sub_node->in_redir.file_name)
-	{
-		*in = open(sub_node->in_redir.file_name, O_RDONLY);
-		if(*in == -1)
-			return (ERROR);
-	}
-	if (sub_node->out_redir.file_name)
-	{
-		if (sub_node->out_redir.append_mode == e_true)
-			*out = ft_open(sub_node->out_redir.file_name,
-					O_CREAT | O_APPEND | O_WRONLY, 0777, e_false);
-		else
-			if (sub_node->out_redir.append_mode == e_true)
-			*out = ft_open(sub_node->out_redir.file_name,
-					O_CREAT | O_TRUNC | O_WRONLY, 0777, e_false);
-		if (*out == -1)
-			return (ERROR);
 	}
 	return (OK);
 }

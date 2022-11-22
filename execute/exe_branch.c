@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:43:50 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/16 17:15:42 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/22 18:46:12 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ void	execute_pipe_statement(t_tree_node *root, int in, int out)
 	int			new_in_out[2];
 	t_branch	left_branch;
 	t_branch	right_branch;
-	
+
 	pipe(new_in_out);
 	left_branch.pid = fork();
 	if (!left_branch.pid)
 		pipe_exe_branch(root->left, new_in_out[0], in, new_in_out[1]);
 	right_branch.pid = fork();
 	if (!right_branch.pid)
-		pipe_exe_branch(root->right, new_in_out[1], new_in_out[0], out);		
+		pipe_exe_branch(root->right, new_in_out[1], new_in_out[0], out);
 	close_pipe(new_in_out);
 	waitpid(left_branch.pid, NULL, 0);
 	waitpid(right_branch.pid, &(right_branch.exit_status), 0);

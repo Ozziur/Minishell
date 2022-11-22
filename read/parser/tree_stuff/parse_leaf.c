@@ -20,11 +20,11 @@ static t_token	*leaf_get_next_token(t_parser_status *p_status)
 		return (NULL);
 	token = take_next_token(p_status);
 	if (token == NULL
-	 	|| is_operator_tok(token) || is_closing_paren(token))
-    {
-	 	set_error(&(p_status->status));
-	 	return (NULL);
-	 }
+		|| is_operator_tok(token) || is_closing_paren(token))
+	{
+		set_error(&(p_status->status));
+		return (NULL);
+	}
 	return (token);
 }
 
@@ -33,20 +33,19 @@ t_tree_node	*parse_leaf(t_parser_status *p_status)
 	t_token		*token;
 	t_tree_node	*bracket;
 
-	token = leaf_get_next_token(p_status); 
+	token = leaf_get_next_token(p_status);
 	if (!token)
 		return (NULL);
-	 if (is_open_paren(token))
-	 {
-	 	p_status->open.parenthesis += 1;
-	 	bracket = new_tree_node(
-	 			NULL,
-	 			parse_sub_tree(p_status),
-	 			NULL
-	 			);
-	 	return (bracket);
-	 }
-	 else
+	if (is_open_paren(token))
+	{
+		p_status->open.parenthesis += 1;
+		bracket = new_tree_node(
+				NULL,
+				parse_sub_tree(p_status),
+				NULL
+				);
+		return (bracket);
+	}
+	else
 		return (parse_statement(token, p_status));
 }
-

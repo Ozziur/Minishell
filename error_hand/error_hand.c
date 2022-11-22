@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:43:09 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/22 14:55:40 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/22 18:41:26 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static void	put_builtin_error(t_err_handl_opcodes error_type, void *argument)
 		put_exit_too_many_args_err_msg();
 	if (error_type == ENV_OPT_ERR)
 		put_env_opt_err();
-// 	if (error_type == ENV_CMD_NOT_FOUND_ERR)
-// 		put_env_cmd_err(argument);
+	if (error_type == ENV_CMD_NOT_FOUND_ERR)
+		put_env_cmd_err(argument);
 }
 
 void	put_error(t_err_handl_opcodes error_type, int error_status,

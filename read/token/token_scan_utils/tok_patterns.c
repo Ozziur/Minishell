@@ -44,9 +44,8 @@ size_t	scan_simple_command(char *cmd_line, size_t offset,
 {
 	t_token	*token;
 	int		len_cmd_name;
-	//t_bool	repeat;
 
-	if (!cmd_line[offset])
+	if (! cmd_line[offset])
 		return (offset);
 	len_cmd_name = bash_next_string_len(cmd_line, offset);
 	if (len_cmd_name == 0)

@@ -6,12 +6,12 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:01:26 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/16 14:52:51 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/22 18:46:38 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXECUTOR_H
-# define EXECUTOR_H
+#ifndef EXECUTE_H
+# define EXECUTE_H
 
 // * standard libraries //
 # include <unistd.h>

@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:36:10 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/17 20:06:41 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/22 18:44:30 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ static void	launch_ext_cmd(t_tree_node *root,
 	env = env_handler(ENV_RETURN, NULL);
 	if (!cmd_path)
 		cmd_not_found(root, cmd_path, cmd_smpl_name, args_split);
-																// printf("path:    %s\n", cmd_path);
-																// printf("arg  ->.%s., arg1 %s\n", args_split[0], args_split[1]);
 	if (execve(cmd_path, args_split, bindings_list_to_array(env)) == -1)
 		cmd_exe_fail(root, cmd_path, cmd_smpl_name, args_split);
 }
@@ -41,10 +39,10 @@ static void	exe_ext_success_path(t_tree_node *root)
 		cmd_smpl_name = get_cmd_name(root->content->simple_cmd.cmd_name);
 		cmd_path = get_pathname(root->content->simple_cmd.cmd_name);
 		args_split = ft_split(
-			ft_strjoin(
-				ft_strjoin(cmd_smpl_name, " ", e_false, e_false), 
-				ft_strdup(root->content->simple_cmd.cmd_args),
-				e_true, e_true),
+				ft_strjoin(
+					ft_strjoin(cmd_smpl_name, " ", e_false, e_false),
+					ft_strdup(root->content->simple_cmd.cmd_args),
+					e_true, e_true),
 				' ');
 		launch_ext_cmd(root, cmd_path, cmd_smpl_name, args_split);
 	}
@@ -62,7 +60,7 @@ void	exe_ext_smpl_cmd(t_tree_node *root, int in, int out)
 			in, STDIN_FILENO, e_true)
 		|| ERROR == external_handle_redirs(root->content->out_redir,
 			out,
-			 STDOUT_FILENO, e_false))
+			STDOUT_FILENO, e_false))
 		exe_ext_failure_path();
 	else
 		exe_ext_success_path(root);
