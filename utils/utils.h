@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:43:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/10/25 18:24:36 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/22 02:27:37 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int		ft_strcmp(const char *s1, const char *s2);
 void	ft_str_replace(char **str, char *new);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_substr(char *str, char delimiter);
+char	*quote(char *str, t_bool free);
+char	*single_quote(char *str, t_bool free);
 
 //split_utils in str_utils
 void	*ft_split_clear(char **split);

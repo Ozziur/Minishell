@@ -2,78 +2,40 @@
 
 void	cmd_expand(t_simple_cmd_node *cmd)
 {
-	char	*new_cmd_name;
-	char	*new_cmd_args;
-
 	if (!cmd->cmd_name)
 	{
 		sig_handling_set(SIG_AT_EXIT);
 		exit(0);
 	}
-	new_cmd_name = expand(cmd->cmd_name, e_true);
-	new_cmd_args = expand(cmd->cmd_args, e_true);
+	cmd->cmd_name = expand(cmd->cmd_name, e_true);
+	cmd->cmd_args = expand(cmd->cmd_args, e_true);
 
 	// qui c'è un while loop che mi devo vedere
-	
-	cmd->cmd_name = check_expansion(new_cmd_name);
-	cmd->cmd_args = check_expansion(new_cmd_args);
-}
-
-char	*check_expansion(char *expanded_str)
-{
-	if (!*expanded_str)
-	{
-		free(expanded_str);
-		return (NULL);
-	}
-	return (expanded_str);
 }
 
 /*
 ** This function is the one to call to expand any
-** string, from whatever part of the code.
-**
-** The return of expand_rec() is always allocated.
+** string, from wherever in the code.
 */
 char	*expand(char *to_expand, t_bool free_original)
 {
-	char	*expanded;
+	char	*phase_one;
+	char	*phase_two;
 
-	expanded = expand_quotes_dollar(to_expand);
-	expanded = expand_wildcards(expanded);
-	expanded = check_expansion(expanded);
+	phase_one = expand_rec(to_expand, e_QUOTES_DOLLAR);
+	//phase_two = expand_rec(phase_one, e_STAR);
+	//free(phase_one);
 	if (free_original == e_true)
 		ft_free(to_expand);
-	return (expanded);
-}
-
-t_bool	check_for_stars(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
+	if (!*phase_one)
 	{
-		if (is_char_to_expand(str[i], e_STAR))
-		{
-			return (e_true);
-		}
-		++i;
+		free(phase_one);
+		return (NULL);
 	}
-	return (e_false);
+	return (phase_one);
 }
 
-char	*expand_wildcards(char *to_expand)
-{
-	char	*expanded;
-
-	if (check_for_stars == e_false)
-		return (to_expand);
-	expanded = ft_strjoin(
-			)	
-	free(to_expand);
-
-char	*expand_quotes_dollar(char *to_expand)
+char	*expand_rec(char *to_expand, t_exp_phase phase)
 {	
 	char	*rest_of_str;
 
@@ -83,24 +45,25 @@ char	*expand_quotes_dollar(char *to_expand)
 		return (ft_strdup(""));
 	}
 	rest_of_str = 0;
-	rest_of_str = isolate_first_segment(to_expand, rest_of_str);
+	rest_of_str = isolate_first_segment(to_expand, rest_of_str, phase);
 	return (ft_strjoin(
 				expand_segment(to_expand),
-				expand_rec(rest_of_str),
+				expand_rec(rest_of_str, phase),
 				e_true, e_true
 			));
 }
 
-char	*isolate_first_segment(char *to_expand, char *rest_of_str)
+char	*isolate_first_segment(char *to_expand, char *rest_of_str,
+															t_exp_phase phase)
 {
 	int	i;
 
 	i = 0;
 	while (to_expand[i])
 	{
-		if (is_char_to_expand(to_expand[i], e_QUOTES_DOLLAR))
+		if (is_char_to_expand(to_expand[i], phase))
 		{
-			if (i > 0)
+			if (phase == e_QUOTES_DOLLAR && i > 0)
 				rest_of_str = to_expand + i;
 			else
 				rest_of_str = isolate_macro(
@@ -120,11 +83,19 @@ char	*isolate_first_segment(char *to_expand, char *rest_of_str)
 char	*isolate_macro(char *to_expand, char *rest_of_str, char special)
 {
 	int	i;
+	int	found_space;
 
+	found_space = -1;
 	i = 0;
 	while (to_expand[i])
 	{
-		if ((special == '$' || special == '*') && to_expand[i] == ' ')
+		if (to_expand[i] == ' ')
+			found_space = i;
+		if (special == '*' && found_space == -1 && to_expand[i] == ' ')
+			return (to_expand + i);
+		else if (special == '*' && found_space >= 0) 
+			return (to_expand + found_space + 1);
+		else if (special == '$' && to_expand[i] == ' ')
 			return (to_expand + i);
 		else if (to_expand[i] == special && i > 0)
 			return (to_expand + i + 1);
@@ -141,4 +112,5 @@ int	is_char_to_expand(char c, t_exp_phase phase)
 		return (c == '"' || c == '\'' || c == '$');
 	else if (phase == e_STAR)
 		return (c == '*');
+	return (0);
 }

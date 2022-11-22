@@ -6,7 +6,7 @@
 #    By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/14 19:14:21 by ccantale          #+#    #+#              #
-#    Updated: 2022/11/09 17:21:03 by mruizzo          ###   ########.fr        #
+#    Updated: 2022/11/22 00:57:21 by ccantale         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ all: .BUILD
 bonus: .BUILD
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L/usr/include/readline -lreadline 
+	$(CC) $(CFLAGS) $(READLINE_FLAGS) $(OBJS) -o $(NAME)
 	@printf "\033[1m\033[32mMinishell Compiled!\n"
 	@echo "\033[0;37m"
 
