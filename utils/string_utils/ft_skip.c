@@ -38,3 +38,17 @@ size_t	skip_past_char(char *str, size_t offset,
 	}
 	return (offset);
 }
+
+size_t	scroll_to_char(char *str, char ch)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == ch)
+			return (i);
+		++i;
+	}
+	return (0);
+}

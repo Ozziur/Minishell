@@ -6,5 +6,6 @@ h
 *.o
 *.txt
 !bugs.txt
-!.gitignore
 !comando_test.txt
+*.swp
+find

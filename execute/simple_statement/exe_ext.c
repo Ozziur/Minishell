@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:36:10 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/23 17:49:00 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/23 18:16:15 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	launch_ext_cmd(t_tree_node *root,
 		cmd_not_found(root, cmd_path, cmd_smpl_name, args_split);
 	if (execve(cmd_path, args_split, bindings_list_to_array(env)) == -1)
 		cmd_exe_fail(root, cmd_path, cmd_smpl_name, args_split);
+		// ft_splitclear(args_split);
 }
 
 static void	exe_ext_success_path(t_tree_node *root)
@@ -31,7 +32,7 @@ static void	exe_ext_success_path(t_tree_node *root)
 	char	*cmd_path;
 	char	**args_split;
 
-	//cmd_expand(&root->content->simple_cmd);//da creare
+	// cmd_expand(&root->content->simple_cmd);
 	if (root->content->simple_cmd.cmd_name == NULL)
 		exit(EXIT_SUCCESS);
 	else
@@ -62,6 +63,11 @@ void	exe_ext_smpl_cmd(t_tree_node *root, int in, int out)
 			out,
 			STDOUT_FILENO, e_false))
 		exe_ext_failure_path();
+	if (ft_strcmp(root->content->simple_cmd.cmd_name, "exit") == 0)
+	{
+		sig_handling_set(SIG_AT_EXIT);
+		exit(0);
+	}
 	else
 		exe_ext_success_path(root);
 }

@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:01:26 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/22 18:46:38 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/23 17:39:46 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 # include "../colors.h"
 
 // * global variable module //
-# include "../global.h"
+ # include "../global.h"
+
+void	cmd_expand(t_simple_cmd_node *cmd);
 
 #endif
