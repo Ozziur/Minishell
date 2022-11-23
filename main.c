@@ -69,7 +69,7 @@ static void	set_env(char const **envp)
 	char	*new_shell_lvl_string;
 
 	env_handler(ENV_INITIALIZE, (char **)envp);
-	set_pid_variable();
+	// set_pid_variable();
 	printf("my pid is %d\n", g_env.pid);
 	cur_shell_lvl = ft_atoi(env_handler(BINDING_GET_VALUE, "SHLVL"));
 	new_shell_lvl_string = ft_itoa(cur_shell_lvl + 1);
@@ -116,8 +116,8 @@ static void	print_signature(void)
 {
 	int		cur_stdout_backup;
 
-	cur_stdout_backup = dup(STDOUT_FILENO);
-	dup2(g_env.stdout_clone, STDOUT_FILENO);
+	// cur_stdout_backup = dup(STDOUT_FILENO);
+	// dup2(g_env.stdout_clone, STDOUT_FILENO);
 	printf(YELLOW "I devoti Jita dello Shogun presentano\n\n" RESET);
 	printf(BOLDYELLOW "\
 ########   ######     ######     ######   ##########          #\n\
@@ -131,6 +131,6 @@ static void	print_signature(void)
 	printf(BOLDYELLOW "Minishell\n" RESET);
 	printf(YELLOW "La storia di CCantale e MRuizzo \n\n" RESET);
 	printf(GREEN "Lode allo Shogun MMarinel che ci ha preceduti\n\n" RESET);
-	dup2(cur_stdout_backup, STDOUT_FILENO);
-	close(cur_stdout_backup);
+	// dup2(cur_stdout_backup, STDOUT_FILENO);
+	// close(cur_stdout_backup);
 }

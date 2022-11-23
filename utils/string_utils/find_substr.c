@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:35:32 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/13 19:22:07 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/23 19:46:25 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,25 @@ char	*ft_substr(char *str, char delimiter)
 
 char	*find_substr(char *str, char *substr)
 {
-	int	i;
-	int	j;
+	char	*str_tmp;
+	int		idx_substr;
 
 	if (!str)
 		return (NULL);
-	if (!substr)
-		return (str);
-	i = 0;
-	while (str[i])
+	while (*str)
 	{
-		j = 0;
-		while (str[i + j] && substr[j] && str[i + j] == substr[j])
-			++j;
-		if (substr[j] == '\0')
-			return (str + i);
+		str_tmp = str;
+		idx_substr = 0;
+		while (*str_tmp == substr[idx_substr]
+			&& substr[idx_substr])
+		{
+			str_tmp++;
+			idx_substr++;
+		}
+		if (substr[idx_substr] == '\0')
+			return (str);
 		else
-			++i;
+			str++;
 	}
 	return (NULL);
 }

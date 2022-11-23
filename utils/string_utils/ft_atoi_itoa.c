@@ -6,34 +6,43 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:45:07 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/10 12:24:23 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/23 21:02:08 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../utils.h"
 
-int	ft_atoi(char *str)
-{
-	int			i;
-	long long	result;
+static int	ft_atoi_rec(const char *str, int *exponent);
+//* end of static declarations //
 
-	result = 0;
-	i = 0;
-	while (str[i] == ' ')
-		++i;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result *= 10;
-		result += str[i] - '0';
-		++i;
-	}
-	if (result > 2147483647 || result < -2147483648)
-	{
-		printf("\nATOI_ERROR!\n");
-		exit(1);
-	}
-	return ((int)result);
+static unsigned int	ft_pow(unsigned int m, unsigned int e)
+{
+	if (e == 0)
+		return (1);
+	return (m * ft_pow(m, e - 1));
 }
+
+int	ft_atoi(const char *str)
+{
+	int	e;
+
+	return (ft_atoi_rec(str, &e));
+}
+
+static int	ft_atoi_rec(const char *str, int *exponent)
+{
+	int	rec_res;
+	int	res;
+
+	if (!str || !(*str)
+		|| (*str < '0' || *str > '9'))
+		return (*exponent = 0);
+	rec_res = ft_atoi_rec(str + 1, exponent);
+	res = rec_res + ft_pow(10, *exponent) * (*str - '0');
+	*exponent = *exponent + 1;
+	return (res);
+}
+
 
 char	*ft_itoa(int nbr)
 {

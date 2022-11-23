@@ -66,7 +66,7 @@ size_t	skip_past_char(char *str, size_t offset,
 size_t	scroll_to_char(char *str, char ch);
 size_t	ft_word_len(char *word);
 char	**ft_split(char const *string, char delimiter);
-int		ft_atoi(char *str);
+int		ft_atoi(const char *str);
 char	*ft_itoa(int nbr);
 char	*find_substr(char *str, char *substr);
 int		ft_strcmp(const char *s1, const char *s2);

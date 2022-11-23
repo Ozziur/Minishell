@@ -25,11 +25,11 @@ void	free_tokens(t_token *token)
 {
 	if (token->next)
 		free_tokens(token->next);
-	//free_token_val(token);
+	free_token_val(token);
 	free(token);
 }
 
-/*void	free_token_val(t_token *token)
+void	free_token_val(t_token *token)
 {
 	if (token->token_id == e_CMD_NAME
 		|| token->token_id == e_CMD_ARG
@@ -43,12 +43,3 @@ void	free_tokens(t_token *token)
 		free_env(token->token_val);
 }
 
-void	free_env(t_bindings *head)
-{
-	if (!head)
-		return ;
-	fre_env(head->next);
-	free(head->var_name);
-	free(head->var_val);
-	free(head);
-}*/

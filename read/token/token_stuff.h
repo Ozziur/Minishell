@@ -22,7 +22,7 @@ t_token		*next_token(void);
 void		free_token_list(t_token **list);
 void		free_tokens(t_token *token);
 void		free_token_val(t_token *token);
-//void		free_env(t_bindings *head);
+void		free_env(t_bindings *head);
 size_t		scan_brackets(char *cmd_line, size_t cursor, t_token **token_list);
 size_t		scan_next_bracket(char *cmd_line, size_t cursor,
 				t_token **token_list);
