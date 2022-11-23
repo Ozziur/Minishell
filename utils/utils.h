@@ -52,6 +52,7 @@ t_bool	char_is_alpha(char c);
 t_bool	bash_control_character(char c);
 t_bool	char_is_digit(char c);
 t_bool	redirect_char(char c);
+t_bool	ft_is_digit_string(char *str);
 
 //* str_utils
 char	*ft_strcpy(char *buf, char *src, int copy_len);
@@ -72,6 +73,7 @@ t_bool	str_not_empty(char *str);
 void	*ft_splitclear(char **split);
 char	*string_strip(char *str, char to_strip, t_bool free_input);
 int		str_number_occurrences(char *str, char c);
+size_t	split_len(char **split);
 
 //split_utils in str_utils
 void	*ft_split_clear(char **split);

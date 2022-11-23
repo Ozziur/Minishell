@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:23:55 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/18 16:42:08 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/23 15:49:08 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,19 @@ void	*ft_splitclear(char **split)
 		ft_free(backup);
 	}
 	return (NULL);
+}
+
+size_t	split_len(char **split)
+{
+	size_t	i;
+
+	if (split == NULL)
+		return (0);
+	else
+	{
+		i = 0;
+		while (split[i])
+			i++;
+		return (i);
+	}
 }
