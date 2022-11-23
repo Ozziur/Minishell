@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:23:55 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/23 18:08:31 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/23 21:26:42 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void		allocate_words(char *str, char delimiter, char **split);
 static void		ft_get_split(char *str, char delimiter, char **split);
 //* end of static declarations
 
-char	**ft_split(char const *string, char delimiter)
+char	**ft_split(char *string, char delimiter)
 {
 	size_t	words;
 	char	**split;

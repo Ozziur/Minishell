@@ -6,20 +6,24 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:53:49 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/23 20:03:44 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/23 21:28:58 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-// void	printmat(char **mat)
-// {
-// 	int i=0;
-// 	while (mat[i])
-// 	{
-// 		printf("\n----->    |%s|\n", mat[i]);
-// 	i++;
-// 	}
-// }
+# include <stdio.h>
+
+void	printmat(char **mat)
+{
+	printf("\n////////////\n");
+	int i=0;
+	while (mat[i])
+	{
+		printf("\n----->    |%s|\n", mat[i]);
+	i++;
+	}
+	printf("\n////////////\n");
+}
 
 
 
@@ -59,6 +63,9 @@ static char	**return_paths(void)
 	char	*paths;
 
 	paths = (char *) env_handler(BINDING_GET_VALUE, "PATH");
+
+				printf("\n%s\n", paths);
+						
 	return (ft_split(paths, ':'));
 }
 
@@ -76,7 +83,6 @@ char	*get_pathname(char *cmd)
 								
 	path = return_path_name(cmd, env_paths_split);
 	ft_splitclear(env_paths_split);
-									ft_printf("\n\n\n %s\n", path);
 	return (path);
 }
 
