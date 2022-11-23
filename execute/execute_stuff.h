@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:10:46 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/22 18:46:21 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/23 23:04:47 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*get_cmd_name(char *cmd);
 void	dup_std_fd(int cur_in_out, int std_in_out,
 			t_bool close_cur);
 t_bool	is_builtin(t_tree_node *root);
+char	**dp_split(char const *str, char delimiter);
 
 //*branch
 void	execute_pipe_statement(t_tree_node *root, int in, int out);

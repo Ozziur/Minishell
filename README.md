@@ -19,6 +19,10 @@ Abbiamo aggiornato la nostra inbarcazione con i nuovi cannoni Brackets Sub Tree.
 Diario di bordo numero 4#
 Abbiamo iniziato il saccheggio delle varie cittá della baia delle builtin. Lo so che sembra brutto ma di qualcosa dovremmo pur mangiare e per concludere la missione abbiamo bisogno dei sette anelli che danno nome alle cittá che le custodiscono. Nomi terribili se posso permettermi ma paese che vai usanza che trovi. Ad ora ne abbiamo tre: pwd, cd, ed echo (avevo detto che erano nomi terribili per delle cittá). Stiamo pianificando come ottenere i prossimi preziosi, alcuni di loro sembrano ben protetti ma nulla potra farci desistere dal conpletare la missione.
 
+Diario di bordo numero 5#
+Oggi mi rode il culo. Potrei parlare dei vari tentativi di ammutinamento di split e della sua compagnia cantante, di come abbiamo raggiunto anche l'export ma vaffanculo, sono le 23.13 e per oggi ne ho i coglioni pieni. Spero di reincontrare Jack Sbarring prima di dormire e di terminare sta giornata del cazzo il prima possibile.
+Ps. abbiamo mergiato ma non testato
+
 piano di battaglia:
 
 open_brk_node_redir é oggettivamente in un file a cazzo ma la norma rompeva i coglioni
