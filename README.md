@@ -22,11 +22,28 @@ Abbiamo iniziato il saccheggio delle varie cittá della baia delle builtin. Lo s
 piano di battaglia:
 
 open_brk_node_redir é oggettivamente in un file a cazzo ma la norma rompeva i coglioni
+=======
+Diari dei monaci marinelliani
+- Claudio, copista del codice espanso
+Anno 1 d.M.
 
-normalizzare Makefile:
-	trovare la voglia
 
 potrebbe leakkare sul env, trovato free enve nel prototipo del token e va capito se é un refuso. add_history da warning ma potrebbe essere un problema del pc di casa mia, in lab non ricordo di aver avuto questi problemi.
 
 controllare leaks
+=======
+
+Giorno 1.
+
+Molti pensieri mi attanagliano. Stanotte non ho dormito.
+Questo expander... L'ho letto con attenzione, io credo...
+Non so, c'è qualcosa di strano. Più lo guardo e più mi 
+sembra che si possa scrivere in modo più semplice.
+
+Ho un pensiero in testa a cui ho paura di cedere.
+L'Altissimo Maestro potrebbe aver scritto questa parte del
+codice con l'intento di fronteggiare situazioni più complesse
+di quelle che interessano noi oggi. Proprio noi, qui e ora,
+intendo. Mi chiedo se... 
+>>>>>>> expander
 
