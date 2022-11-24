@@ -4,8 +4,9 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 {
 	if (!cmd->cmd_name)
 	{
-		sig_handling_set(SIG_AT_EXIT);
-		exit(0);
+		// sig_handling_set(SIG_AT_EXIT);
+		// exit(0);
+		return ;
 	}
 	cmd->cmd_name = expand(cmd->cmd_name, e_true);
 	cmd->cmd_args = expand(cmd->cmd_args, e_true);
@@ -39,7 +40,6 @@ char	*expand_rec(char *to_expand, t_exp_phase phase)
 
 	if (to_expand == 0 || *to_expand == 0)
 	{
-		ft_free(to_expand);
 		return (ft_strdup(""));
 	}
 	rest_of_str = 0;
