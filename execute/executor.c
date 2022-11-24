@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:01:04 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/22 14:53:17 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/24 18:30:42 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	execute_subshell(t_tree_node *root, int in, int out)
 		{
 			perror("minishell");
 			exit(1);
-		}
+		} 
 		execute_rec(root->content->braket_node.sub_tree, in, out);
 		exit(g_env.last_executed_cmd_exit_status);
 	}

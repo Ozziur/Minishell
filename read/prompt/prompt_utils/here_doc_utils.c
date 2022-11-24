@@ -12,6 +12,8 @@
 
 #include "prompt_utils.h"
 
+char	*expand(char *to_expand, t_bool free_original);
+
 static void	hdoc_read_until_complete(int hdoc_fd,
 				char enclosing_quote, char *delimiter)
 {
@@ -27,14 +29,15 @@ static void	hdoc_read_until_complete(int hdoc_fd,
 	}
 	else if (*next_line == '\0')
 	{
+		write(hdoc_fd, "\n", 1);
 		free(next_line);
 		hdoc_read_until_complete(hdoc_fd, enclosing_quote, delimiter);
 	}
 	else
 	{
 		next_line = ft_strjoin(next_line, "\n", e_true, e_false);
-//		if (enclosing_quote == '\0')
-//			next_line = expand_rec(next_line);//expander
+		if (enclosing_quote == '\0')
+			next_line = expand(next_line, e_true);
 		write(hdoc_fd, next_line, ft_strlen(next_line));
 		free(next_line);
 	}

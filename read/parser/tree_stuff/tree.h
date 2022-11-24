@@ -29,7 +29,7 @@ t_node_content	*parse_simple_command(t_token *token,
 t_token			*parse_statement_redirs(t_token *token,
 	t_node_content **node_content_ref, t_parser_status *p_status);
 t_node_content	*parse_operator(t_token *token);
-void	parse_redir(t_node_content *node_content,
+void			parse_redir(t_node_content *node_content,
 			char *file_name, t_token_id code);
 
 #endif
