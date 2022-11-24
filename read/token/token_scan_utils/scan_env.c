@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:36:49 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/10 12:34:02 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/24 20:44:36 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ size_t	scan_var_name(char *str, size_t offset, char **name)
 	size_t	name_len;
 
 	pre_offset = scan_invariants(str, offset);
-	if (char_is_alpha(str[pre_offset]) && str[pre_offset] != '_')
+	if (char_is_alpha(str[pre_offset]) == e_false && str[pre_offset] != '_')
 		return (offset);
 	name_len = 0;
 	while (str[pre_offset + name_len]
@@ -54,10 +54,10 @@ size_t	scan_var_name(char *str, size_t offset, char **name)
 size_t	scan_var(char *str, size_t offset,
 			t_token_id tok_type, t_bindings **next_var)
 {
-	char	*var_name;
-	char	*var_value;
-	t_bool	concat_mode;
-	size_t	new_offset;
+	char				*var_name;
+	char				*var_value;
+	t_bool				concat_mode;
+	size_t				new_offset;
 
 	if (!str[offset])
 		return (offset);
@@ -69,13 +69,14 @@ size_t	scan_var(char *str, size_t offset,
 		return (offset);
 	if (tok_type == e_ENV_VAR_DECL)
 		new_offset = scan_var_value(str, new_offset, &var_value, &concat_mode);
-	(*next_var) = (t_bindings *) malloc(sizeof(t_bindings));
+	*next_var = (t_bindings *) malloc(sizeof(t_bindings));
 	(*next_var)->var_name = var_name;
 	(*next_var)->var_val = var_value;
 	(*next_var)->concat_mode = concat_mode;
 	(*next_var)->prev = NULL;
 	return (new_offset);
 }
+
 
 size_t	scan_initial_keyword_set_token(char *str, size_t offset,
 			t_token **token)

@@ -21,13 +21,14 @@ static size_t	scan_head(char *cmd_line, size_t offset, t_token **tok_list_ref)
 	return (offset);
 }
 
-static size_t	scan_body(char *cmd_line, size_t offset, t_token **tok_list_ref)
+static size_t	scan_body(char *command_line, size_t offset,
+					t_token **token_list)
 {
-	offset = scan_invariants(cmd_line, offset);
-	if (e_true == is_env_statement(cmd_line, offset))
-		return (scan_env_declaration(cmd_line, offset, tok_list_ref));
+	offset = scan_invariants(command_line, offset);
+	if (e_true == is_env_statement(command_line, offset))
+		return (scan_env_declaration(command_line, offset, token_list));
 	else
-		return (scan_simple_command(cmd_line, offset, tok_list_ref));
+		return (scan_simple_command(command_line, offset, token_list));
 }
 
 static size_t	scan_tail(char *cmd_line, size_t offset, t_token **tok_list_ref)
