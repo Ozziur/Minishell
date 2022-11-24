@@ -20,7 +20,7 @@ char	*expand_segment(char *seg)
 			if (is_char_to_expand(seg[i], e_QUOTES_DOLLAR))
 				return (ft_strcpy(NULL, seg, i));
 			else if (is_char_to_expand(seg[i], e_STAR))
-				return (NULL); // expand_wildcard()
+				return (expand_wildcard(seg));
 			++i;
 		}
 		return (ft_strdup(seg));
