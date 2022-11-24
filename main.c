@@ -69,7 +69,7 @@ static void	set_env(char const **envp)
 	char	*new_shell_lvl_string;
 
 	env_handler(ENV_INITIALIZE, (char **)envp);
-	// set_pid_variable();
+	set_pid_variable();
 	printf("my pid is %d\n", g_env.pid);
 	cur_shell_lvl = ft_atoi(env_handler(BINDING_GET_VALUE, "SHLVL"));
 	new_shell_lvl_string = ft_itoa(cur_shell_lvl + 1);

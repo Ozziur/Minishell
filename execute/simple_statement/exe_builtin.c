@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:41:08 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/23 16:45:58 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/25 00:16:57 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,10 @@ void	execute_cmd_builtin(t_simple_cmd_node *cmd)
 			execute_exit(*cmd);
 		if (ft_strcmp(simple_name, "export") == 0)
 			execute_export();
-		
-		// aggiungere le altre
+		if (ft_strcmp(simple_name, "unset") == 0)
+			execute_unset();
+		if (ft_strcmp(simple_name, "env") == 0)
+			execute_env(cmd->cmd_args);
 		free(simple_name);
 	}		
 }

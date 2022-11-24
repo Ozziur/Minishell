@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 16:18:47 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/23 15:45:43 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/24 23:01:22 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,25 @@ t_bool	ft_is_digit_string(char *str)
 	{
 		if (e_false == char_is_digit(str[offset])
 			&& e_false == ft_isspace(str[offset]))
+			return (e_false);
+		offset += 1;
+	}
+	return (e_true);
+}
+
+t_bool	is_env_var_name(char *str)
+{
+	size_t	offset;
+
+	if (str == NULL
+		|| (e_false == char_is_alpha(str[0]) && '_' != str[0]))
+		return (e_false);
+	offset = 1;
+	while (str[offset])
+	{
+		if (e_false == char_is_alpha(str[offset])
+			&& e_false == char_is_digit(str[offset])
+			&& '_' != str[offset])
 			return (e_false);
 		offset += 1;
 	}
