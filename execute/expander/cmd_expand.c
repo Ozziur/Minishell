@@ -8,7 +8,7 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 		// exit(0);
 		return ;
 	}
-	//cmd->cmd_name = expand(cmd->cmd_name, e_true);
+	cmd->cmd_name = expand(cmd->cmd_name, e_true);
 	cmd->cmd_args = expand(cmd->cmd_args, e_true);
 }
 
