@@ -6,7 +6,7 @@
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 17:23:00 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/25 01:01:34 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/25 01:18:53 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*get_prefix(char *path, t_bool allocate)
 		--i;
 	if (allocate == e_true)
 	{
+//		printf("\nQUIprefix\n");
 		return (ft_strcpy(NULL, path, i));
 	}
 	else
@@ -69,13 +70,13 @@ t_bool	check_star_placement(char *str)
 
 char	*get_dir_content(char *dir_path)
 {
+	write(1, "\nQUI\n", 5);
 	DIR				*directory;
 	struct dirent	*dir_struct;
 	char			*dir_content;
 
 	dir_content = NULL;
 	directory = NULL;
-	printf("\nQUI\n");
 	directory = opendir(dir_path);
 	if (directory)
 	{

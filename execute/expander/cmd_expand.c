@@ -18,13 +18,13 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 */
 char	*expand(char *to_expand, t_bool free_original)
 {
-	//char	*phase_one;
+	char	*phase_one;
 	char	*phase_two;
 
-	phase_two = expand_rec(to_expand, e_QUOTES_DOLLAR);
-															//	printf("\n%s\n", phase_one);
-	//phase_two = expand_rec(phase_one, e_STAR);
-	//ft_free(phase_one);
+	phase_one = expand_rec(to_expand, e_QUOTES_DOLLAR);
+																printf("\n%s\n", phase_one);
+	phase_two = expand_rec(phase_one, e_STAR);
+	ft_free(phase_one);
 	if (free_original == e_true)
 		ft_free(to_expand);
 	if (!*phase_two)
@@ -64,6 +64,8 @@ char	*isolate_first_segment(char *to_expand, char *rest_of_str,
 		{
 			if (phase == e_QUOTES_DOLLAR && i > 0)
 				rest_of_str = to_expand + i;
+			else if (phase == e_STAR)
+				rest_of_str = NULL;
 			else
 				rest_of_str = isolate_macro(
 							to_expand,
