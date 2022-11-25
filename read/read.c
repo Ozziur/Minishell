@@ -21,6 +21,7 @@ static char	*next_command(void)
 				get_current_working_directory(),
 				ft_strjoin(RESET, "\2", e_false, e_false),
 				e_true, e_true)));
+}
 
 t_tree_node	*shell_read(void)
 {
