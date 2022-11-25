@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_wildcard.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 17:23:00 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/25 01:18:53 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/25 01:32:33 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ char	*get_prefix(char *path, t_bool allocate)
 	if (allocate == e_true)
 	{
 //		printf("\nQUIprefix\n");
-		return (ft_strcpy(NULL, path, i));
+		if (i == 0)
+			return (ft_strdup("."));
+		else
+			return (ft_strcpy(NULL, path, i));
 	}
 	else
 	{
