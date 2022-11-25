@@ -90,7 +90,7 @@ static char	*get_decorated_cwd(char *cwd)
 	char	*color;
 
 	if (g_env.last_executed_cmd_exit_status == EXIT_SUCCESS)
-		color = GREEN;
+		color = CYAN;
 	else
 		color = RED;
 	return (
