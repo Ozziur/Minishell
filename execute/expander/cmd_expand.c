@@ -18,20 +18,21 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 */
 char	*expand(char *to_expand, t_bool free_original)
 {
-	char	*phase_one;
+	//char	*phase_one;
 	char	*phase_two;
 
-	phase_one = expand_rec(to_expand, e_QUOTES_DOLLAR);
+	phase_two = expand_rec(to_expand, e_QUOTES_DOLLAR);
+															//	printf("\n%s\n", phase_one);
 	//phase_two = expand_rec(phase_one, e_STAR);
-	//free(phase_one);
+	//ft_free(phase_one);
 	if (free_original == e_true)
 		ft_free(to_expand);
-	if (!*phase_one)
+	if (!*phase_two)
 	{
-		free(phase_one);
+		ft_free(phase_two);
 		return (NULL);
 	}
-	return (phase_one);
+	return (phase_two);
 }
 
 char	*expand_rec(char *to_expand, t_exp_phase phase)

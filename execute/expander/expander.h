@@ -2,6 +2,8 @@
 # define EXPANDER_H
 
 # include "../execute.h"
+# include <sys/types.h>
+# include <dirent.h>
 
 typedef enum e_exp_phase
 {
@@ -23,6 +25,13 @@ char	*expand_dollar(char *var);
 char	*expand_quotes(char *quoted_str, char type_of_quotes);
 char	*carefully_expand_content(char *q_cont);
 char	*expand_in_chunks(char *q_cont, int *i, int after_last_quote);
+char	*expand_wildcard(char *path);
+char	*get_prefix(char *path, t_bool allocate);
+t_bool	check_star_placement(char *str);
+char	*get_dir_content(char *dir_path);
+char	*match(char *path, char *dir_content);
+char	*find_match(char *dir_content, char *path, int *i);
+char	*join_till_space(char *s1, char *s2, t_bool free1, t_bool free2);
 
 #endif 
 

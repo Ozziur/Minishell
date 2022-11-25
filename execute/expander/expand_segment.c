@@ -6,8 +6,6 @@ char	*expand_segment(char *seg)
 
 	if (*seg == '$')
 		return (expand_dollar(seg + 1));
-	if (*seg == '*')
-		return (NULL); // expand_wildcard()
 	else if (*seg == '\'')
 		return (expand_quotes(seg + 1, '\''));
 	else if (*seg == '"')
