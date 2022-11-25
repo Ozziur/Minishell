@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 17:23:00 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/25 01:32:33 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/25 05:15:23 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,19 @@ char	*expand_wildcard(char *path)
 
 char	*get_prefix(char *path, t_bool allocate)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (path[i] != '*')
 		++i;
-	while (i >= 0 && path[i] != '/')
+	while (i > 0 && path[i] != '/')
 		--i;
 	if (allocate == e_true)
 	{
-//		printf("\nQUIprefix\n");
 		if (i == 0)
 			return (ft_strdup("."));
 		else
-			return (ft_strcpy(NULL, path, i));
+			return (ft_strcpy(NULL, path, i + 1));
 	}
 	else
 	{
@@ -73,7 +72,6 @@ t_bool	check_star_placement(char *str)
 
 char	*get_dir_content(char *dir_path)
 {
-	write(1, "\nQUI\n", 5);
 	DIR				*directory;
 	struct dirent	*dir_struct;
 	char			*dir_content;
@@ -107,51 +105,69 @@ char	*match(char *path, char *dir_content)
 
 	if (!dir_content)
 		return (NULL);
+	expanded = NULL;
 	to_expand = get_prefix(path, e_false);
 	i = 0;
-	match = find_match(dir_content, to_expand, &i);
-	match = join_till_space(get_prefix(path, e_true), match, e_true, e_false);
-	++i;
-	while (dir_content[i] && dir_content[i] != ' ')
-		++i;
 	while (dir_content[i])
 	{
-		expanded = ft_strjoin(expanded, match, e_true, e_true);
-		match = find_match(dir_content, path, &i);
-		match = ft_strjoin(get_prefix(path, e_true), match, e_true, e_false);
-		while (dir_content[i] && dir_content[i] != ' ')
-			++i;
+		match = find_match(dir_content, to_expand, &i);
+		if (match)
+			match = join_till_space(get_prefix(path, e_true), match, e_true, e_false);
+		expanded = ft_strjoin_a_trois(expanded, " ", match,
+				e_true, e_false, e_true);
 	}
 	ft_free(dir_content);
 	return (expanded);
 }
 
-char	*find_match(char *dir_content, char *path, int *i)
+char	*find_match(char *dir_content, char *to_expand, int *i)
 {
-	size_t	j;
-	size_t	k;
+	int	j;
 
+	j = 0;
+	if (to_expand[0] == '*')
+		++j;
 	while (dir_content[*i])
 	{
-		j = *i;
-		k = 0;
-		if (path[k] == '*')
-			++k;
-		while (dir_content[j++] == path[k++])
-			;
-		if ((path[0] != '*' && *i > 0 && dir_content[*i - 1] != ' '
-					&& dir_content[*i - 1] != '/')
-				|| (path[k] != '*' && dir_content[j] && dir_content[j] != ' '))
-				continue ;
-		if (path[k] == 0 || path[k] == '*')
+		if (dir_content[*i] == to_expand[j]
+				&& wild_strcmp(dir_content + *i, to_expand, *i) == e_true)
 		{
-			while (*i >= 0 && dir_content[*i] != '/' && dir_content[*i] != ' ')
-				*i -= 1;
-			return (dir_content + *i + 1);
+			j = *i;
+			while (dir_content[*i] && dir_content[*i] != ' ')
+				*i += 1;
+			while (j >= 0 && dir_content[j] != ' ')
+				--j;
+			return (dir_content + j + 1);
 		}
 		*i += 1;
 	}
 	return (NULL);
+}
+
+t_bool	wild_strcmp(char *dir_content, char *to_expand, int prev_cursor)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	if (to_expand[0] == '*')
+		++j;
+	i = 0;
+	while (dir_content[i] && to_expand[j]
+			&& dir_content[i] != ' '
+			&& to_expand[j] != ' '
+			&& to_expand[j] != '*'
+			&& dir_content[i] == to_expand[j])
+	{
+		++i;
+		++j;
+	}
+	if ((to_expand[0] != '*' && prev_cursor > 0 && dir_content[-1] != ' ')
+		|| (to_expand[j] != '*' && dir_content[i] && dir_content[i] != ' ')
+		|| (to_expand[j] && to_expand[j] != ' ' && to_expand[j] != '*'))
+		return (e_false);
+	else
+		return (e_true);
 }
 
 char	*join_till_space(char *s1, char *s2, t_bool free1, t_bool free2)
@@ -160,6 +176,13 @@ char	*join_till_space(char *s1, char *s2, t_bool free1, t_bool free2)
 	char	*new1;
 	char	*new2;
 
+	if (s1 && s1[0] == '.' && s1[1] == 0)
+	{
+		if (free1 == e_true)
+			ft_free(s1);
+		s1 = ft_strdup("");;
+		free1 = e_true;
+	}
 	i = 0;
 	while (s1[i] && s1[i] != ' ')
 		++i;

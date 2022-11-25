@@ -4,8 +4,6 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 {
 	if (!cmd->cmd_name)
 	{
-		// sig_handling_set(SIG_AT_EXIT);
-		// exit(0);
 		return ;
 	}
 	cmd->cmd_name = expand(cmd->cmd_name, e_true);
@@ -18,13 +16,13 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 */
 char	*expand(char *to_expand, t_bool free_original)
 {
-	char	*phase_one;
+	//char	*phase_one;
 	char	*phase_two;
 
-	phase_one = expand_rec(to_expand, e_QUOTES_DOLLAR);
-																printf("\n%s\n", phase_one);
-	phase_two = expand_rec(phase_one, e_STAR);
-	ft_free(phase_one);
+	phase_two = expand_rec(to_expand, e_QUOTES_DOLLAR);
+																printf("\n%s\n", phase_two);
+	//phase_two = expand_rec(phase_one, e_STAR);
+	//ft_free(phase_one);
 	if (free_original == e_true)
 		ft_free(to_expand);
 	if (!*phase_two)
@@ -46,7 +44,7 @@ char	*expand_rec(char *to_expand, t_exp_phase phase)
 	rest_of_str = 0;
 	rest_of_str = isolate_first_segment(to_expand, rest_of_str, phase);
 	return (ft_strjoin(
-				expand_segment(to_expand),
+				expand_segment(to_expand, phase),
 				expand_rec(rest_of_str, phase),
 				e_true, e_true
 			));

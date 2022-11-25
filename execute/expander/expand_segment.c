@@ -1,9 +1,12 @@
 #include "expander.h"
 
-char	*expand_segment(char *seg)
+char	*expand_segment(char *seg, t_exp_phase phase)
 {
 	int	i;
 
+	if (!is_char_to_expand(to_expand[0], e_QUOTES_DOLLAR)
+		&& !is_char_to_expand(to_expand[0], e_STAR))
+		return (expand_rec(seg, e_STAR));
 	if (*seg == '$')
 		return (expand_dollar(seg + 1));
 	else if (*seg == '\'')
@@ -17,7 +20,7 @@ char	*expand_segment(char *seg)
 		{
 			if (is_char_to_expand(seg[i], e_QUOTES_DOLLAR))
 				return (ft_strcpy(NULL, seg, i));
-			else if (is_char_to_expand(seg[i], e_STAR))
+			else if (phase == e_STAR && is_char_to_expand(seg[i], e_STAR))
 				return (expand_wildcard(seg));
 			++i;
 		}
