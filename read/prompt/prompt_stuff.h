@@ -18,5 +18,6 @@
 # include "prompt_utils/prompt_utils.h"
 
 char	*read_command(char *main_prompt);
+char	*get_current_working_directory(void);
 
 #endif
