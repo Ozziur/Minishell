@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 12:49:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/10 12:40:54 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/25 16:45:07 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ t_bindings	*binding_over_write(t_bindings *head, t_bindings *binding)
 	cursor = head;
 	while (cursor)
 	{
-		if (ft_strcmp(cursor->var_val, binding->var_name) == 0)
+		if (ft_strcmp(cursor->var_name, binding->var_name) == 0)
 		{
 			if (binding->concat_mode == e_true)
 				cursor->var_val = ft_strjoin(cursor->var_val, new_val,
-						e_true, e_true);
+						e_true, e_false);
 			else
-				ft_str_replace(&cursor->var_val, new_val);
+				ft_str_replace(&(cursor->var_val), new_val);
 			break ;
 		}
 		cursor = cursor->next;

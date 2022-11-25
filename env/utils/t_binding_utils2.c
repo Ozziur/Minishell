@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:03:09 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/07 14:03:39 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/25 16:12:05 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_bool	binding_exist(t_bindings *head, t_bindings *binding)
 	cur = head;
 	while (cur)
 	{
-		if (0 == ft_strcmp(cur->var_name, binding->var_name))
+		if (ft_strcmp(cur->var_name, binding->var_name) == 0)
 			return (e_true);
 		cur = cur->next;
 	}

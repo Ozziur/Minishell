@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 23:15:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/25 00:19:00 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/25 16:20:16 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	execute_env_statement(t_env_decl_node env_statement)
 {
 	if (env_statement.set)
 		add_update_bindings(env_statement.bindings);
+
 	else
 		remove_bindings(env_statement.bindings);
 }
@@ -76,7 +77,7 @@ void	execute_utility(t_env_decl_node bindings_node,
 	t_tree_node	*cmd_tree_node;
 
 	utility.pid = fork();
-	if (0 == utility.pid)
+	if (utility.pid == 0)
 	{
 		bindings_node.set = e_true;
 		cmd_tree_node = create_cmd_tree_node(cmd_node);
