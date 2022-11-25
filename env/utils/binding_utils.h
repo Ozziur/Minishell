@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:14:36 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/16 16:38:16 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/25 00:05:01 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ void		binding_add_front(t_bindings **head, t_bindings *new_binding);
 void		binding_add_back(t_bindings **head, t_bindings *new_binding);
 void		binding_add_in_order(t_bindings **head, t_bindings *new_binding);
 char		**bindings_list_to_array(t_bindings *head);
+void 		binding_remove(t_bindings **head, char *var_name);
 
 #endif

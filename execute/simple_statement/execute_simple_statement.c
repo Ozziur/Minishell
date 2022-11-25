@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:38:35 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/24 20:47:11 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/25 00:12:52 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ static void	exec_builtin(t_tree_node *root, int in, int out)
 	else
 	{
 		if (root->content->content_type == ENV_STATEMENT)
-														printf("vamos\n");
-	// 		execute_env_statement(root->content->env_decl);
+			execute_env_statement(root->content->env_decl);
 		else if (root->content->content_type == REDIR)
 			execute_redir_only_statement(root, in, out);
 		else

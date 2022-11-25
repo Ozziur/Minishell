@@ -17,11 +17,10 @@ static char	*next_command(void)
 	printf("\1");
 	return (
 		read_command(
-			ft_strjoin("mini hell test : ",
-			//	get_current_working_directory(),
+			ft_strjoin(
+				get_current_working_directory(),
 				ft_strjoin(RESET, "\2", e_false, e_false),
-				e_false, e_true)));     // se allochiamo bisogna riportarlo a e_true, e_true
-}
+				e_true, e_true)));
 
 t_tree_node	*shell_read(void)
 {

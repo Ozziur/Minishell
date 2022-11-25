@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:05:46 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/09 16:31:07 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/24 22:40:51 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ t_bool	is_env_statement(char *command_line, size_t offset)
 		|| (ft_strncmp(command_line + offset, "unset", 5) == 0
 			&& len_command_line >= 5
 			&& e_true == ft_isspace(command_line[offset + 5])))
-		return (e_true);
+		{
+				//da pensarci su
+			return (e_true);
+		}
 	return (e_false);
 }
 

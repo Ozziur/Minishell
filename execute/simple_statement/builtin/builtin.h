@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 18:02:45 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/23 16:45:30 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/25 00:00:13 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,19 @@ void	execute_cd(t_simple_cmd_node cmd);
 void	execute_echo(t_simple_cmd_node cmd);
 void	execute_exit(t_simple_cmd_node cmd);
 void	execute_export(void);
+void	execute_unset(void);
+void	execute_env(char *arg);
+
+//arg utility
+t_status	env_set_bindings_and_utility(char **split,
+					t_simple_cmd_node *cmd_node,
+					t_env_decl_node *bindings_node);
+
+//env utility
+void	execute_utility(t_env_decl_node bindings_node,
+				t_simple_cmd_node cmd_node);
+void	execute_env_statement(t_env_decl_node env_statement);
+void	print_env(void);
+void	execute_empty_utility(t_env_decl_node bindings_node);
 
 #endif

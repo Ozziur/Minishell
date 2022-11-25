@@ -53,6 +53,7 @@ t_bool	bash_control_character(char c);
 t_bool	char_is_digit(char c);
 t_bool	redirect_char(char c);
 t_bool	ft_is_digit_string(char *str);
+t_bool	is_env_var_name(char *str);
 
 //* str_utils
 char	*ft_strcpy(char *buf, char *src, int copy_len);
@@ -83,6 +84,7 @@ char	*single_quote(char *str, t_bool free);
 
 //split_utils in str_utils
 void	*ft_split_clear(char **split);
+char	*split_merge(char	**split, char *const sep, t_bool free_split);
 
 //* memory_utils
 void	*ft_malloc(size_t size);

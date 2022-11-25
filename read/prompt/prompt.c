@@ -84,3 +84,59 @@ char	*read_command(char *main_prompt)
 	free(main_prompt);
 	return (cmd);
 }
+
+static char	*get_decorated_cwd(char *cwd)
+{
+	char	*color;
+
+	if (g_env.last_executed_cmd_exit_status == EXIT_SUCCESS)
+		color = GREEN;
+	else
+		color = RED;
+	return (
+		ft_strjoin(
+			ft_itoa(g_env.last_executed_cmd_exit_status),
+			ft_strjoin
+			(
+				" in 📁:-",
+				ft_strjoin
+				(
+					ft_strjoin(color, cwd, e_false, e_false),
+					": " RESET,
+					e_true,
+					e_false
+				),
+				e_false,
+				e_true
+			),
+			e_true, e_true
+		)
+	);
+}
+
+char	*get_current_working_directory(void)
+{
+	char	*abs_path;
+	char	*cwd;
+	size_t	last_slash_idx;
+	size_t	idx;
+
+	abs_path = getcwd(NULL, PATH_MAX);
+	if (0 == ft_strcmp(abs_path, env_handler(BINDING_GET_VALUE, "HOME")))
+		cwd = (ft_strjoin(
+					ft_itoa(g_env.last_executed_cmd_exit_status),
+					" in 📁:-" CYAN " ~ " RESET,
+					e_true, e_false)
+				);
+	else
+	{
+		last_slash_idx = 0;
+		idx = -1;
+		while (abs_path[++idx])
+			if (abs_path[idx] == '/')
+				last_slash_idx = idx;
+		cwd = get_decorated_cwd(abs_path + last_slash_idx);
+	}
+	free(abs_path);
+	return (cwd);
+}

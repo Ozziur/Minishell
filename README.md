@@ -23,6 +23,9 @@ Diario di bordo numero 5#
 Oggi mi rode il culo. Potrei parlare dei vari tentativi di ammutinamento di split e della sua compagnia cantante, di come abbiamo raggiunto anche l'export ma vaffanculo, sono le 23.13 e per oggi ne ho i coglioni pieni. Spero di reincontrare Jack Sbarring prima di dormire e di terminare sta giornata del cazzo il prima possibile.
 Ps. abbiamo mergiato ma non testato
 
+Diario di bordo numero 6#
+sembra strano a dirsi, ma forse il viaggio si é concluso. prima di arrivare a casa c'é qualcosa da finire. La nave va resa un pó piú presentabile e l'expander leggermente modificato. Non vedo l'ora di traccannare una bottiglia di rum in onore dello shogun e alla faccia di chi ha pensato che questo lavoro sia facile.   
+
 piano di battaglia:
 
 open_brk_node_redir é oggettivamente in un file a cazzo ma la norma rompeva i coglioni
