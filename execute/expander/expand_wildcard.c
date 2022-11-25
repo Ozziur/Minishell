@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 17:23:00 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/25 05:15:23 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/25 07:46:41 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,21 +79,39 @@ char	*get_dir_content(char *dir_path)
 	dir_content = NULL;
 	directory = NULL;
 	directory = opendir(dir_path);
-	if (directory)
+	if (!directory)
 	{
-		dir_struct = readdir(directory);
-		while (dir_struct)
-		{
-			dir_content = ft_strjoin_a_trois(
-					dir_content, " ", dir_struct->d_name,
-					e_true, e_false, e_false);
-			dir_struct = readdir(directory);
-		}
-		closedir(directory);
+		ft_free(dir_path);
+		return (NULL);
 	}
+	dir_struct = readdir(directory);
+	while (dir_struct)
+	{
+		dir_content = ft_strjoin_a_trois(
+				dir_content, " ", dir_struct->d_name,
+				e_true, e_false, e_false);
+		dir_struct = readdir(directory);
+	}
+	closedir(directory);
 	ft_free(dir_path);
-	printf("\n%s\n", dir_content);
+	dir_content = remove_invisibles(dir_content);
 	return (dir_content);
+}
+
+char	*remove_invisibles(char *dir_content)
+{
+	char	*new_content;
+
+	new_content = dir_content;
+	++new_content;
+	while (*new_content == '.')
+	{
+		while (*new_content != ' ')
+			++new_content;
+		++new_content;
+	}
+	ft_free(dir_content);
+	return (ft_strcpy(NULL, new_content, ft_strlen(new_content)));
 }
 
 char	*match(char *path, char *dir_content)
@@ -112,12 +130,13 @@ char	*match(char *path, char *dir_content)
 	{
 		match = find_match(dir_content, to_expand, &i);
 		if (match)
-			match = join_till_space(get_prefix(path, e_true), match, e_true, e_false);
+			match = join_till_space(get_prefix(path, e_true), match,
+					e_true, e_false);
 		expanded = ft_strjoin_a_trois(expanded, " ", match,
 				e_true, e_false, e_true);
 	}
 	ft_free(dir_content);
-	return (expanded);
+	return (trim_first_char(expanded));
 }
 
 char	*find_match(char *dir_content, char *to_expand, int *i)
@@ -129,8 +148,10 @@ char	*find_match(char *dir_content, char *to_expand, int *i)
 		++j;
 	while (dir_content[*i])
 	{
-		if (dir_content[*i] == to_expand[j]
-				&& wild_strcmp(dir_content + *i, to_expand, *i) == e_true)
+		if ((dir_content[*i] == to_expand[j]
+			&& wild_strcmp(dir_content + *i, to_expand, *i) == e_true)
+			|| (dir_content[*i] != ' ' && to_expand[0] == '*'
+			&& to_expand[1] == 0))
 		{
 			j = *i;
 			while (dir_content[*i] && dir_content[*i] != ' ')
@@ -196,4 +217,13 @@ char	*join_till_space(char *s1, char *s2, t_bool free1, t_bool free2)
 	if (s2 && free2 == e_true)
 		ft_free(s2);
 	return (ft_strjoin(new1, new2, e_true, e_true));
+}
+
+char	*trim_first_char(char *str)
+{
+	char	*new_str;
+
+	new_str = ft_strcpy(NULL, str + 1, ft_strlen(str + 1));
+	ft_free(str);
+	return (new_str);
 }

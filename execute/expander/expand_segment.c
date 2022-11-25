@@ -4,9 +4,6 @@ char	*expand_segment(char *seg, t_exp_phase phase)
 {
 	int	i;
 
-	if (!is_char_to_expand(seg[0], e_QUOTES_DOLLAR)
-		&& !is_char_to_expand(seg[0], e_STAR))
-		return (expand_rec(seg, e_STAR));
 	if (*seg == '$')
 		return (expand_dollar(seg + 1));
 	else if (*seg == '\'')
@@ -18,9 +15,9 @@ char	*expand_segment(char *seg, t_exp_phase phase)
 		i = 0;
 		while (seg[i])
 		{
-			if (is_char_to_expand(seg[i], e_QUOTES_DOLLAR))
+			if (is_char_to_expand(seg[i], e_NORMAL))
 				return (ft_strcpy(NULL, seg, i));
-			else if (phase == e_STAR && is_char_to_expand(seg[i], e_STAR))
+			else if (phase != e_QUOTES && is_char_to_expand(seg[i], e_STAR))
 				return (expand_wildcard(seg));
 			++i;
 		}
@@ -47,7 +44,7 @@ char	*expand_dollar(char *var)
 	{
 
 		env_var_name = ft_strcpy(NULL, var, ft_word_len(var));
-		env_var_val = env_handler(BINDING_GET_VALUE, env_var_name);
+		env_var_val = ft_strdup(env_handler(BINDING_GET_VALUE, env_var_name));
 		free(env_var_name);
 		return (env_var_val);
 	}
@@ -103,9 +100,9 @@ char	*carefully_expand_content(char *q_cont)
 				scroll_to_char(q_cont + single_quote_pos + 1, '\''));
 		chunks[2] = q_cont + ft_strlen(chunks[0]) + ft_strlen(chunks[1]) + 2;
 		care_fully_expanded_str = ft_strjoin_a_trois(
-				expand_rec(chunks[0], e_QUOTES_DOLLAR),
-				single_quote(expand_rec(chunks[1], e_QUOTES_DOLLAR), e_true),
-				expand_rec(quote(chunks[2], e_false), e_QUOTES_DOLLAR),
+				expand_rec(chunks[0], e_QUOTES),
+				single_quote(expand_rec(chunks[1], e_QUOTES), e_true),
+				expand_rec(quote(chunks[2], e_false), e_QUOTES),
 				e_true, e_true, e_true);
 		if (q_cont[0] != '\'')
 			free(chunks[0]);
@@ -113,5 +110,5 @@ char	*carefully_expand_content(char *q_cont)
 		return (care_fully_expanded_str);
 	}
 	else
-		return (expand_rec(q_cont, e_QUOTES_DOLLAR));
+		return (expand_rec(q_cont, e_QUOTES));
 }

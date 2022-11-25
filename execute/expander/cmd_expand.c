@@ -16,21 +16,17 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 */
 char	*expand(char *to_expand, t_bool free_original)
 {
-	//char	*phase_one;
-	char	*phase_two;
+	char	*expanded;
 
-	phase_two = expand_rec(to_expand, e_QUOTES_DOLLAR);
-																printf("\n%s\n", phase_two);
-	//phase_two = expand_rec(phase_one, e_STAR);
-	//ft_free(phase_one);
+	expanded = expand_rec(to_expand, e_NORMAL);
 	if (free_original == e_true)
 		ft_free(to_expand);
-	if (!*phase_two)
+	if (!*expanded)
 	{
-		ft_free(phase_two);
+		ft_free(expanded);
 		return (NULL);
 	}
-	return (phase_two);
+	return (expanded);
 }
 
 char	*expand_rec(char *to_expand, t_exp_phase phase)
@@ -41,8 +37,7 @@ char	*expand_rec(char *to_expand, t_exp_phase phase)
 	{
 		return (ft_strdup(""));
 	}
-	rest_of_str = 0;
-	rest_of_str = isolate_first_segment(to_expand, rest_of_str, phase);
+	rest_of_str = isolate_first_segment(to_expand, phase);
 	return (ft_strjoin(
 				expand_segment(to_expand, phase),
 				expand_rec(rest_of_str, phase),
@@ -50,26 +45,24 @@ char	*expand_rec(char *to_expand, t_exp_phase phase)
 			));
 }
 
-char	*isolate_first_segment(char *to_expand, char *rest_of_str,
-															t_exp_phase phase)
+char	*isolate_first_segment(char *to_expand, t_exp_phase phase)
 {
-	int	i;
+	int		i;
+	char	*rest_of_str;
 
+	rest_of_str = NULL;
 	i = 0;
 	while (to_expand[i])
 	{
 		if (is_char_to_expand(to_expand[i], phase))
 		{
-			if (phase == e_QUOTES_DOLLAR && i > 0)
+			if (i > 0)
 				rest_of_str = to_expand + i;
-			else if (phase == e_STAR)
-				rest_of_str = NULL;
 			else
 				rest_of_str = isolate_macro(
 							to_expand,
 							rest_of_str,
-							to_expand[i]
-							);
+							to_expand[i]);
 			break ;
 		}
 		++i;
@@ -82,19 +75,11 @@ char	*isolate_first_segment(char *to_expand, char *rest_of_str,
 char	*isolate_macro(char *to_expand, char *rest_of_str, char special)
 {
 	int	i;
-	int	found_space;
 
-	found_space = -1;
 	i = 0;
 	while (to_expand[i])
 	{
-		if (to_expand[i] == ' ')
-			found_space = i;
-		if (special == '*' && found_space == -1 && to_expand[i] == ' ')
-			return (to_expand + i);
-		else if (special == '*' && found_space >= 0) 
-			return (to_expand + found_space + 1);
-		else if (special == '$' && to_expand[i] == ' ')
+		if (special == '$' && to_expand[i] == ' ')
 			return (to_expand + i);
 		else if (to_expand[i] == special && i > 0)
 			return (to_expand + i + 1);
@@ -105,11 +90,11 @@ char	*isolate_macro(char *to_expand, char *rest_of_str, char special)
 	return (to_expand + i);
 }
 
-int	is_char_to_expand(char c, t_exp_phase phase)
+int	is_char_to_expand(char c, t_exp_phase type)
 {
-	if (phase == e_QUOTES_DOLLAR)
+	if (type == e_NORMAL || type == e_QUOTES)
 		return (c == '"' || c == '\'' || c == '$');
-	else if (phase == e_STAR)
+	else if (type == e_STAR)
 		return (c == '*');
 	return (0);
 }
