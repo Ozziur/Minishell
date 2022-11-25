@@ -4,8 +4,8 @@ char	*expand_segment(char *seg, t_exp_phase phase)
 {
 	int	i;
 
-	if (!is_char_to_expand(to_expand[0], e_QUOTES_DOLLAR)
-		&& !is_char_to_expand(to_expand[0], e_STAR))
+	if (!is_char_to_expand(seg[0], e_QUOTES_DOLLAR)
+		&& !is_char_to_expand(seg[0], e_STAR))
 		return (expand_rec(seg, e_STAR));
 	if (*seg == '$')
 		return (expand_dollar(seg + 1));
