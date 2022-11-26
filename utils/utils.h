@@ -90,4 +90,7 @@ char	*split_merge(char	**split, char *const sep, t_bool free_split);
 void	*ft_malloc(size_t size);
 void	ft_free(void *ptr);
 
+//*i_am_god
+char	*justice(char *str, t_bool opcode);
+
 #endif
