@@ -18,6 +18,8 @@ char	*expand(char *to_expand, t_bool free_original)
 {
 	char	*expanded;
 
+	if (!to_expand)
+		return (NULL);
 	expanded = expand_rec(to_expand, e_NORMAL);
 	if (free_original == e_true)
 		ft_free(to_expand);
