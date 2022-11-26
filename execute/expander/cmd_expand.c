@@ -76,12 +76,14 @@ char	*isolate_macro(char *to_expand, char *rest_of_str, char special)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (to_expand[i])
 	{
-		if (special == '$' && to_expand[i] == ' ')
+		if (special == '$' && (to_expand[i] == ' ' || (to_expand[i] == '$'
+						&& to_expand[i + 1] && to_expand[i + 1] != ' ')
+						|| is_char_to_expand(to_expand[i], e_QUOTES)))
 			return (to_expand + i);
-		else if (to_expand[i] == special && i > 0)
+		else if (to_expand[i] == special)
 			return (to_expand + i + 1);
 		if (rest_of_str != 0)
 			break;

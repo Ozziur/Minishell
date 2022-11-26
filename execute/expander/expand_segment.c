@@ -36,10 +36,8 @@ char	*expand_dollar(char *var)
 		return (ft_itoa(g_env.pid));
 	else if (var[0] == '?')
 		return (ft_itoa(g_env.last_executed_cmd_exit_status));
-	else if (var[0] == '"')
-		return (expand_dollar(var + 1));
-	else if (var[0] == '\'')
-		return (expand_quotes(var + 1, '\''));
+	else if (var[0] == '"' || var[0] == '\'')
+		return (ft_strdup(""));
 	else
 	{
 
@@ -54,7 +52,7 @@ char	*expand_quotes(char *quoted_str, char type_of_quotes)
 {
 	char	*quotes_content;
 	char	*new_content;
-
+	
 	if (type_of_quotes == '"')
 	{
 		quotes_content = ft_strcpy(
@@ -95,10 +93,14 @@ char	*carefully_expand_content(char *q_cont)
 	single_quote_pos = scroll_to_char(q_cont, '\'');
 	if (single_quote_pos || q_cont[0] == '\'')
 	{
+		if (check_single_quotes_nbr(q_cont))
+			return (ft_strcpy(NULL, q_cont, ft_strlen(q_cont)));
 		chunks[0] = ft_strcpy(NULL, q_cont, single_quote_pos);
 		chunks[1] = ft_strcpy(NULL, q_cont + single_quote_pos + 1,
 				scroll_to_char(q_cont + single_quote_pos + 1, '\''));
 		chunks[2] = q_cont + ft_strlen(chunks[0]) + ft_strlen(chunks[1]) + 2;
+		printf("\nstringa = %s", q_cont);
+		printf("\nsingle_quote_pos = %d\n0 = %s\n1 = %s\n2 = %s\n\n", single_quote_pos, chunks[0], chunks[1], chunks[2]);
 		care_fully_expanded_str = ft_strjoin_a_trois(
 				expand_rec(chunks[0], e_QUOTES),
 				single_quote(expand_rec(chunks[1], e_QUOTES), e_true),
@@ -112,3 +114,37 @@ char	*carefully_expand_content(char *q_cont)
 	else
 		return (expand_rec(q_cont, e_QUOTES));
 }
+
+int	check_single_quotes_nbr(char *q_cont)
+{
+	int	i;
+	int	count;
+
+	count = 0;
+	i = 0;
+	while (q_cont[i])
+	{
+		if (q_cont[i] == '\'')
+			++count;
+		++i;
+	}
+	if (count % 2 == 0)
+		return (0);
+	else
+		return (1);
+}
+
+/*
+int	smart_quotes(char *q_sent)
+{
+	int	i;
+
+	i = ft_strlen(q_sent) - 1;
+	while (i >= 0)
+	{
+		if (q_sent[i] == '"')
+			return (i);
+		--i;
+	}
+	return (0);
+}*/
