@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scan_env_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:15:12 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/25 16:06:53 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/29 00:07:07 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ size_t	scan_var_value(char *str, size_t offset, char **value,
 	if (str[offset + 1] == '"' || str[offset + 1] == '\'')
 	{
 		*value = ft_substr(str + (offset + 2), str[offset + 1]);
+		if(*value == 0)
+		{
+			free(*value);
+			*value= ft_strdup("");
+		}
 		return (offset + 2 + ft_strlen(*value) + 1);
 	}
 	value_len = 0;
