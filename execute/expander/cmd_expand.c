@@ -36,7 +36,7 @@ char	*expand_rec(char *to_expand, t_exp_phase phase)
 	char	*rest_of_str;
 
 	if (to_expand == 0 || *to_expand == 0)
-	{
+	{	ft_free(to_expand);
 		return (ft_strdup(""));
 	}
 	rest_of_str = isolate_first_segment(to_expand, phase);
@@ -70,7 +70,7 @@ char	*isolate_first_segment(char *to_expand, t_exp_phase phase)
 		++i;
 	}
 	if (rest_of_str != 0 && *rest_of_str == 0)
-		rest_of_str = ft_strdup("");
+			rest_of_str = ft_strdup("");
 	return (rest_of_str);
 }
 
