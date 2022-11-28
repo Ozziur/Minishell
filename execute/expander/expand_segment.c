@@ -44,6 +44,8 @@ char	*expand_dollar(char *var)
 		env_var_name = ft_strcpy(NULL, var, ft_word_len(var));
 		env_var_val = ft_strdup(env_handler(BINDING_GET_VALUE, env_var_name));
 		free(env_var_name);
+		if (!env_var_val)
+			return (ft_strdup(""));
 		return (env_var_val);
 	}
 }
