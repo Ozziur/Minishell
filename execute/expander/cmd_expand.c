@@ -61,10 +61,7 @@ char	*isolate_first_segment(char *to_expand, t_exp_phase phase)
 			if (i > 0)
 				rest_of_str = to_expand + i;
 			else
-				rest_of_str = isolate_macro(
-							to_expand,
-							rest_of_str,
-							to_expand[i]);
+				rest_of_str = isolate_macro(to_expand, to_expand[i]);
 			break ;
 		}
 		++i;
@@ -74,21 +71,19 @@ char	*isolate_first_segment(char *to_expand, t_exp_phase phase)
 	return (rest_of_str);
 }
 
-char	*isolate_macro(char *to_expand, char *rest_of_str, char special)
+char	*isolate_macro(char *to_expand, char special)
 {
 	int	i;
 
 	i = 1;
 	while (to_expand[i])
 	{
-		if (special == '$' && (to_expand[i] == ' ' || (to_expand[i] == '$'
-						&& to_expand[i + 1] && to_expand[i + 1] != ' ')
-						|| is_char_to_expand(to_expand[i], e_QUOTES)))
+		if (special == '$' && (to_expand[i] == ' ' || to_expand[0] == 0))
 			return (to_expand + i);
+		else if (special == '$' && to_expand[i] == '$')
+			return (to_expand + i + 1);
 		else if (to_expand[i] == special)
 			return (to_expand + i + 1);
-		if (rest_of_str != 0)
-			break;
 		++i;
 	}
 	return (to_expand + i);
