@@ -2,12 +2,25 @@
 
 void	cmd_expand(t_simple_cmd_node *cmd)
 {
-	if (!cmd->cmd_name || !cmd->cmd_args)
-	{
-		return ;
-	}
+	
 	cmd->cmd_name = expand(cmd->cmd_name, e_true);
 	cmd->cmd_args = expand(cmd->cmd_args, e_true);
+
+	
+}
+
+static t_bool	not_to_expand(char *to_expand)
+{
+	int i = 0;
+	while(to_expand[i])
+	{
+		if (to_expand[i]=='$' ||
+		to_expand[i]== '\'' ||
+		to_expand[i] =='\"')
+			return (e_false);
+		i++;
+	}
+	return (e_true);
 }
 
 /*
@@ -19,7 +32,9 @@ char	*expand(char *to_expand, t_bool free_original)
 	char	*expanded;
 
 	if (!to_expand)
-		return (ft_strdup(""));
+		return (NULL);
+	if (not_to_expand(to_expand) == e_true)
+		return (to_expand);
 	expanded = expand_rec(to_expand, e_NORMAL);
 	if (free_original == e_true)
 		ft_free(to_expand);
@@ -35,8 +50,9 @@ char	*expand_rec(char *to_expand, t_exp_phase phase)
 {	
 	char	*rest_of_str;
 
-	if (to_expand == 0 || *to_expand == 0)
-	{	ft_free(to_expand);
+	if (to_expand == NULL || *to_expand == 0)
+	{	
+		ft_free(to_expand);
 		return (ft_strdup(""));
 	}
 	rest_of_str = isolate_first_segment(to_expand, phase);

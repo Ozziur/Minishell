@@ -6,7 +6,7 @@
 #    By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/14 19:14:21 by ccantale          #+#    #+#              #
-#    Updated: 2022/11/25 18:20:37 by mruizzo          ###   ########.fr        #
+#    Updated: 2022/11/28 19:13:00 by mruizzo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ READLINE_FLAGS = -L/usr/lib/x86_64-linux-gnu -lreadline  -L$$HOME/.brew/opt/read
 
 INCLUDES = $(shell find . -name "*.h" -print)
 
-OBJS_DIR = obj
+OBJS_DIR = bin
 OBJS_NOPREFIX = $(shell find . -name "*.c" -print | sed 's/\.c/\.o/g' | sed 's/\.\///')# last cmd removes ./ at the beginning of each file
 OBJS = $(addprefix $(OBJS_DIR)/, $(OBJS_NOPREFIX))
 

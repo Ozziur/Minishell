@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 23:15:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/28 16:19:33 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/28 20:29:58 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,15 @@ static void	remove_bindings(t_bindings *head)
 static void	add_update_bindings(t_bindings *head)
 {
 	t_bindings	*cur;
-	char		*expanded_val;
 
 	cur = head;
 	while (cur)
 	{
-		expanded_val = expand(cur->var_val, e_false);
 		env_handler(BINDING_UPDATE,
 			get_new_binding(
 				cur->var_name,
-				expanded_val, cur->concat_mode));
+				expand(cur->var_val, e_false), cur->concat_mode));
 		cur = cur->next;
-		free(expanded_val);
 	}
 	g_env.last_executed_cmd_exit_status = EXIT_SUCCESS;
 }
