@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 17:23:00 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/25 07:46:41 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/28 12:51:02 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,11 @@ char	*match(char *path, char *dir_content)
 				e_true, e_false, e_true);
 	}
 	ft_free(dir_content);
+	if (expanded[0] == ' ' && expanded[1] == '\0')
+	{
+		ft_free(expanded);
+		return (ft_strdup(path));
+	}
 	return (trim_first_char(expanded));
 }
 
