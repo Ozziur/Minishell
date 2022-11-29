@@ -3,20 +3,20 @@
 void	cmd_expand(t_simple_cmd_node *cmd)
 {
 	int	experiment;
+	char *tmp;
 
 	experiment = 0;
 	if (find_dollar(cmd->cmd_name) == e_true)
 		experiment = 1;
 	cmd->cmd_name = expand(cmd->cmd_name, e_true);
 	cmd->cmd_args = expand(cmd->cmd_args, e_true);
-	if(experiment)
+	if (experiment)
 	{
-		char *tmp;
-
-		tmp=ft_strdup(cmd->cmd_name);
+		tmp = ft_strdup(cmd->cmd_name);
 		free(cmd->cmd_name);
 		cmd->cmd_name = ft_strdup(justice(tmp, e_true));
-		cmd->cmd_args = ft_strjoin(justice(tmp, e_false), cmd->cmd_args,e_false,e_true);
+		cmd->cmd_args = ft_strjoin(justice(tmp, e_false),
+				cmd->cmd_args,e_false,e_true);
 		free(tmp);
 	}
 
@@ -107,12 +107,13 @@ char	*isolate_macro(char *to_expand, char special)
 	i = 1;
 	while (to_expand[i])
 	{
-		if (special == '$' && (to_expand[i] == ' '
+		if (special == '$' && to_expand[i] == '$'
+				&& (to_expand[i + 1] == ' ' || to_expand[i + 1] == '\0'))
+			return (to_expand + i + 1);
+		else if (special == '$' && (to_expand[i] == ' '
 				|| is_char_to_expand(to_expand[i], e_NORMAL)
 				|| is_char_to_expand(to_expand[i], e_STAR)))
 			return (to_expand + i);
-		else if (special == '$' && to_expand[i] == '$')
-			return (to_expand + i + 1);
 		else if (to_expand[i] == special)
 			return (to_expand + i + 1);
 		++i;
