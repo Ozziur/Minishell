@@ -35,7 +35,8 @@ t_bool	wild_strcmp(char *dir_content, char *to_expand, int prev_cursor);
 char	*join_till_space(char *s1, char *s2, t_bool free1, t_bool free2);
 char	*trim_first_char(char *str);
 char	*remove_invisibles(char *dir_content);
-int	check_single_quotes_nbr(char *q_cont);
+int		check_single_quotes_nbr(char *q_cont);
+t_bool	not_to_expand(char *to_expand);
 
 #endif 
 
