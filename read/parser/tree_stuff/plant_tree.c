@@ -13,7 +13,7 @@
 #include "tree.h"
 
 static t_tree_node	*parse_trunk(t_tree_node *current,
-								t_parser_status *p_status);
+					t_parser_status *p_status);
 
 static t_token	*take_next_operator_or_bracket_token(
 					t_parser_status *p_status
@@ -99,7 +99,7 @@ static t_tree_node	*parse_trunk(t_tree_node *current,
 				current,
 				operator_bracket_tok,
 				p_status)
-			);
+		);
 }
 
 t_tree_node	*plant_tree(t_parser_status *p_status)

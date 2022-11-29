@@ -62,12 +62,12 @@ char	*ft_strdup(char *str);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *pre, char *post, t_bool free_pre, t_bool free_post);
 char	*ft_strjoin_a_trois(char *s1, char *s2, char *s3,
-				t_bool free1, t_bool free2, t_bool free3);
+			t_bool free1, t_bool free2, t_bool free3);
 size_t	skip_past_char(char *str, size_t offset,
 			char to_skip, int direction);
 size_t	scroll_to_char(char *str, char ch);
 size_t	ft_word_len(char *word);
-char	**ft_split(char* string, char delimiter);
+char	**ft_split(char *string, char delimiter);
 int		ft_atoi(const char *str);
 char	*ft_itoa(int nbr);
 char	*find_substr(char *str, char *substr);

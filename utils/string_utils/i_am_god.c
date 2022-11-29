@@ -6,12 +6,34 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 13:29:43 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/29 14:15:43 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/29 15:45:02 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../utils.h"
-#include <string.h>
+
+static size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+
+	i = 0;
+	if (dstsize == 0)
+	{
+		while (src[i])
+			i++;
+		return (i);
+	}
+	while (i < dstsize - 1 && src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	if (i < dstsize)
+		dst[i] = '\0';
+	while (src[i] != 0)
+		i++;
+	return (i);
+}
 
 static char	*ft_strchr(const char *s, int c)
 {
@@ -27,27 +49,27 @@ static char	*ft_strchr(const char *s, int c)
 	return ((char *) NULL);
 }
 
-char *justice(char * str, t_bool opcode)
+char	*justice(char *str, t_bool opcode)
 {
 	char	*ret;
 	int		i;
 
 	i = 0;
 	ret = ft_strchr(str, ' ');
-	if 	(opcode == e_false)
+	if (opcode == e_false)
 	{
 		if (ret == NULL)
-		return (NULL); 
-			return (ft_strjoin(ft_strdup(ret), " ", e_true, e_false));
+			return (NULL);
+		return (ft_strjoin(ft_strdup(ret), " ", e_true, e_false));
 	}
 	else
 	{
 		if (ret == NULL)
-			return (str); 
+			return (str);
 		i = ret - str;
-		ret = malloc(i+1);
+		ret = malloc(i + 1);
 		ret[i] = 0;
-		strncpy(ret, str, i);
+		ft_strlcpy(ret, str, i + 1);
 		return (ret);
 	}
 }

@@ -40,7 +40,6 @@ char	*expand_dollar(char *var)
 		return (ft_strdup(""));
 	else
 	{
-
 		env_var_name = ft_strcpy(NULL, var, ft_word_len(var));
 		env_var_val = ft_strdup(env_handler(BINDING_GET_VALUE, env_var_name));
 		free(env_var_name);
@@ -54,13 +53,11 @@ char	*expand_quotes(char *quoted_str, char type_of_quotes)
 {
 	char	*quotes_content;
 	char	*new_content;
-	
+
 	if (type_of_quotes == '"')
 	{
-		quotes_content = ft_strcpy(
-					NULL,
-					quoted_str,
-					scroll_to_char(quoted_str, '"'));
+		quotes_content = ft_strcpy(NULL, quoted_str,
+				scroll_to_char(quoted_str, '"'));
 		new_content = carefully_expand_content(quotes_content);
 		if (*quotes_content)
 			free(quotes_content);
@@ -68,7 +65,7 @@ char	*expand_quotes(char *quoted_str, char type_of_quotes)
 	}
 	else
 		return (ft_strcpy(NULL, quoted_str,
-					scroll_to_char(quoted_str, '\'')));
+				scroll_to_char(quoted_str, '\'')));
 }
 
 /*

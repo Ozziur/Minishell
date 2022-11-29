@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:45:07 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/23 21:02:08 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/29 15:39:00 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static int	ft_atoi_rec(const char *str, int *exponent)
 	*exponent = *exponent + 1;
 	return (res);
 }
-
 
 char	*ft_itoa(int nbr)
 {

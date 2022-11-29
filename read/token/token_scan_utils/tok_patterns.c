@@ -26,7 +26,7 @@ size_t	scan_env_declaration(char *str, size_t offset, t_token **token_list)
 	new_offset = scan_initial_keyword_set_token(str, offset, &token);
 	new_offset = scan_invariants(str, new_offset);
 	while (e_true)
-	{    
+	{
 		next_var = NULL;
 		new_offset = scan_redirs(str, new_offset, token_list);
 		new_offset = scan_var(str, new_offset, token->token_id, &next_var);
@@ -37,14 +37,12 @@ size_t	scan_env_declaration(char *str, size_t offset, t_token **token_list)
 			return (scan_env_revert(token, offset));
 		else
 			env_tok_add_new_binding(&token, next_var);
-
 	}
 	if (token->token_id == e_ENV_VAR_DECL && token->token_val == NULL)
 		return (scan_env_revert(token, offset));
 	env_decl_add_token(token, token_list);
 	return (new_offset);
 }
-
 
 size_t	scan_simple_command(char *cmd_line, size_t offset,
 	t_token **tok_list_ref)

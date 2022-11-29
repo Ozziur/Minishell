@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 16:18:47 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/29 13:41:10 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/29 15:38:19 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,13 @@ t_bool	is_env_var_name(char *str)
 
 t_bool	find_dollar(char *str)
 {
-	int i = 0;
+	int	i;
 
-	while(str[i])
+	i = 0;
+	while (str[i])
 	{
 		if (str[i] == '$')
-			return(e_true);
+			return (e_true);
 		i++;
 	}
 	return (e_false);

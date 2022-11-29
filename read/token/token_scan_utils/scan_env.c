@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:36:49 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/24 20:44:36 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/29 15:31:28 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ size_t	scan_var(char *str, size_t offset,
 	(*next_var)->prev = NULL;
 	return (new_offset);
 }
-
 
 size_t	scan_initial_keyword_set_token(char *str, size_t offset,
 			t_token **token)

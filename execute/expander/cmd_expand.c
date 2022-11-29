@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:04:51 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/29 15:26:33 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/29 19:07:05 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	cmd_expand(t_simple_cmd_node *cmd)
 {
-	int	experiment;
-	char *tmp;
+	int		experiment;
+	char	*tmp;
 
 	experiment = 0;
 	if (find_dollar(cmd->cmd_name) == e_true)
@@ -28,20 +28,21 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 		free(cmd->cmd_name);
 		cmd->cmd_name = ft_strdup(justice(tmp, e_true));
 		cmd->cmd_args = ft_strjoin(justice(tmp, e_false),
-				cmd->cmd_args,e_false,e_true);
+				cmd->cmd_args, e_false, e_true);
 		free(tmp);
 	}
-
 }
 
 static t_bool	not_to_expand(char *to_expand)
 {
-	int i = 0;
-	while(to_expand[i])
+	int	i;
+
+	i = 0;
+	while (to_expand[i])
 	{
-		if (to_expand[i]=='$' ||
-		to_expand[i]== '\'' ||
-		to_expand[i] =='\"')
+		if (to_expand[i] == '$'
+			|| to_expand[i] == '\''
+			|| to_expand[i] == '\"')
 			return (e_false);
 		i++;
 	}
@@ -82,9 +83,9 @@ char	*expand_rec(char *to_expand, t_exp_phase phase)
 	}
 	rest_of_str = isolate_first_segment(to_expand, phase);
 	return (ft_strjoin(
-				expand_segment(to_expand, phase),
-				expand_rec(rest_of_str, phase),
-				e_true, e_true
+			expand_segment(to_expand, phase),
+			expand_rec(rest_of_str, phase),
+			e_true, e_true
 		));
 }
 
@@ -120,7 +121,7 @@ char	*isolate_macro(char *to_expand, char special)
 	while (to_expand[i])
 	{
 		if (special == '$' && to_expand[i] == '$'
-				&& (to_expand[i + 1] == ' ' || to_expand[i + 1] == '\0'))
+			&& (to_expand[i + 1] == ' ' || to_expand[i + 1] == '\0'))
 			return (to_expand + i + 1);
 		else if (special == '$' && (to_expand[i] == ' '
 				|| is_char_to_expand(to_expand[i], e_NORMAL)
