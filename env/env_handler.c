@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 18:10:47 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/25 16:45:43 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/29 14:59:27 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,6 @@ void	*env_handler(t_env_handl_opcode opcode, void *argument)
 	{
 		return (env_operations_cases(&env, &export, opcode, argument));
 	}
-	// if (opcode == _PRINT_ENV_)
-	// {
-	// 	return (debug_cases(env, export, opcode, argument));
-	// }
 	return (NULL);
 }
 

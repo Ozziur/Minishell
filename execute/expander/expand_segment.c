@@ -135,18 +135,3 @@ int	check_single_quotes_nbr(char *q_cont)
 	else
 		return (1);
 }
-
-/*
-int	smart_quotes(char *q_sent)
-{
-	int	i;
-
-	i = ft_strlen(q_sent) - 1;
-	while (i >= 0)
-	{
-		if (q_sent[i] == '"')
-			return (i);
-		--i;
-	}
-	return (0);
-}*/

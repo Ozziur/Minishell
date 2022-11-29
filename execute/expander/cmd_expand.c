@@ -6,7 +6,7 @@
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:15:20 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/29 15:15:32 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:18:25 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	cmd_expand(t_simple_cmd_node *cmd)
 {
-	int	experiment;
-	char *tmp;
+	int		experiment;
+	char	*tmp;
 
 	experiment = 0;
 	if (find_dollar(cmd->cmd_name) == e_true)

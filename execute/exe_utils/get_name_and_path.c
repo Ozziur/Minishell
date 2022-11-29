@@ -6,26 +6,9 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:53:49 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/23 23:05:31 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/29 15:03:33 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
-# include <stdio.h>
-
-void	printmat(char **mat)
-{
-	printf("\n////////////\n");
-	int i=0;
-	while (mat[i])
-	{
-		printf("\n----->    |%s|\n", mat[i]);
-	i++;
-	}
-	printf("\n////////////\n");
-}
-
-
 
 #include "../execute.h"
 
@@ -56,16 +39,11 @@ static char	*return_path_name(char *cmd, char **pathlist)
 	return (NULL);
 }
 
-
-
 static char	**return_paths(void)
 {
 	char	*paths;
 
 	paths = (char *) env_handler(BINDING_GET_VALUE, "PATH");
-
-				 //printf("\n%s\n", paths);
-						
 	return (dp_split(paths, ':'));
 }
 
@@ -80,9 +58,7 @@ char	*get_pathname(char *cmd)
 	env_paths_split = return_paths();
 	if (!env_paths_split)
 		return (NULL);
-							// printmat(env_paths_split);	
 	path = return_path_name(cmd, env_paths_split);
-					// printf("%s",path);
 	ft_splitclear(env_paths_split);
 	return (path);
 }

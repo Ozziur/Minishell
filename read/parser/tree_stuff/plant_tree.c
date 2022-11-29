@@ -12,8 +12,8 @@
 
 #include "tree.h"
 
-static t_tree_node *parse_trunk(t_tree_node *current,
-	t_parser_status *p_status);
+static t_tree_node	*parse_trunk(t_tree_node *current,
+								t_parser_status *p_status);
 
 static t_token	*take_next_operator_or_bracket_token(
 					t_parser_status *p_status
@@ -76,7 +76,7 @@ static t_tree_node	*parse_trunk_recursive(t_tree_node *current,
 	);
 }
 
-static t_tree_node *parse_trunk(t_tree_node *current,
+static t_tree_node	*parse_trunk(t_tree_node *current,
 	t_parser_status *p_status)
 {
 	t_token		*operator_bracket_tok;
@@ -94,7 +94,7 @@ static t_tree_node *parse_trunk(t_tree_node *current,
 		return (current);
 	}
 	else
-		return(
+		return (
 			parse_trunk_recursive(
 				current,
 				operator_bracket_tok,

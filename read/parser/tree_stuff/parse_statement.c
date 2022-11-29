@@ -52,7 +52,7 @@ t_tree_node	*parse_statement(t_token *token, t_parser_status *p_status)
 		{
 			return (new_tree_node(NULL,
 					parse_simple_command(token, node_content, p_status),
-						NULL));
+					NULL));
 		}
 		else if (token->token_id == e_ENV_VAR_DECL
 			|| token->token_id == e_ENV_VAR_UNSET)

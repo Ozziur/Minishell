@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 23:15:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/28 20:29:58 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/29 15:09:00 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,9 @@ void	execute_env_statement(t_env_decl_node env_statement)
 {
 	if (env_statement.set)
 		add_update_bindings(env_statement.bindings);
-
 	else
 		remove_bindings(env_statement.bindings);
 }
-
 
 void	execute_utility(t_env_decl_node bindings_node,
 				t_simple_cmd_node cmd_node)
