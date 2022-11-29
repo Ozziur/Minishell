@@ -42,4 +42,3 @@ void	free_token_val(t_token *token)
 		|| token->token_id == e_ENV_VAR_UNSET)
 		free_env(token->token_val);
 }
-

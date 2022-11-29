@@ -24,13 +24,13 @@ char	*my_readline(char *prompt)
 	close(cur_stdout_bkp);
 	if (!line)
 		return (NULL);
-	else if (*line == '\0')/*          new line*/
+	else if (*line == '\0')
 	{
 		free(line);
 		return (my_readline(prompt));
 	}
 	else
-		return (line);//linea letta (enrico?)
+		return (line);
 }
 
 char	**my_add_history(char *cmd)
@@ -40,13 +40,13 @@ char	**my_add_history(char *cmd)
 	if (cmd)
 	{
 		if (str_not_empty(cmd)
-		&& (!last || (ft_strcmp(last, cmd) != 0 ))
+			&& (!last ||(ft_strcmp(last, cmd) != 0))
 		)
 		{
 			add_history(cmd);
 			ft_free(last);
 			last = NULL;
-			last = ft_strcpy(last,cmd, ft_strlen(cmd));
+			last = ft_strcpy(last, cmd, ft_strlen(cmd));
 		}
 	}
 	return (&last);

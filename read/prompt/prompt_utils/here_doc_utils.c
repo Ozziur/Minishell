@@ -20,8 +20,8 @@ static void	hdoc_read_until_complete(int hdoc_fd,
 	char	*next_line;
 
 	next_line = readline("heredoc> ");
-	if (!next_line ||
-		ft_strcmp(next_line, delimiter) == 0)
+	if (!next_line
+		|| ft_strcmp(next_line, delimiter) == 0)
 	{
 		close(hdoc_fd);
 		ft_free(next_line);
@@ -49,7 +49,7 @@ void	here_doc_prompt(t_hdoc_prompt_behav opcode, char enclosing_quote,
 {
 	int	fd_here_doc;
 
-	if(opcode == KILL_HDOC)
+	if (opcode == KILL_HDOC)
 		exit(EXIT_FAILURE);
 	else
 	{

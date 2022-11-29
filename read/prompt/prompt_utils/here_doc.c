@@ -74,19 +74,19 @@ static char	*hdoc_next_file_name(void)
 
 t_status	here_doc_read(char *cmd)
 {
-    t_status    outcome;
-    char        **here_doc_delim;
-    size_t      hdoc_count;
-    int         cur_hdoc_rev_id;
+	t_status	outcome;
+	char		**here_doc_delim;
+	size_t		hdoc_count;
+	int			cur_hdoc_rev_id;
 
-    hdoc_count = here_docs_count(cmd);
-    if (hdoc_count == 0)
-        return (OK);
-    outcome = OK;
-    signal(SIGINT, sig_ign);
-    cur_hdoc_rev_id = hdoc_count - 1;
+	hdoc_count = here_docs_count(cmd);
+	if (hdoc_count == 0)
+		return (OK);
+	outcome = OK;
+	signal(SIGINT, sig_ign);
+	cur_hdoc_rev_id = hdoc_count - 1;
 	here_doc_delim = here_doc_take_delimiters(cmd);
-    	while (cur_hdoc_rev_id > -1)
+	while (cur_hdoc_rev_id > -1)
 	{
 		outcome = here_doc_read_current(
 				&here_doc_delim[cur_hdoc_index(hdoc_count, cur_hdoc_rev_id)],

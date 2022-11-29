@@ -12,7 +12,7 @@
 
 #include "prompt.h"
 
-static t_status read_completed_line(char **cmd,
+static t_status	read_completed_line(char **cmd,
 					pid_t line_cont_prmp_pid,
 					int line_channel[], int line_size_channel[])
 {
@@ -23,7 +23,7 @@ static t_status read_completed_line(char **cmd,
 
 	close(line_channel[1]);
 	close(line_size_channel[1]);
-	waitpid(line_cont_prmp_pid,&line_completion_prompt_exit_status, 0);
+	waitpid(line_cont_prmp_pid, &line_completion_prompt_exit_status, 0);
 	if (!WIFEXITED(line_completion_prompt_exit_status)
 		|| WEXITSTATUS(line_completion_prompt_exit_status))
 		outcome = ERROR;
@@ -41,7 +41,7 @@ static t_status read_completed_line(char **cmd,
 	return (outcome);
 }
 
-static t_status complete_line(char **cmd_reference, char *cmd)
+static t_status	complete_line(char **cmd_reference, char *cmd)
 {
 	t_status	outcome;
 	pid_t		line_cont_prmp_pid;
@@ -51,17 +51,19 @@ static t_status complete_line(char **cmd_reference, char *cmd)
 	pipe(line_channel);
 	pipe(line_size_channel);
 	line_cont_prmp_pid = fork();
-	if(!line_cont_prmp_pid)
-		line_continuation_prompt(COMPLETE_LINE, cmd, line_channel, line_size_channel);
+	if (!line_cont_prmp_pid)
+		line_continuation_prompt(COMPLETE_LINE, cmd,
+			line_channel, line_size_channel);
 	else
 	{
 		signal(SIGINT, sig_ign);
-		outcome = read_completed_line(cmd_reference,line_cont_prmp_pid, line_channel, line_size_channel);
+		outcome = read_completed_line(cmd_reference,
+				line_cont_prmp_pid, line_channel, line_size_channel);
 		signal(SIGINT, sig_handler);
 	}
 	close_pipe(line_channel);
 	close_pipe(line_size_channel);
-	return(outcome);
+	return (outcome);
 }
 
 char	*read_command(char *main_prompt)
