@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 17:23:00 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/29 15:24:01 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/29 18:13:21 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ char	*expand_wildcard(char *path)
 		return (NULL);
 	}
 	dir_content = get_dir_content(get_prefix(path, e_true));
-	return (match(path, dir_content));
+	if (dir_content)
+		return (match(path, dir_content));
+	else
+		return (ft_strdup(""));
 }
 
 char	*get_prefix(char *path, t_bool allocate)
@@ -46,7 +49,7 @@ char	*get_prefix(char *path, t_bool allocate)
 	}
 	else
 	{
-		if (path[i] == '/') 
+		if (path[i] == '/')
 			++i;
 		return (path + i);
 	}
@@ -75,8 +78,6 @@ char	*match(char *path, char *dir_content)
 	char	*match;
 	char	*expanded;
 
-	if (!dir_content)
-		return (NULL);
 	expanded = NULL;
 	to_expand = get_prefix(path, e_false);
 	i = 0;
@@ -86,8 +87,8 @@ char	*match(char *path, char *dir_content)
 		if (match)
 			match = join_till_space(get_prefix(path, e_true), match,
 					e_true, e_false);
-		expanded = ft_strjoin_a_trois(expanded, " ", match,
-				e_true, e_false, e_true);
+		expanded = ft_strjoin(ft_strjoin(expanded, " ", e_true, e_false),
+				match, e_true, e_true);
 	}
 	ft_free(dir_content);
 	if (expanded[0] == ' ' && expanded[1] == '\0')
@@ -95,7 +96,7 @@ char	*match(char *path, char *dir_content)
 		ft_free(expanded);
 		return (ft_strdup(path));
 	}
-	return (trim_first_char(expanded));
+	return (trim_first_last_char(expanded));
 }
 
 char	*find_match(char *dir_content, char *to_expand, int *i)
@@ -108,9 +109,9 @@ char	*find_match(char *dir_content, char *to_expand, int *i)
 	while (dir_content[*i])
 	{
 		if ((dir_content[*i] == to_expand[j]
-			&& wild_strcmp(dir_content + *i, to_expand, *i) == e_true)
+				&& wild_strcmp(dir_content + *i, to_expand, *i) == e_true)
 			|| (dir_content[*i] != ' ' && to_expand[0] == '*'
-			&& to_expand[1] == 0))
+				&& to_expand[1] == 0))
 		{
 			j = *i;
 			while (dir_content[*i] && dir_content[*i] != ' ')

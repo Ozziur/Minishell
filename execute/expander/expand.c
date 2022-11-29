@@ -6,7 +6,7 @@
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:14:06 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/29 15:40:56 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:57:56 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,9 @@ char	*expand_rec(char *to_expand, t_exp_phase phase)
 	}
 	rest_of_str = isolate_first_segment(to_expand, phase);
 	return (ft_strjoin(
-				expand_segment(to_expand, phase),
-				expand_rec(rest_of_str, phase),
-				e_true, e_true
-		));
+			expand_segment(to_expand, phase),
+			expand_rec(rest_of_str, phase),
+			e_true, e_true));
 }
 
 char	*isolate_first_segment(char *to_expand, t_exp_phase phase)
@@ -61,7 +60,8 @@ char	*isolate_first_segment(char *to_expand, t_exp_phase phase)
 	i = 0;
 	while (to_expand[i])
 	{
-		if (is_char_to_expand(to_expand[i], phase))
+		if (is_char_to_expand(to_expand[i], e_NORMAL)
+			|| is_char_to_expand(to_expand[i], e_STAR))
 		{
 			if (i > 0)
 				rest_of_str = to_expand + i;
@@ -84,11 +84,13 @@ char	*isolate_macro(char *to_expand, char special)
 	while (to_expand[i])
 	{
 		if (special == '$' && to_expand[i] == '$'
-				&& (to_expand[i + 1] == ' ' || !to_expand[i + 1]))
+			&& (to_expand[i + 1] == ' ' || !to_expand[i + 1]))
 			return (to_expand + i + 1);
 		else if (special == '$' && (to_expand[i] == ' '
 				|| is_char_to_expand(to_expand[i], e_NORMAL)
 				|| is_char_to_expand(to_expand[i], e_STAR)))
+			return (to_expand + i);
+		else if (special == '*' && (to_expand[i] == ' ' || !to_expand[i]))
 			return (to_expand + i);
 		else if (to_expand[i] == special)
 			return (to_expand + i + 1);

@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:43:05 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/23 17:37:52 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:52:32 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ char	*ft_strcpy(char *buf, char *src, int copy_len);
 char	*ft_strdup(char *str);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *pre, char *post, t_bool free_pre, t_bool free_post);
-char	*ft_strjoin_a_trois(char *s1, char *s2, char *s3,
-				t_bool free1, t_bool free2, t_bool free3);
 size_t	skip_past_char(char *str, size_t offset,
 			char to_skip, int direction);
 size_t	scroll_to_char(char *str, char ch);

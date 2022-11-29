@@ -6,7 +6,7 @@
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:06:20 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/29 15:13:36 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/29 18:17:01 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@ int	is_char_to_expand(char c, t_exp_phase type)
 
 t_bool	not_to_expand(char *to_expand)
 {
-	int i = 0;
-	while(to_expand[i])
+	int	i;
+
+	i = 0;
+	while (to_expand[i])
 	{
-		if (to_expand[i]=='$' ||
-		to_expand[i]== '\'' ||
-		to_expand[i] =='\"')
+		if (to_expand[i] == '$'
+			|| to_expand[i] == '\''
+			|| to_expand[i] == '\"'
+			|| to_expand[i] == '*')
 			return (e_false);
 		i++;
 	}
@@ -45,10 +48,10 @@ t_bool	wild_strcmp(char *dir_content, char *to_expand, int prev_cursor)
 		++j;
 	i = 0;
 	while (dir_content[i] && to_expand[j]
-			&& dir_content[i] != ' '
-			&& to_expand[j] != ' '
-			&& to_expand[j] != '*'
-			&& dir_content[i] == to_expand[j])
+		&& dir_content[i] != ' '
+		&& to_expand[j] != ' '
+		&& to_expand[j] != '*'
+		&& dir_content[i] == to_expand[j])
 	{
 		++i;
 		++j;
@@ -71,7 +74,7 @@ char	*join_till_space(char *s1, char *s2, t_bool free1, t_bool free2)
 	{
 		if (free1 == e_true)
 			ft_free(s1);
-		s1 = ft_strdup("");;
+		s1 = ft_strdup("");
 		free1 = e_true;
 	}
 	i = 0;
@@ -89,11 +92,11 @@ char	*join_till_space(char *s1, char *s2, t_bool free1, t_bool free2)
 	return (ft_strjoin(new1, new2, e_true, e_true));
 }
 
-char	*trim_first_char(char *str)
+char	*trim_first_last_char(char *str)
 {
 	char	*new_str;
 
-	new_str = ft_strcpy(NULL, str + 1, ft_strlen(str + 1));
+	new_str = ft_strcpy(NULL, str + 1, ft_strlen(str + 1) - 1);
 	ft_free(str);
 	return (new_str);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   expander.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 18:13:42 by ccantale          #+#    #+#             */
+/*   Updated: 2022/11/29 18:14:35 by ccantale         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef EXPANDER_H
 # define EXPANDER_H
 
@@ -18,7 +30,7 @@ char	*expand(char *to_expand, t_bool free_original);
 char	*expand_rec(char *to_expand, t_exp_phase phase);
 char	*isolate_first_segment(char *to_expand, t_exp_phase phase);
 char	*isolate_macro(char *to_expand, char special);
-int		is_char_to_expand(char c, t_exp_phase);
+int		is_char_to_expand(char c, t_exp_phase phase);
 t_bool	check_for_stars(char *str);
 char	*expand_segment(char *seg, t_exp_phase phase);
 char	*expand_dollar(char *var);
@@ -33,10 +45,9 @@ char	*match(char *path, char *dir_content);
 char	*find_match(char *dir_content, char *path, int *i);
 t_bool	wild_strcmp(char *dir_content, char *to_expand, int prev_cursor);
 char	*join_till_space(char *s1, char *s2, t_bool free1, t_bool free2);
-char	*trim_first_char(char *str);
+char	*trim_first_last_char(char *str);
 char	*remove_invisibles(char *dir_content);
 int		check_single_quotes_nbr(char *q_cont);
 t_bool	not_to_expand(char *to_expand);
 
 #endif 
-

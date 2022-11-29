@@ -6,7 +6,7 @@
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:22:06 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/29 15:23:42 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:11:27 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,8 @@ char	*get_dir_content(char *dir_path)
 	dir_struct = readdir(directory);
 	while (dir_struct)
 	{
-		dir_content = ft_strjoin_a_trois(
-				dir_content, " ", dir_struct->d_name,
-				e_true, e_false, e_false);
+		dir_content = ft_strjoin(ft_strjoin(dir_content, " ", e_true, e_false),
+				dir_struct->d_name, e_true, e_false);
 		dir_struct = readdir(directory);
 	}
 	closedir(directory);

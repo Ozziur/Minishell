@@ -6,7 +6,7 @@
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:15:20 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/29 15:42:31 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:55:53 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 		free(cmd->cmd_name);
 		cmd->cmd_name = ft_strdup(justice(tmp, e_true));
 		cmd->cmd_args = ft_strjoin(justice(tmp, e_false),
-				cmd->cmd_args,e_false,e_true);
+				cmd->cmd_args, e_false, e_true);
 		free(tmp);
 	}
 }
