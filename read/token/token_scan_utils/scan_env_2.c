@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:15:12 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/29 15:34:23 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/29 20:04:34 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ size_t	scan_var_value(char *str, size_t offset, char **value,
 			export_exe(value);
 		return (offset + 2 + ft_strlen(*value) + 1);
 	}
-	value_len = 0;
-	while (str[offset + 1 + value_len])
-	{
+	value_len = -1;
+	while (str[offset + 1 + (++value_len)])
 		if (e_true == bash_control_character(str[offset + 1 + value_len]))
 			break ;
-		value_len++;
-	}
 	if (value_len == 0)
+	{
+		export_exe(value);
 		return (offset + 1);
+	}
 	(*value) = ft_strcpy(NULL, str + offset + 1, value_len);
 	return (offset + 1 + value_len);
 }
