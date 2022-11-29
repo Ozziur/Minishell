@@ -6,7 +6,13 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 	cmd->cmd_name = expand(cmd->cmd_name, e_true);
 	cmd->cmd_args = expand(cmd->cmd_args, e_true);
 
-	
+/*
+
+devo fare degli esperimenti mruizzo
+
+*/
+
+
 }
 
 static t_bool	not_to_expand(char *to_expand)
