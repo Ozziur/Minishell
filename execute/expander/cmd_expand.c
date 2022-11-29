@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:04:51 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/29 15:05:27 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/29 15:26:33 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 
 void	cmd_expand(t_simple_cmd_node *cmd)
 {
-<<<<<<< HEAD
-	int		experiment;
-	char	*tmp;
-=======
 	int	experiment;
 	char *tmp;
->>>>>>> 56b5c22a43b96eea4d918d5498c65e203c89b194
 
 	experiment = 0;
 	if (find_dollar(cmd->cmd_name) == e_true)
@@ -29,12 +24,7 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 	cmd->cmd_args = expand(cmd->cmd_args, e_true);
 	if (experiment)
 	{
-<<<<<<< HEAD
-
-		tmp=ft_strdup(cmd->cmd_name);
-=======
 		tmp = ft_strdup(cmd->cmd_name);
->>>>>>> 56b5c22a43b96eea4d918d5498c65e203c89b194
 		free(cmd->cmd_name);
 		cmd->cmd_name = ft_strdup(justice(tmp, e_true));
 		cmd->cmd_args = ft_strjoin(justice(tmp, e_false),

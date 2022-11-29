@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mruizzo <mruizzo@student.42roma.it>        +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 18:18:26 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/19 21:38:03 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/29 15:21:27 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ static void	send_command_to_parent(char *command,
 void	line_continuation_prompt(t_prompt_behav opcode, char *initial_command,
 			int line_channel[2], int line_size_channel[2])
 {
-	static char *cmd = NULL;
+	static char	*cmd = NULL;
 	static int	line_chl[2];
 	static int	line_size_chl[2];
-	
+
 	if (opcode == KILL)
 	{
 		send_command_to_parent(cmd, line_chl, line_size_chl);

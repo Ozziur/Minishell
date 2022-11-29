@@ -33,7 +33,8 @@ static t_token	*tokenize(char	*command_line)
 }
 
 /*
-	in base al op_code il tokenizer crea la lista, restituisce il prossimo token o libera la lista 
+	in base al op_code il tokenizer crea la lista, 
+	restituisce il prossimo token o libera la lista 
 */
 static void	*tokenizer(char *cmd_line, t_op_code op_code)
 {
