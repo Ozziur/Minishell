@@ -61,11 +61,6 @@ char	*ft_strcpy(char *buf, char *src, int copy_len);
 char	*ft_strdup(char *str);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *pre, char *post, t_bool free_pre, t_bool free_post);
-<<<<<<< HEAD
-char	*ft_strjoin_a_trois(char *s1, char *s2, char *s3,
-			t_bool free1, t_bool free2, t_bool free3);
-=======
->>>>>>> 063ee7ae9e6d010a5605c09ccbcb1f45c420b2b8
 size_t	skip_past_char(char *str, size_t offset,
 			char to_skip, int direction);
 size_t	scroll_to_char(char *str, char ch);

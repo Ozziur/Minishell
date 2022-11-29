@@ -40,7 +40,7 @@ char	**my_add_history(char *cmd)
 	if (cmd)
 	{
 		if (str_not_empty(cmd)
-			&& (!last ||(ft_strcmp(last, cmd) != 0))
+			&& (!last || (ft_strcmp(last, cmd) != 0))
 		)
 		{
 			add_history(cmd);
