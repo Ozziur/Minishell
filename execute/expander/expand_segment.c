@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   expand_segment.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 16:50:20 by ccantale          #+#    #+#             */
+/*   Updated: 2022/11/29 19:09:05 by mruizzo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "expander.h"
 
 char	*expand_segment(char *seg, t_exp_phase phase)
@@ -56,7 +68,9 @@ char	*expand_quotes(char *quoted_str, char type_of_quotes)
 
 	if (type_of_quotes == '"')
 	{
-		quotes_content = ft_strcpy(NULL, quoted_str,
+		quotes_content = ft_strcpy(
+				NULL,
+				quoted_str,
 				scroll_to_char(quoted_str, '"'));
 		new_content = carefully_expand_content(quotes_content);
 		if (*quotes_content)
@@ -98,13 +112,11 @@ char	*carefully_expand_content(char *q_cont)
 		chunks[1] = ft_strcpy(NULL, q_cont + single_quote_pos + 1,
 				scroll_to_char(q_cont + single_quote_pos + 1, '\''));
 		chunks[2] = q_cont + ft_strlen(chunks[0]) + ft_strlen(chunks[1]) + 2;
-		printf("\nstringa = %s", q_cont);
-		printf("\nsingle_quote_pos = %d\n0 = %s\n1 = %s\n2 = %s\n\n", single_quote_pos, chunks[0], chunks[1], chunks[2]);
-		care_fully_expanded_str = ft_strjoin_a_trois(
-				expand_rec(chunks[0], e_QUOTES),
-				single_quote(expand_rec(chunks[1], e_QUOTES), e_true),
-				expand_rec(quote(chunks[2], e_false), e_QUOTES),
-				e_true, e_true, e_true);
+		care_fully_expanded_str = ft_strjoin(ft_strjoin(
+					expand_rec(chunks[0], e_QUOTES),
+					single_quote(expand_rec(chunks[1], e_QUOTES), e_true),
+					e_true, e_true), expand(quote(chunks[2], e_false),
+					e_true), e_true, e_true);
 		if (q_cont[0] != '\'')
 			free(chunks[0]);
 		free(chunks[1]);
@@ -132,18 +144,3 @@ int	check_single_quotes_nbr(char *q_cont)
 	else
 		return (1);
 }
-
-/*
-int	smart_quotes(char *q_sent)
-{
-	int	i;
-
-	i = ft_strlen(q_sent) - 1;
-	while (i >= 0)
-	{
-		if (q_sent[i] == '"')
-			return (i);
-		--i;
-	}
-	return (0);
-}*/

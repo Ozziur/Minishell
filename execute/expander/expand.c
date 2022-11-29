@@ -1,59 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_expand.c                                       :+:      :+:    :+:   */
+/*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-<<<<<<< HEAD
-/*   Created: 2022/11/29 15:04:51 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/29 19:07:05 by mruizzo          ###   ########.fr       */
-=======
-/*   Created: 2022/11/29 15:15:20 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/29 17:55:53 by ccantale         ###   ########.fr       */
->>>>>>> 063ee7ae9e6d010a5605c09ccbcb1f45c420b2b8
+/*   Created: 2022/11/29 15:14:06 by ccantale          #+#    #+#             */
+/*   Updated: 2022/11/29 17:57:56 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "expander.h"
-
-void	cmd_expand(t_simple_cmd_node *cmd)
-{
-	int		experiment;
-	char	*tmp;
-
-	experiment = 0;
-	if (find_dollar(cmd->cmd_name) == e_true)
-		experiment = 1;
-	cmd->cmd_name = expand(cmd->cmd_name, e_true);
-	cmd->cmd_args = expand(cmd->cmd_args, e_true);
-	if (experiment)
-	{
-		tmp = ft_strdup(cmd->cmd_name);
-		free(cmd->cmd_name);
-		cmd->cmd_name = ft_strdup(justice(tmp, e_true));
-		cmd->cmd_args = ft_strjoin(justice(tmp, e_false),
-				cmd->cmd_args, e_false, e_true);
-		free(tmp);
-	}
-<<<<<<< HEAD
-}
-
-static t_bool	not_to_expand(char *to_expand)
-{
-	int	i;
-
-	i = 0;
-	while (to_expand[i])
-	{
-		if (to_expand[i] == '$'
-			|| to_expand[i] == '\''
-			|| to_expand[i] == '\"')
-			return (e_false);
-		i++;
-	}
-	return (e_true);
-}
 
 /*
 ** This function is the one to call to expand any
@@ -91,8 +48,7 @@ char	*expand_rec(char *to_expand, t_exp_phase phase)
 	return (ft_strjoin(
 			expand_segment(to_expand, phase),
 			expand_rec(rest_of_str, phase),
-			e_true, e_true
-		));
+			e_true, e_true));
 }
 
 char	*isolate_first_segment(char *to_expand, t_exp_phase phase)
@@ -104,7 +60,8 @@ char	*isolate_first_segment(char *to_expand, t_exp_phase phase)
 	i = 0;
 	while (to_expand[i])
 	{
-		if (is_char_to_expand(to_expand[i], phase))
+		if (is_char_to_expand(to_expand[i], e_NORMAL)
+			|| is_char_to_expand(to_expand[i], e_STAR))
 		{
 			if (i > 0)
 				rest_of_str = to_expand + i;
@@ -127,26 +84,17 @@ char	*isolate_macro(char *to_expand, char special)
 	while (to_expand[i])
 	{
 		if (special == '$' && to_expand[i] == '$'
-			&& (to_expand[i + 1] == ' ' || to_expand[i + 1] == '\0'))
+			&& (to_expand[i + 1] == ' ' || !to_expand[i + 1]))
 			return (to_expand + i + 1);
 		else if (special == '$' && (to_expand[i] == ' '
 				|| is_char_to_expand(to_expand[i], e_NORMAL)
 				|| is_char_to_expand(to_expand[i], e_STAR)))
+			return (to_expand + i);
+		else if (special == '*' && (to_expand[i] == ' ' || !to_expand[i]))
 			return (to_expand + i);
 		else if (to_expand[i] == special)
 			return (to_expand + i + 1);
 		++i;
 	}
 	return (to_expand + i);
-}
-
-int	is_char_to_expand(char c, t_exp_phase type)
-{
-	if (type == e_NORMAL || type == e_QUOTES)
-		return (c == '"' || c == '\'' || c == '$');
-	else if (type == e_STAR)
-		return (c == '*');
-	return (0);
-=======
->>>>>>> 063ee7ae9e6d010a5605c09ccbcb1f45c420b2b8
 }
