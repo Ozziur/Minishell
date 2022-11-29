@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:58:28 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/25 00:04:43 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/29 15:01:06 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	binding_add_in_order(t_bindings **head, t_bindings *new_binding)
 	}
 }
 
-void binding_remove(t_bindings **head, char *var_name)
+void	binding_remove(t_bindings **head, char *var_name)
 {
 	t_bindings	*cur_binding;
 
