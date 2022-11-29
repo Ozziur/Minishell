@@ -54,6 +54,7 @@ t_bool	char_is_digit(char c);
 t_bool	redirect_char(char c);
 t_bool	ft_is_digit_string(char *str);
 t_bool	is_env_var_name(char *str);
+t_bool	find_dollar(char *str);
 
 //* str_utils
 char	*ft_strcpy(char *buf, char *src, int copy_len);

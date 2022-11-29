@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 16:18:47 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/24 23:01:22 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/29 13:41:10 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,17 @@ t_bool	is_env_var_name(char *str)
 		offset += 1;
 	}
 	return (e_true);
+}
+
+t_bool	find_dollar(char *str)
+{
+	int i = 0;
+
+	while(str[i])
+	{
+		if (str[i] == '$')
+			return(e_true);
+		i++;
+	}
+	return (e_false);
 }
