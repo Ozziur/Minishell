@@ -65,7 +65,7 @@ size_t	skip_past_char(char *str, size_t offset,
 			char to_skip, int direction);
 size_t	scroll_to_char(char *str, char ch);
 size_t	ft_word_len(char *word);
-char	**ft_split(char *string, char delimiter);
+char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *str);
 char	*ft_itoa(int nbr);
 char	*find_substr(char *str, char *substr);
