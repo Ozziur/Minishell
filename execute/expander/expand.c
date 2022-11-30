@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:14:06 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/30 22:51:33 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/30 23:27:34 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ char	*expand(char *to_expand, t_bool free_original)
 	char	*expanded;
 	int		i;
 
-					printf("dopo");
 	if (!to_expand)
 		return (NULL);
 	if (not_to_expand(to_expand) == e_true)
 		return (to_expand);
+	expanded = ft_strdup("");
 	to_expand_split = ft_split(to_expand, ' ');
 	i = -1;
 	while (to_expand_split[++i])
@@ -36,13 +36,13 @@ char	*expand(char *to_expand, t_bool free_original)
 			expand_rec(to_expand_split[i], e_NORMAL), e_true, e_true);
 	}
 	ft_split_clear(to_expand_split);
-	if (free_original == e_true)
-		ft_free(to_expand);
 	if (!*expanded)
 	{
 		ft_free(expanded);
-		return (ft_strdup(""));
+		return (to_expand);
 	}
+	if (free_original == e_true)
+		ft_free(to_expand);
 	return (trim_first_last_char(expanded));
 }
 

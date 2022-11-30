@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:15:20 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/30 22:57:10 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/30 23:24:31 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void	cmd_expand(t_simple_cmd_node *cmd)
 	experiment = 0;
 	if (find_dollar(cmd->cmd_name) == e_true)
 		experiment = 1;
-							printf("prima %s\n",cmd->cmd_name);
 	cmd->cmd_name = expand(cmd->cmd_name, e_true);
-								//printf("dopo %s\n",cmd->cmd_name);
 	cmd->cmd_args = expand(cmd->cmd_args, e_true);
 	if (experiment)
 	{
