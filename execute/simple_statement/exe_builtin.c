@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:41:08 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/29 20:19:23 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/11/30 15:14:37 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_status	open_brk_node_redir(int *in, int *out,
 					O_CREAT | O_APPEND | O_WRONLY, 0777, e_false);
 		else
 			*out = ft_open(sub_node->out_redir.file_name,
-						O_CREAT | O_TRUNC | O_WRONLY, 0777, e_false);
+					O_CREAT | O_TRUNC | O_WRONLY, 0777, e_false);
 		if (*out == -1)
 			return (ERROR);
 	}
