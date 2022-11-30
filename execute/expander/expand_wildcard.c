@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 17:23:00 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/29 18:13:21 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/30 17:17:15 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*expand_wildcard(char *path)
 		++i;
 	if (check_star_placement(path + i) == e_false)
 	{
-		return (NULL);
+		return (ft_strdup(path));
 	}
 	dir_content = get_dir_content(get_prefix(path, e_true));
 	if (dir_content)
@@ -53,22 +53,6 @@ char	*get_prefix(char *path, t_bool allocate)
 			++i;
 		return (path + i);
 	}
-}
-
-char	*remove_invisibles(char *dir_content)
-{
-	char	*new_content;
-
-	new_content = dir_content;
-	++new_content;
-	while (*new_content == '.')
-	{
-		while (*new_content != ' ')
-			++new_content;
-		++new_content;
-	}
-	ft_free(dir_content);
-	return (ft_strcpy(NULL, new_content, ft_strlen(new_content)));
 }
 
 char	*match(char *path, char *dir_content)

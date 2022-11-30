@@ -6,7 +6,7 @@
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:22:06 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/29 17:11:27 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/30 16:26:34 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,22 @@ t_bool	check_star_placement(char *str)
 		++i;
 	}
 	return (e_true);
+}
+
+char	*remove_invisibles(char *dir_content)
+{
+	char	*new_content;
+
+	new_content = dir_content;
+	++new_content;
+	while (*new_content == '.')
+	{
+		while (*new_content != ' ')
+			++new_content;
+		++new_content;
+	}
+	ft_free(dir_content);
+	return (ft_strcpy(NULL, new_content, ft_strlen(new_content)));
 }
 
 char	*get_dir_content(char *dir_path)

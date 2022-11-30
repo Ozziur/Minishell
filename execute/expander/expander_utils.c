@@ -6,7 +6,7 @@
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:06:20 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/29 18:17:01 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/11/30 16:30:27 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,19 @@ char	*join_till_space(char *s1, char *s2, t_bool free1, t_bool free2)
 	return (ft_strjoin(new1, new2, e_true, e_true));
 }
 
+/*trimming the last char or not actually depends on the last char itself */
 char	*trim_first_last_char(char *str)
 {
+	int		i;
 	char	*new_str;
 
-	new_str = ft_strcpy(NULL, str + 1, ft_strlen(str + 1) - 1);
+	i = 0;
+	while (str[i])
+		++i;
+	if (i > 0 && str[i - 1] == ' ')
+		new_str = ft_strcpy(NULL, str + 1, ft_strlen(str + 1) - 1);
+	else
+		new_str = ft_strcpy(NULL, str + 1, ft_strlen(str + 1));
 	ft_free(str);
 	return (new_str);
 }
