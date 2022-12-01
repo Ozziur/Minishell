@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:14:06 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/30 23:31:03 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/12/01 20:11:00 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ char	*isolate_first_segment(char *to_expand, t_exp_phase phase)
 	int		i;
 	char	*rest_of_str;
 
+	if (phase)
+		;
 	rest_of_str = NULL;
 	i = 0;
 	while (to_expand[i])

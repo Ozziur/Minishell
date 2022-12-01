@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 16:41:18 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/22 18:42:35 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/12/01 20:10:01 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void	execute_redir_only_statement(t_tree_node *root,
 			close(out_fd);
 	}
 	g_env.last_executed_cmd_exit_status = EXIT_SUCCESS;
+	if (in || out)
+		;
 }
 
 t_status	builtin_handle_redirs(t_redirection redir, int cur_in_out,
