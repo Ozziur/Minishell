@@ -6,12 +6,12 @@
 #    By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/14 19:14:21 by ccantale          #+#    #+#              #
-#    Updated: 2022/11/28 19:13:00 by mruizzo          ###   ########.fr        #
+#    Updated: 2022/12/01 18:27:44 by mruizzo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = @gcc
-CFLAGS = -g #-I -Wall -Werror -Wextra
+CFLAGS = -I -Wall -Werror -Wextra
 READLINE_FLAGS = -L/usr/lib/x86_64-linux-gnu -lreadline  -L$$HOME/.brew/opt/readline/lib -I $$HOME/.brew/opt/readline/include/readline
 
 INCLUDES = $(shell find . -name "*.h" -print)

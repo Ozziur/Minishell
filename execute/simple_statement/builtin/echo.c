@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 17:04:55 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/11/22 18:22:29 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/12/01 19:49:08 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,24 @@
 static size_t	n_flag(char *args)
 {
 	size_t	i;
+	size_t	ret;
 
 	i = 0;
-	while (args)
+	ret = 0;
+	while (i < ft_strlen(args))
 	{
-		if (args && args[i] == '-' && args[i + 1] == 'n')
-		{
-			if (e_true == ft_isspace(args[i + 2]))
-				i += 3;
-		}
-		else
-			return (i);
+		if (ft_strncmp(args, "-n", 2) != 0)
+			break ;
+		i += 2 ;
+		while (args[i] == 'n')
+			i++;
+		if (args [i] != ' ' && args [i] != '\0' )
+			break ;
+		while (args [i] == ' ')
+			i++;
+		ret = i;
 	}
-	return (i);
+	return (ret);
 }
 
 void	execute_echo(t_simple_cmd_node cmd)
