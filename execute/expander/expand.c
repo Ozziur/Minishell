@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:14:06 by ccantale          #+#    #+#             */
-/*   Updated: 2022/12/01 20:11:00 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/12/02 12:22:54 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,20 @@ char	*expand(char *to_expand, t_bool free_original)
 	char	**to_expand_split;
 	char	*expanded;
 	int		i;
+	char	*copy;
 
+	copy = to_expand;
 	if (!to_expand)
 		return (NULL);
 	if (not_to_expand(to_expand) == e_true)
 		return (to_expand);
 	expanded = ft_strdup("");
+	to_expand = expand_rec(to_expand, e_NORMAL);
 	to_expand_split = ft_split(to_expand, ' ');
 	i = -1;
 	while (to_expand_split[++i])
-	{
 		expanded = ft_strjoin(ft_strjoin(expanded, " ", e_true, e_false),
 				expand_rec(to_expand_split[i], e_NORMAL), e_true, e_true);
-	}
 	ft_split_clear(to_expand_split);
 	if (!*expanded)
 	{
@@ -41,7 +42,7 @@ char	*expand(char *to_expand, t_bool free_original)
 		return (to_expand);
 	}
 	if (free_original == e_true)
-		ft_free(to_expand);
+		ft_free(copy);
 	return (trim_first_last_char(expanded));
 }
 

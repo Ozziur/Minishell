@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 17:04:55 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/12/01 19:49:08 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/12/02 11:16:45 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static size_t	n_flag(char *args)
 	ret = 0;
 	while (i < ft_strlen(args))
 	{
-		if (ft_strncmp(args, "-n", 2) != 0)
+		if (ft_strncmp(args + i, "-n", 2) != 0)
 			break ;
 		i += 2 ;
 		while (args[i] == 'n')
