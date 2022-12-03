@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 20:08:47 by mruizzo           #+#    #+#             */
-/*   Updated: 2022/12/03 20:11:46 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/12/03 20:31:45 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,39 +30,12 @@ char	*ft_malloc_strcpy(const char *s, int n)
 	return (dst);
 }
 
-
-int	lengh_parantheses(const char *s)
-{
-	int	i;
-	int	par;
-
-	i = -1;
-	par = 0;
-	while (s[++i])
-		if (s[i] == '(')
-			par++;
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == ')')
-		{
-			par--;
-			if (par == 0)
-				return (i + 1);
-		}
-		i++;
-	}
-	return (i);
-}
-
 int	quote_str(const char *s)
 {
 	int	i;
 	int	flag;
 
 	i = 0;
-	if (s[i] == '(')
-		return (lengh_parantheses(s));
 	if (s[i] == 34 || s[i] == 39)
 	{
 		if (s[i] == 34)
