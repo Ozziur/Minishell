@@ -21,3 +21,29 @@ void	*ft_malloc(size_t size)
 		exit(EXIT_FAILURE);
 	return (ptr);
 }
+
+static void	ft_bzero(void *s, size_t n)
+{
+	size_t			i;
+	unsigned char	*ptr;
+
+	i = 0;
+	ptr = (unsigned char *) s;
+	while (i < n)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return ((void) s);
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero(ptr, (nmemb * size));
+	return (ptr);
+}
