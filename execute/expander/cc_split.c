@@ -6,7 +6,7 @@
 /*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 16:03:45 by ccantale          #+#    #+#             */
-/*   Updated: 2022/12/03 16:03:46 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/12/03 19:23:06 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int	in_or_out(char	c, int reset)
 		in_single_quotes = 0;
 		return (e_false);
 	}
-	if (c == '"' && in_quotes == 0)
+	if (c == '"' && in_quotes == 0 && in_single_quotes == 0)
 			in_quotes = e_true;
 	else if (c == '"' && in_quotes == e_true)
 		in_quotes = e_false;
-	else if (c == '\'' && in_single_quotes == 0)
+	else if (c == '\'' && in_single_quotes == 0 && in_quotes == 0)
 		in_single_quotes = e_true;
 	else if (c == '\'' && in_single_quotes == e_true)
 		in_single_quotes = e_false;
@@ -48,16 +48,16 @@ char	*split_strcpy(char *str, int *j)
 	else if (str[0] == ' ')
 	{
 			*j += 1;
-			return (split_strcpy(str + 1, j));
+			if (str[1] == ' ')
+				return (split_strcpy(str + 1, j));
+			else
+				return (ft_strdup(" "));
 	}
 	i = 0;
 	while (str[i] && in_or_out(str[i], e_false) == is_in_quotes
 			&& !(is_in_quotes == e_false && str[i] == ' '))
 		++i;
-	if (((str[i] == '\'' || str[i] == '"') && is_in_quotes == e_true)
-			|| str[i] == ' ')
-		++i;
-	if (str[i] == ' ' && str[i - 1] != ' ')
+	if ((str[i] == '\'' || str[i] == '"') && is_in_quotes == e_true)
 		++i;
 	*j += i;
 	in_or_out(0, e_true);
@@ -71,18 +71,17 @@ int	count_chunks(char *str)
 	int		was_in_quotes;
 	int		lines;
 
-	lines = 1;
+	lines = 0;
 	was_in_quotes = e_false;
-	if (str[0] == '\'' || str[0] == '"')
-		was_in_quotes = e_true;
 	i = 0;
 	while (str[i])
 	{
 		is_in_quotes = in_or_out(str[i], e_false);
-		if (str[i + 1] && (is_in_quotes != was_in_quotes 
-			|| (is_in_quotes == e_false && str[i] == ' ' && str[i + 1] != ' '
-			&& str[i + 1] != '\'' && str[i + 1] != '"'
-			&& i > 0 && str[i - 1] != '\'' && str[i - 1] != '"')))
+		if ((is_in_quotes == e_false && ((str[i] == ' ' && str[i + 1] != ' ')
+			|| (i > 0 && str[i] != ' ' && str[i - 1] == ' ')))
+			|| (was_in_quotes == e_false && (is_in_quotes == e_true 
+			|| (i > 0 && (str[i - 1] == '\'' || str[i - 1] == '"'))))
+			|| (i == 0 && is_in_quotes == e_false))
 		{
 			++lines;
 		}
