@@ -86,6 +86,7 @@ void	*ft_split_clear(char **split);
 char	*split_merge(char	**split, char *const sep, t_bool free_split);
 
 //* memory_utils
+void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_malloc(size_t size);
 void	ft_free(void *ptr);
 
