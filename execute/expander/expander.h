@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccantale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 18:13:42 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/29 18:14:35 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/12/03 20:10:11 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ char	*trim_first_last_char(char *str, char *path);
 char	*remove_invisibles(char *dir_content);
 t_bool	not_to_expand(char *to_expand);
 char	**cc_split(char *str);
+
+char	**j_split(char const *s, char c);
 
 #endif 
