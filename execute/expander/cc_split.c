@@ -1,6 +1,6 @@
 #include "expander.h"
 
-int	in_or_out(char	c, int reset)
+int	in_or_out(char c, int reset)
 {
 	static short	in_quotes;
 	static short	in_single_quotes;
@@ -35,15 +35,15 @@ char	*split_strcpy(char *str, int *j)
 		is_in_quotes = e_true;
 	else if (str[0] == ' ')
 	{
-			*j += 1;
-			return (split_strcpy(str + 1, j));
+		*j += 1;
+		return (split_strcpy(str + 1, j));
 	}
 	i = 0;
 	while (str[i] && in_or_out(str[i], e_false) == is_in_quotes
-			&& !(is_in_quotes == e_false && str[i] == ' '))
+		&& !(is_in_quotes == e_false && str[i] == ' '))
 		++i;
 	if (((str[i] == '\'' || str[i] == '"') && is_in_quotes == e_true)
-			|| str[i] == ' ')
+		|| str[i] == ' ')
 		++i;
 	if (str[i] == ' ' && str[i - 1] != ' ')
 		++i;
@@ -67,13 +67,12 @@ int	count_chunks(char *str)
 	while (str[i])
 	{
 		is_in_quotes = in_or_out(str[i], e_false);
-		if (str[i + 1] && (is_in_quotes != was_in_quotes 
-			|| (is_in_quotes == e_false && str[i] == ' ' && str[i + 1] != ' '
-			&& str[i + 1] != '\'' && str[i + 1] != '"'
-			&& i > 0 && str[i - 1] != '\'' && str[i - 1] != '"')))
-		{
+		if (str[i + 1] && (is_in_quotes != was_in_quotes
+				|| (is_in_quotes == e_false
+					&& str[i] == ' ' && str[i + 1] != ' '
+					&& str[i + 1] != '\'' && str[i + 1] != '"'
+					&& i > 0 && str[i - 1] != '\'' && str[i - 1] != '"')))
 			++lines;
-		}
 		was_in_quotes = is_in_quotes;
 		++i;
 	}
@@ -97,7 +96,7 @@ char	**cc_split(char *str)
 	j = 0;
 	while (i < lines)
 	{
-		split[i] =	split_strcpy(&str[j], &j);
+		split[i] = split_strcpy(&str[j], &j);
 		++i;
 	}
 	return (split);
