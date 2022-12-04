@@ -112,7 +112,6 @@ static void	set_pid_variable(void)
 	}
 }
 
-
 static void	print_signature(void)
 {
 	int		cur_stdout_backup;
