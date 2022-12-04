@@ -20,14 +20,15 @@ static void	print_signature(void);
 int	main(int argc, char const **argv, char const **envp)
 {
 	t_tree_node	*parse_tree;
-	pid_t	pid =0;
+	pid_t		pid;
 
+	pid = 0;
 	if (argc != 1)
 	{
 		put_error(ARGS_ERROR, EXIT_FAILURE, (void *)(argv[1]));
 		exit(EXIT_FAILURE);
 	}
-	set_env(envp,pid);
+	set_env(envp, pid);
 	sig_handling_set(SIG_INITIAL);
 	print_signature();
 	while (e_true)
@@ -88,7 +89,6 @@ static void	set_env(char const **envp, pid_t	pid)
 
 static void	set_pid_variable(pid_t	pid)
 {
-
 	int		pid_val_pipe[2];
 	int		shell_exit_value;
 
