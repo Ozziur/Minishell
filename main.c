@@ -12,21 +12,22 @@
 
 #include "minishell.h"
 
-static void	set_pid_variable(void);
-static void	set_env(char const **envp);
+static void	set_pid_variable(pid_t	pid);
+static void	set_env(char const **envp, pid_t	pid);
 static void	unlink_here_docs(void);
 static void	print_signature(void);
 
 int	main(int argc, char const **argv, char const **envp)
 {
 	t_tree_node	*parse_tree;
+	pid_t	pid =0;
 
 	if (argc != 1)
 	{
 		put_error(ARGS_ERROR, EXIT_FAILURE, (void *)(argv[1]));
 		exit(EXIT_FAILURE);
 	}
-	set_env(envp);
+	set_env(envp,pid);
 	sig_handling_set(SIG_INITIAL);
 	print_signature();
 	while (e_true)
@@ -63,13 +64,13 @@ static void	unlink_here_docs(void)
 	}
 }
 
-static void	set_env(char const **envp)
+static void	set_env(char const **envp, pid_t	pid)
 {
 	size_t	cur_shell_lvl;
 	char	*new_shell_lvl_string;
 
 	env_handler(ENV_INITIALIZE, (char **)envp);
-	set_pid_variable();
+	set_pid_variable(pid);
 	printf("my pid is %d\n", g_env.pid);
 	cur_shell_lvl = ft_atoi(env_handler(BINDING_GET_VALUE, "SHLVL"));
 	new_shell_lvl_string = ft_itoa(cur_shell_lvl + 1);
@@ -85,9 +86,9 @@ static void	set_env(char const **envp)
 	g_env.last_executed_cmd_exit_status = EXIT_SUCCESS;
 }
 
-static void	set_pid_variable(void)
+static void	set_pid_variable(pid_t	pid)
 {
-	pid_t	pid;
+
 	int		pid_val_pipe[2];
 	int		shell_exit_value;
 
