@@ -27,7 +27,7 @@ char	*expand(char *to_expand, t_bool free_original)
 	if (not_to_expand(to_expand) == e_true)
 		return (to_expand);
 	expanded = ft_strdup("");
-	to_expand_split = j_split(to_expand, ' ');
+	to_expand_split = cc_split(to_expand);
 	i = -1;
 	while (to_expand_split[++i])
 	{
