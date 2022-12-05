@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 17:23:00 by ccantale          #+#    #+#             */
-/*   Updated: 2022/12/05 13:38:15 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/12/05 13:52:14 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*match(char *path, char *dir_content)
 	{
 		match = find_match(dir_content, to_expand, &i);
 		if (match)
-			match = join_till_space(get_prefix(path, e_true), match,
+			match = join_till_space(get_prefix(tmp, e_true), match,
 					e_true, e_false);
 		expanded = ft_strjoin(ft_strjoin(expanded, " ", e_true, e_false),
 				match, e_true, e_true);
@@ -115,25 +115,31 @@ char	*find_match(char *dir_content, char *to_expand, int *i)
 char	*rm_multiple_stars(char *path)
 {
 	int		i;
-	char	*tmp;
+	int		j;
+	char	*new_path;
 
-	tmp = ft_strdup(path);
+	j = 0;
 	i = 0;
-	while (tmp[i])
+	while (path[i])
 	{
-		if (tmp[i] == '*')
-			tmp[i] = ' ';
+		if (!(path[i] == '*' && path[i + 1] == '*'))
+				++j;
 		++i;
 	}
+	new_path = malloc(sizeof(char) * (j + 1));
+	j = 0;
 	i = 0;
-	while (tmp[i])
+	while (path[i])
 	{
-		if (tmp[i] == ' ')
+		if (!(path[i] == '*' && path[i + 1] == '*'))
 		{
-			tmp[i] = '*';
-			++i;
-			while (tmp[i] == ' ')
-				++i;
+			new_path[j] = path[i];
+			++j;
 		}
-
+		++i;
+	}
+	new_path[j] = 0;
+	printf("%s\n", new_path);
+	return (new_path);
+}
 
