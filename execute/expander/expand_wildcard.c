@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 17:23:00 by ccantale          #+#    #+#             */
-/*   Updated: 2022/12/05 13:52:43 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/12/05 13:53:25 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*match(char *path, char *dir_content)
 	{
 		match = find_match(dir_content, to_expand, &i);
 		if (match)
-			match = join_till_space(get_prefix(path, e_true), match,
+			match = join_till_space(get_prefix(tmp, e_true), match,
 					e_true, e_false);
 		expanded = ft_strjoin(ft_strjoin(expanded, " ", e_true, e_false),
 				match, e_true, e_true);
@@ -115,27 +115,30 @@ char	*find_match(char *dir_content, char *to_expand, int *i)
 char	*rm_multiple_stars(char *path)
 {
 	int		i;
-	char	*tmp;
-	char	**split;
-	char	*ret;
+	int		j;
+	char	*new_path;
 
-	tmp = ft_strdup(path);
-	ret = ft_strdup("");
+	j = 0;
 	i = 0;
-	while (tmp[i])
+	while (path[i])
 	{
-		if (tmp[i] == '*')
-			tmp[i] = ' ';
+		if (!(path[i] == '*' && path[i + 1] == '*'))
+				++j;
 		++i;
 	}
+	new_path = malloc(sizeof(char) * (j + 1));
+	j = 0;
 	i = 0;
-	split = ft_split(tmp, ' ');
-	while (split[i])
+	while (path[i])
 	{
-		ret= ft_strjoin(ret,split[i], e_true, e_false);
-		i++;
+		if (!(path[i] == '*' && path[i + 1] == '*'))
+		{
+			new_path[j] = path[i];
+			++j;
+		}
+		++i;
 	}
-	ft_splitclear(split);
-	return (ret);
+	new_path[j] = 0;
+	return (new_path);
 }
 
