@@ -6,7 +6,11 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 18:13:42 by ccantale          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/12/05 14:09:12 by mruizzo          ###   ########.fr       */
+=======
+/*   Updated: 2022/12/05 14:03:57 by ccantale         ###   ########.fr       */
+>>>>>>> d7cc4afab66d4b08079f237265cacaa0ce3c4046
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +50,6 @@ char	*join_till_space(char *s1, char *s2, t_bool free1, t_bool free2);
 char	*trim_first_last_char(char *str, char *path);
 char	*remove_invisibles(char *dir_content);
 t_bool	not_to_expand(char *to_expand);
-char	**cc_split(char *str);
 char	*rm_multiple_stars(char *path);
 char	**j_split(char const *s, char c);
 
