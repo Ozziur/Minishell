@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 18:13:42 by ccantale          #+#    #+#             */
-/*   Updated: 2022/12/05 13:46:01 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:09:12 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*expand_wildcard(char *path);
 char	*get_prefix(char *path, t_bool allocate);
 t_bool	check_star_placement(char *str);
 char	*get_dir_content(char *dir_path);
-char	*match(char *path, char *dir_content);
+char	*match(char *path, char *dir_content, char *tmp);
 char	*find_match(char *dir_content, char *path, int *i);
 t_bool	wild_strcmp(char *dir_content, char *to_expand, int prev_cursor);
 char	*join_till_space(char *s1, char *s2, t_bool free1, t_bool free2);
