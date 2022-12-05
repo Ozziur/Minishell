@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:14:06 by ccantale          #+#    #+#             */
-/*   Updated: 2022/12/05 15:13:28 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:14:43 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ char	*expand(char *to_expand, t_bool free_original)
 	to_expand_split = j_split(to_expand, ' ');
 	i = -1;
 	while (to_expand_split[++i])
-		expanded = ft_strjoin(
-				expanded,
-				expand_rec(to_expand_split[i], e_NORMAL), e_true, e_true);
+		expanded = ft_strjoin(ft_strjoin(expanded,
+					expand_rec(to_expand_split[i], e_NORMAL), e_true, e_true),
+				" ", e_true, e_false);
 	ft_split_clear(to_expand_split);
 	if (!*expanded)
 	{

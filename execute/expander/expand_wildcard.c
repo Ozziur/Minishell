@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 17:23:00 by ccantale          #+#    #+#             */
-/*   Updated: 2022/12/05 13:53:25 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/12/05 14:10:11 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*expand_wildcard(char *path)
 {
 	char	*dir_content;
 	size_t	i;
+	char	*tmp;
 
 	i = 0;
 	while (path[i] != '*')
@@ -26,7 +27,10 @@ char	*expand_wildcard(char *path)
 	}
 	dir_content = get_dir_content(get_prefix(path, e_true));
 	if (dir_content)
-		return (match(path, dir_content));
+	{
+		tmp = rm_multiple_stars(path);
+		return (match(path, dir_content, tmp));
+	}
 	else
 		return (ft_strdup(""));
 }
@@ -55,15 +59,13 @@ char	*get_prefix(char *path, t_bool allocate)
 	}
 }
 
-char	*match(char *path, char *dir_content)
+char	*match(char *path, char *dir_content, char *tmp)
 {
 	int		i;
 	char	*to_expand;
 	char	*match;
 	char	*expanded;
-	char	*tmp;
 
-	tmp = rm_multiple_stars(path);
 	expanded = ft_strdup("");
 	to_expand = get_prefix(tmp, e_false);
 	i = 0;
@@ -119,13 +121,10 @@ char	*rm_multiple_stars(char *path)
 	char	*new_path;
 
 	j = 0;
-	i = 0;
-	while (path[i])
-	{
+	i = -1;
+	while (path[++i])
 		if (!(path[i] == '*' && path[i + 1] == '*'))
 				++j;
-		++i;
-	}
 	new_path = malloc(sizeof(char) * (j + 1));
 	j = 0;
 	i = 0;
@@ -141,4 +140,3 @@ char	*rm_multiple_stars(char *path)
 	new_path[j] = 0;
 	return (new_path);
 }
-
