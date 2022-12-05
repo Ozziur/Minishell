@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:14:06 by ccantale          #+#    #+#             */
-/*   Updated: 2022/12/05 15:14:43 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:56:44 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ char	*isolate_macro(char *to_expand, char special)
 	i = 1;
 	while (to_expand[i])
 	{
-		if (special == '$' && to_expand[i] == '$')
+		if (special == '$' && to_expand[i] == '$' && to_expand[i - 1] == '$')
 			return (to_expand + i + 1);
 		else if (special == '$' && (to_expand[i] == ' '
 				|| is_char_to_expand(to_expand[i], e_NORMAL)
