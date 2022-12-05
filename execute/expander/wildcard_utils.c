@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:22:06 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/30 21:24:35 by mruizzo          ###   ########.fr       */
+/*   Updated: 2022/12/05 13:17:37 by ccantale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ t_bool	wild_strcmp(char *dir_content, char *to_expand, int prev_cursor)
 	int	j;
 
 	j = 0;
-	if (to_expand[0] == '*')
+	if (to_expand[j] == '*')
 		++j;
 	i = 0;
 	while (dir_content[i] && to_expand[j]
@@ -93,6 +93,8 @@ t_bool	wild_strcmp(char *dir_content, char *to_expand, int prev_cursor)
 		++i;
 		++j;
 	}
+	if (to_expand[j] == '*' && to_expand[j + 1] && to_expand[j + 1] != ' ')
+		return (wild_strcmp(dir_content + i, to_expand + j, prev_cursor));
 	if ((to_expand[0] != '*' && prev_cursor > 0 && dir_content[-1] != ' ')
 		|| (to_expand[j] != '*' && dir_content[i] && dir_content[i] != ' ')
 		|| (to_expand[j] && to_expand[j] != ' ' && to_expand[j] != '*'))

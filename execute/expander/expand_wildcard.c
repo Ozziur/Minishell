@@ -6,7 +6,7 @@
 /*   By: mruizzo <mruizzo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 17:23:00 by ccantale          #+#    #+#             */
-/*   Updated: 2022/11/30 17:17:15 by ccantale         ###   ########.fr       */
+/*   Updated: 2022/12/05 13:52:43 by mruizzo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,11 @@ char	*match(char *path, char *dir_content)
 	char	*to_expand;
 	char	*match;
 	char	*expanded;
+	char	*tmp;
 
+	tmp = rm_multiple_stars(path);
 	expanded = ft_strdup("");
-	to_expand = get_prefix(path, e_false);
+	to_expand = get_prefix(tmp, e_false);
 	i = 0;
 	while (dir_content[i])
 	{
@@ -75,6 +77,7 @@ char	*match(char *path, char *dir_content)
 				match, e_true, e_true);
 	}
 	ft_free(dir_content);
+	ft_free(tmp);
 	if (expanded[0] == ' ' && expanded[1] == '\0')
 	{
 		ft_free(expanded);
@@ -88,7 +91,7 @@ char	*find_match(char *dir_content, char *to_expand, int *i)
 	int	j;
 
 	j = 0;
-	if (to_expand[0] == '*')
+	if (to_expand[j] == '*')
 		++j;
 	while (dir_content[*i])
 	{
@@ -108,3 +111,31 @@ char	*find_match(char *dir_content, char *to_expand, int *i)
 	}
 	return (NULL);
 }
+
+char	*rm_multiple_stars(char *path)
+{
+	int		i;
+	char	*tmp;
+	char	**split;
+	char	*ret;
+
+	tmp = ft_strdup(path);
+	ret = ft_strdup("");
+	i = 0;
+	while (tmp[i])
+	{
+		if (tmp[i] == '*')
+			tmp[i] = ' ';
+		++i;
+	}
+	i = 0;
+	split = ft_split(tmp, ' ');
+	while (split[i])
+	{
+		ret= ft_strjoin(ret,split[i], e_true, e_false);
+		i++;
+	}
+	ft_splitclear(split);
+	return (ret);
+}
+
